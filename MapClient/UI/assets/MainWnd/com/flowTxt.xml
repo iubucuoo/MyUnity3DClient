@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,63">
+  <controller name="c1" pages="0,,1," selected="0"/>
+  <displayList>
+    <text id="n22_d5qb" name="flowNumTxt" xy="320,0" size="182,63" font="ui://3p7kbgekn3an35" fontSize="50" color="#33cccc" vAlign="middle" autoSize="none" bold="true" text="">
+      <gearDisplay controller="c1" pages="0"/>
+    </text>
+    <image id="n23_n3an" name="n23" src="n3an24" fileName="res/ui切图/ui切图/目标.png" xy="171,12">
+      <gearDisplay controller="c1" pages="0"/>
+    </image>
+    <text id="n24_n3an" name="flowTxt" xy="0,0" size="640,63" fontSize="50" color="#33cccc" align="center" vAlign="middle" autoSize="none" bold="true" text="&#xA;">
+      <gearDisplay controller="c1" pages="1"/>
+    </text>
+  </displayList>
+</component>

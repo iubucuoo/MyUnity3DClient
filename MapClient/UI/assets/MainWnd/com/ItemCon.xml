@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="110,110" pivot="0.5,0.5" anchor="true" extention="Button">
+  <controller name="c1" pages="0,have,1,empty" selected="1"/>
+  <displayList>
+    <loader id="n0_nue0" name="icon" xy="55,55" pivot="0.5,0.5" anchor="true" size="110,110"/>
+    <text id="n3_aowe" name="n3" xy="0,22" size="64,49" visible="false" fontSize="50" color="#ffff00" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" text="+1"/>
+    <image id="n4_kyu2" name="countBg" src="kyu269" fileName="res/ui切图/ui切图/itemCount.png" xy="63,57" size="54,47" alpha="0.7">
+      <gearDisplay controller="c1" pages="0"/>
+    </image>
+    <text id="n2_ps4b" name="title" xy="66,60" size="49,44" fontSize="35" color="#00ffff" align="center" vAlign="middle" autoSize="none" bold="true" strokeColor="#000000" autoClearText="true" text="1">
+      <gearDisplay controller="c1" pages="0"/>
+    </text>
+    <image id="n5_mlv9" name="gold" src="y4n56e" fileName="res/ui切图/ui切图/gold.png" xy="65,65" scale="0.5,0.5">
+      <gearDisplay controller="c1" pages="1"/>
+    </image>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="0.80"/>
+  <transition name="t0">
+    <item time="0" type="Scale" target="n0_nue0" tween="true" startValue="0.8,0.8" endValue="1.5,1.5" duration="8"/>
+    <item time="0" type="Visible" target="n3_aowe" value="true"/>
+    <item time="0" type="XY" target="n3_aowe" tween="true" startValue="0,109" endValue="-,-8" duration="18" ease="Quad.InOut"/>
+    <item time="8" type="Scale" target="n0_nue0" tween="true" startValue="1.5,1.5" endValue="0.8,0.8" duration="8"/>
+    <item time="16" type="Scale" target="n0_nue0" tween="true" startValue="0.8,0.8" endValue="1.5,1.5" duration="8"/>
+    <item time="24" type="Scale" target="n0_nue0" tween="true" startValue="1.5,1.5" endValue="1,1" duration="8"/>
+    <item time="32" type="Visible" target="n3_aowe" value="false"/>
+  </transition>
+</component>

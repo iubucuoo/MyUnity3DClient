@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="64,64" pivot="0.5,0.5" anchor="true" extention="Button">
+  <displayList>
+    <image id="n5_n3an" name="n5" src="n3an2b" fileName="res/ui切图/ui切图/底框.png" xy="0,0" visible="false"/>
+    <loader id="n2_snzu" name="effect" xy="-43,-43" size="150,150" visible="false" touchable="false" url="ui://3p7kbgektz1a1o" align="center" vAlign="middle" fill="scale" playing="false"/>
+    <loader id="n0_nue0" name="icon" xy="32,32" pivot="0.5,0.5" anchor="true" size="76,76" align="center" vAlign="middle" fill="scale">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <image id="n3_w6jf" name="lock" src="n3an2d" fileName="res/ui切图/ui切图/incrible.png" xy="32,32" pivot="0.5,0.5" anchor="true" size="70,70" visible="false"/>
+    <text id="n1_z5hr" name="title" xy="2,13" size="60,40" fontSize="30" color="#00ff66" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" text=""/>
+  </displayList>
+  <Button/>
+  <transition name="t0" options="2">
+    <item time="0" type="Alpha" target="n3_w6jf" value="1"/>
+    <item time="0" type="Scale" target="n3_w6jf" value="1,1"/>
+    <item time="0" type="Visible" target="n3_w6jf" value="false"/>
+    <item time="1" type="Alpha" target="n3_w6jf" tween="true" startValue="0" endValue="1" duration="11"/>
+    <item time="1" type="Scale" target="n3_w6jf" tween="true" startValue="1.5,1.5" endValue="1,1" duration="11"/>
+    <item time="1" type="Visible" target="n3_w6jf" value="true"/>
+    <item time="12" type="Visible" target="n3_w6jf" value="true"/>
+  </transition>
+</component>

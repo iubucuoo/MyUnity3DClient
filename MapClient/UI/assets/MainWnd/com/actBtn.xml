@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="63,56" extention="Button">
+  <displayList>
+    <image id="n0_ojwp" name="n0" src="gc3l5l" fileName="res/back.png" xy="0,0"/>
+  </displayList>
+  <Button/>
+</component>

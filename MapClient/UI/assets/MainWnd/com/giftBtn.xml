@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="77,74" extention="Button">
+  <displayList>
+    <image id="n0_mk0q" name="n0" src="mk0q5j" fileName="res/ui切图/ui切图/gift.png" xy="0,0"/>
+  </displayList>
+  <Button/>
+</component>

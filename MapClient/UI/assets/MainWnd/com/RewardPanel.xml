@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,1136">
+  <displayList>
+    <image id="n2_na13" name="n2" src="kyu265" fileName="res/ui切图/ui切图/成就底部.png" xy="0,65" size="640,882">
+      <relation target="" sidePair="width-width,center-center,top-top"/>
+    </image>
+    <list id="n0_ojwp" name="RewardList" xy="0,67" size="640,878" overflow="scroll" margin="5,0,5,0" lineGap="5" defaultItem="ui://3p7kbgekojwp4z" align="center" autoClearItems="true">
+      <relation target="" sidePair="center-center,top-top"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n1_ojwp" name="BackBtn" src="ojwp5e" fileName="com/actBtn.xml" xy="0,3" scale="0.9,0.9">
+      <relation target="" sidePair="left-left,top-top"/>
+      <Button title="Back"/>
+    </component>
+    <image id="n3_kyu2" name="n3" src="kyu267" fileName="res/ui切图/ui切图/上光.png" xy="0,64">
+      <relation target="" sidePair="width-width,center-center,top-top"/>
+    </image>
+    <image id="n4_kyu2" name="n4" src="kyu267" fileName="res/ui切图/ui切图/上光.png" xy="-2,928" flip="vt">
+      <relation target="" sidePair="width-width,top-top"/>
+    </image>
+    <component id="n5_mlv9" name="NormalBtn" src="k62y5p" fileName="com/通用按钮.xml" xy="22,3" size="200,56" scale="0.6,0.9">
+      <Button title="Normal"/>
+    </component>
+    <component id="n6_mlv9" name="ChallengeBtn" src="k62y5p" fileName="com/通用按钮.xml" xy="146,3" scale="0.6,0.9">
+      <Button title="Challenge"/>
+    </component>
+    <component id="n7_mlv9" name="FunBtn" src="k62y5p" fileName="com/通用按钮.xml" xy="270,3" scale="0.6,0.9">
+      <Button title="Fun"/>
+    </component>
+  </displayList>
+</component>

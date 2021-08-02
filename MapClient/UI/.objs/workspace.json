@@ -1,0 +1,34 @@
+{
+	"backgroundColor": 6710886,
+	"libview.firstColumnWidth": 220,
+	"doc.openedDocs": [
+		"ui://3p7kbgekdi1i0",
+		"ui://3p7kbgekj6jq5",
+		"ui://3p7kbgekrxw86y",
+		"ui://3p7kbgek87oc4y",
+		"ui://3p7kbgekj6jq4",
+		"ui://3p7kbgekctsk6x",
+		"ui://3p7kbgekaejq6d"
+	],
+	"libview.twoColumn": false,
+	"auxline1": true,
+	"doc.activeDoc": "ui://3p7kbgekj6jq5",
+	"test.orientation": "portriait",
+	"test.device": "iPhone XR",
+	"libview.syncEditor": 1,
+	"libview.currentGroup": "",
+	"libview.expandedNodes": [
+		"3p7kbgek",
+		"/",
+		"3p7kbgek",
+		"/com/",
+		"3p7kbgek",
+		"/res/",
+		"3p7kbgek",
+		"/res/ui切图/",
+		"3p7kbgek",
+		"/res/ui切图/ui切图/"
+	],
+	"auxline2": true,
+	"canvasColor": 10066329
+}

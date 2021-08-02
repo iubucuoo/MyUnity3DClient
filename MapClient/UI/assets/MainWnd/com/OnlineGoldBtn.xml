@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="110,70" extention="Button">
+  <displayList>
+    <image id="n0_mlv9" name="n0" src="y4n56e" fileName="res/ui切图/ui切图/gold.png" xy="5,0"/>
+    <text id="n2_mlv9" name="timeTxt" xy="-17,61" size="147,45" fontSize="30" color="#ffff33" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" autoClearText="true" text="59:59"/>
+  </displayList>
+  <Button/>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,200" pivot="0.5,0.5" anchor="true">
+  <displayList>
+    <image id="n4_ward" name="n4" src="n3an21" fileName="res/ui切图/ui切图/绿.png" xy="0,-220"/>
+    <image id="n3_tz1a" name="n3" src="tz1a17" fileName="res/EndTxt/zaijiezailiText.png" xy="165,77">
+      <relation target="" sidePair="center-center"/>
+    </image>
+    <image id="n2_tz1a" name="n2" src="tz1a13" fileName="res/EndTxt/gameOverText.png" xy="108,1">
+      <relation target="" sidePair="center-center"/>
+    </image>
+  </displayList>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,1136" opaque="false" bgColor="#000000">
+  <displayList>
+    <component id="n5_hrr6" name="n5" src="hrr64x" fileName="com/Mask.xml" xy="-2000,-2000" size="4000,4000"/>
+    <component id="n1_i5gz" name="content" src="v2ez6o" fileName="com/NewAlert.xml" xy="0,343">
+      <relation target="" sidePair="center-center"/>
+    </component>
+  </displayList>
+  <transition name="t0">
+    <item time="0" type="XY" target="n1_i5gz" tween="true" startValue="-,-436" endValue="-,360" duration="10" ease="Quad.InOut"/>
+    <item time="10" type="XY" target="n1_i5gz" tween="true" startValue="-,360" endValue="-,330" duration="3"/>
+    <item time="13" type="XY" target="n1_i5gz" tween="true" startValue="-,330" endValue="-,350" duration="3"/>
+    <item time="16" type="XY" target="n1_i5gz" tween="true" startValue="-,350" endValue="-,342" duration="3"/>
+  </transition>
+</component>

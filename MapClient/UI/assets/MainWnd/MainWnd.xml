@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,1136">
+  <controller name="c1" pages="1,welcome,2,game,3,reward" selected="0">
+    <action type="play_transition" fromPage="" toPage="2" transition="t2"/>
+    <action type="play_transition" fromPage="" toPage="3" transition="t1"/>
+    <action type="play_transition" fromPage="" toPage="1" transition="t3"/>
+  </controller>
+  <displayList>
+    <image id="n4_n3an" name="n4" src="n3an41" fileName="res/ui切图/ui切图/ui.jpg" xy="320,0" pivot="0.5,0" anchor="true" size="640,1136">
+      <relation target="" sidePair=""/>
+    </image>
+    <component id="n0_nue0" name="welCome" src="j6jq4" fileName="com/Welcome.xml" xy="320,568" pivot="0.5,0.5" anchor="true" size="640,1136">
+      <gearDisplay controller="c1" pages="1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n3_nue0" name="game" src="j6jq5" fileName="com/GamePanel.xml" xy="0,0" size="640,1136">
+      <gearDisplay controller="c1" pages="2"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n6_ojwp" name="RewardPanel" src="87oc4y" fileName="com/RewardPanel.xml" xy="0,0" size="640,1136">
+      <gearDisplay controller="c1" pages="3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n9_mlv9" name="goldCom" src="y4n56g" fileName="com/goldCom.xml" xy="422,5">
+      <gearDisplay controller="c1" pages="1,2,3"/>
+      <gearXY controller="c1" pages="1" values="422,5" default="420,1"/>
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
+    <image id="n10_mlv9" name="FlyGoldIcon" src="y4n56e" fileName="res/ui切图/ui切图/gold.png" xy="418,214" scale="0.8,0.8" visible="false"/>
+    <component id="n5_saul" name="WatchTip" src="i5gz4w" fileName="com/VideoTip.xml" xy="0,0" size="640,1136" visible="false">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n7_k62y" name="rewardTip" src="k62y5r" fileName="com/RewardITip.xml" xy="0,-76" visible="false">
+      <relation target="" sidePair="bottom-top"/>
+    </component>
+  </displayList>
+  <transition name="t1">
+    <item time="0" type="Alpha" target="n6_ojwp" tween="true" startValue="0" endValue="1" duration="24"/>
+  </transition>
+  <transition name="t2">
+    <item time="0" type="Alpha" target="n3_nue0" tween="true" startValue="0.3" endValue="1" duration="12"/>
+    <item time="0" type="Alpha" target="n9_mlv9" tween="true" startValue="0.3" endValue="1" duration="12"/>
+  </transition>
+  <transition name="t3">
+    <item time="0" type="Alpha" target="n0_nue0" tween="true" startValue="0.2" endValue="1" duration="48"/>
+    <item time="0" type="Alpha" target="n9_mlv9" tween="true" startValue="0.2" endValue="1" duration="48"/>
+  </transition>
+  <transition name="t4">
+    <item time="0" type="Alpha" target="n7_k62y" tween="true" startValue="0.2" endValue="1" duration="12"/>
+    <item time="0" type="Visible" target="n7_k62y" value="true"/>
+    <item time="0" type="XY" target="n7_k62y" tween="true" startValue="-,-76" endValue="-,5" duration="12"/>
+    <item time="12" type="XY" target="n7_k62y" tween="true" startValue="-,5" endValue="-,-2" duration="3"/>
+    <item time="15" type="XY" target="n7_k62y" tween="true" startValue="-,-2" endValue="-,2" duration="3"/>
+    <item time="18" type="XY" target="n7_k62y" tween="true" startValue="-,2" endValue="-,0" duration="3"/>
+    <item time="96" type="Alpha" target="n7_k62y" tween="true" startValue="1" endValue="0" duration="12"/>
+    <item time="96" type="XY" target="n7_k62y" tween="true" startValue="-,0" endValue="0,-76" duration="12"/>
+    <item time="108" type="Visible" target="n7_k62y" value="false"/>
+  </transition>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,63">
+  <controller name="c1" pages="0,,1," selected="1"/>
+  <displayList>
+    <text id="n44_n3an" name="n21" xy="0,0" size="640,128" fontSize="50" color="#eeee00" align="center" autoSize="none" strokeColor="#000000" text="">
+      <gearDisplay controller="c1" pages="1"/>
+    </text>
+    <image id="n45_n3an" name="n45" src="n3an2a" fileName="res/ui切图/ui切图/开始.png" xy="168,-1">
+      <gearDisplay controller="c1" pages="0"/>
+    </image>
+  </displayList>
+</component>

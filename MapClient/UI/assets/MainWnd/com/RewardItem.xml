@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="630,168">
+  <displayList>
+    <component id="n0_ojwp" name="n0" src="tqgv5i" fileName="com/content.xml" xy="0,0" size="630,168">
+      <relation target="" sidePair="width-width"/>
+    </component>
+  </displayList>
+  <transition name="t0">
+    <item time="0" type="Visible" target="n0_ojwp" value="true"/>
+    <item time="0" type="XY" target="n0_ojwp" tween="true" startValue="640,-" endValue="0,-" duration="12"/>
+  </transition>
+</component>

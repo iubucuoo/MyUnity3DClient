@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="192,192">
+  <displayList>
+    <component id="n71_rxw8" name="drop_7" src="nue0i" fileName="com/Brick.xml" xy="32,32" touchable="false"/>
+    <component id="n72_rxw8" name="drop_8" src="nue0i" fileName="com/Brick.xml" xy="96,32" touchable="false"/>
+    <component id="n73_rxw8" name="drop_4" src="nue0i" fileName="com/Brick.xml" xy="32,96" touchable="false"/>
+    <component id="n74_rxw8" name="drop_5" src="nue0i" fileName="com/Brick.xml" xy="96,96" touchable="false"/>
+    <component id="n75_rxw8" name="drop_1" src="nue0i" fileName="com/Brick.xml" xy="32,160" touchable="false"/>
+    <component id="n76_rxw8" name="drop_2" src="nue0i" fileName="com/Brick.xml" xy="96,160" touchable="false"/>
+    <component id="n77_rxw8" name="drop_9" src="nue0i" fileName="com/Brick.xml" xy="160,32" touchable="false"/>
+    <component id="n78_rxw8" name="drop_6" src="nue0i" fileName="com/Brick.xml" xy="160,96" touchable="false"/>
+    <component id="n80_rxw8" name="drop_3" src="nue0i" fileName="com/Brick.xml" xy="160,160" touchable="false"/>
+  </displayList>
+</component>

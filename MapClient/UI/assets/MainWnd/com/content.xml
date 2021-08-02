@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="630,168">
+  <displayList>
+    <image id="n0_ojwp" name="n0" src="kyu264" fileName="res/ui切图/ui切图/成就大底.png" xy="0,0" size="630,168">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <image id="n11_sybe" name="n11" src="kyu263" fileName="res/ui切图/ui切图/成就文字底.png" xy="5,7" size="509,150"/>
+    <text id="n5_ojwp" name="effectTxt" xy="10,12" size="498,98" fontSize="25" color="#99cc33" vAlign="middle" autoSize="none" bold="true" autoClearText="true" text="关卡结算时剩余{0}个以下怪物"/>
+    <image id="n10_ojwp" name="n10" src="ojwp5g" fileName="res/gou.png" xy="535,15" visible="false"/>
+    <text id="n16_k62y" name="require" xy="10,104" size="498,54" fontSize="20" color="#cc6600" vAlign="middle" autoSize="none" bold="true" autoClearText="true" text="关卡结算时剩余{0}个以下怪物"/>
+    <component id="n20_mlv9" name="GetBtn" src="mlv96l" fileName="com/通用按钮-金币.xml" xy="514,99" size="115,56"/>
+    <image id="n21_mlv9" name="n9" src="ojwp5f" fileName="res/wenhao.png" xy="533,19"/>
+  </displayList>
+</component>

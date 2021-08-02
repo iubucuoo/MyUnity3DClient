@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="380,86" pivot="0.5,0.5" extention="Button">
+  <displayList>
+    <image id="n0_v3xk" name="n0" src="j6jq2" fileName="res/按键2.png" xy="0,0"/>
+    <loader id="n2_ehsj" name="icon" xy="0,0" size="380,86"/>
+    <text id="n3_ehsj" name="title" xy="38,11" size="311,61" fontSize="50" color="#ffffff" align="center" vAlign="middle" autoSize="none" text=""/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="0.80"/>
+</component>

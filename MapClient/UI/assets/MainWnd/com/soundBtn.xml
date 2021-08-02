@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="57,46" extention="Button">
+  <controller name="button" pages="3,up,4,down" selected="0"/>
+  <displayList>
+    <image id="n0_ljdn" name="n0" src="ljdn4o" fileName="res/ui切图/ui切图/sound_off_button.png" xy="0,0">
+      <gearDisplay controller="button" pages="4"/>
+    </image>
+    <image id="n1_ljdn" name="n1" src="ljdn4n" fileName="res/ui切图/ui切图/sound_on_button.png" xy="0,0">
+      <gearDisplay controller="button" pages="3"/>
+    </image>
+  </displayList>
+  <Button mode="Check"/>
+</component>

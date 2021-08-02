@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,1136">
+  <controller name="c1" pages="0,初始,1,继续" selected="0"/>
+  <displayList>
+    <image id="n7_n3an" name="n7" src="kyu268" fileName="res/ui切图/ui切图/headHighScore.png" xy="0,0">
+      <relation target="" sidePair="width-width,center-center,top-top"/>
+    </image>
+    <text id="n5_nue0" name="recordTxt" xy="252,6" size="150,49" scale="1.2,1.2" font="ui://3p7kbgekuq4r4k" fontSize="40" color="#ff0000" vAlign="middle" autoSize="none" text="">
+      <relation target="n16_ehsj" sidePair="left-center"/>
+    </text>
+    <image id="n11_yvq4" name="n11" src="yvq44q" fileName="res/Logo.png" xy="90,260">
+      <relation target="" sidePair="center-center"/>
+    </image>
+    <component id="n0_nue0" name="startBtn" src="j6jq1" fileName="com/通用按钮2.xml" xy="130,665" size="380,86">
+      <gearDisplay controller="c1" pages="0"/>
+      <relation target="" sidePair="center-center"/>
+      <Button icon="ui://3p7kbgekehsj4s"/>
+    </component>
+    <component id="n1_nue0" name="continueBtn" src="j6jq1" fileName="com/通用按钮2.xml" xy="130,665" size="380,86">
+      <gearDisplay controller="c1" pages="1"/>
+      <relation target="" sidePair="center-center"/>
+      <Button icon="ui://3p7kbgekehsj4r"/>
+    </component>
+    <component id="n2_nue0" name="ChallengeBtn" src="j6jq1" fileName="com/通用按钮2.xml" xy="130,775">
+      <relation target="" sidePair="center-center"/>
+      <Button icon="ui://3p7kbgekmtm05x"/>
+    </component>
+    <image id="n16_ehsj" name="n16" src="ehsj4u" fileName="res/ui切图/ui切图/未标题-3.png" xy="7,17">
+      <relation target="n7_n3an" sidePair="right-center"/>
+    </image>
+    <image id="n17_g5sq" name="n17" src="nue0b" fileName="res/item_4.png" xy="-7,58" size="80,80">
+      <relation target="" sidePair="left-left,top-top"/>
+    </image>
+    <text id="n18_g5sq" name="buffTxt" xy="69,77" size="575,99" fontSize="30" color="#ffff00" autoSize="none" text="">
+      <relation target="" sidePair="width-width,left-left"/>
+    </text>
+    <component id="n19_ojwp" name="funBtn" src="j6jq1" fileName="com/通用按钮2.xml" xy="130,885">
+      <relation target="" sidePair="center-center"/>
+      <Button icon="ui://3p7kbgekctsk6w"/>
+    </component>
+    <component id="n20_aq8h" name="RankBtn" src="aq8h6b" fileName="com/RankBtn.xml" xy="2,175">
+      <relation target="" sidePair="left-left"/>
+    </component>
+    <component id="n22_aejq" name="shareBtn" src="aejq6d" fileName="com/ShareBtn.xml" xy="2,273"/>
+    <component id="n23_mlv9" name="OnLineBtn" src="mlv96j" fileName="com/OnlineGoldBtn.xml" xy="538,279">
+      <relation target="" sidePair="right-right,top-top"/>
+    </component>
+    <component id="n24_ctsk" name="AchieveBtn" src="ctsk6x" fileName="com/RewardBtn.xml" xy="595,218" pivot="0.5,0.5" anchor="true">
+      <relation target="" sidePair="left-left"/>
+    </component>
+  </displayList>
+  <transition name="t0" options="2">
+    <item time="0" type="Scale" target="n24_ctsk" tween="true" startValue="1,1" endValue="1.2,1.2" duration="3"/>
+    <item time="3" type="Scale" target="n24_ctsk" tween="true" startValue="1.2,1.2" endValue="0.9,0.9" duration="3"/>
+    <item time="6" type="Scale" target="n24_ctsk" tween="true" startValue="0.9,0.9" endValue="1.2,1.2" duration="3"/>
+    <item time="9" type="Scale" target="n24_ctsk" tween="true" startValue="1.2,1.2" endValue="1,1" duration="3"/>
+    <item time="21" type="Scale" target="n24_ctsk" value="1,1"/>
+  </transition>
+</component>

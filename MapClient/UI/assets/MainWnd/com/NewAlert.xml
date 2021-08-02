@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,453">
+  <displayList>
+    <image id="n0_v2ez" name="n0" src="v2ez6t" fileName="res/底部.png" xy="8,41" size="624,409"/>
+    <component id="n1_v2ez" name="refuseBtn" src="v2ez6u" fileName="com/通用按钮3.xml" xy="22,372">
+      <Button title="forget it"/>
+    </component>
+    <component id="n2_v2ez" name="playAdBtn" src="v2ez6u" fileName="com/通用按钮3.xml" xy="397,372">
+      <Button title="watch" titleColor="#00ff00"/>
+    </component>
+    <image id="n3_v2ez" name="n3" src="v2ez6q" fileName="res/标题底部.png" xy="106,-34"/>
+    <image id="n4_v2ez" name="n4" src="v2ez6r" fileName="res/标图文字.png" xy="233,-3">
+      <relation target="n3_v2ez" sidePair="center-center,top-top"/>
+    </image>
+    <text id="n6_v2ez" name="content" xy="22,79" size="595,282" fontSize="40" color="#339900" align="center" vAlign="middle" autoSize="none" shadowColor="#777777" shadowOffset="1,1" autoClearText="true" text="&#xA;"/>
+  </displayList>
+</component>

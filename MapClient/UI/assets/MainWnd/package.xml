@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="3p7kbgek">
+  <resources>
+    <component id="di1i0" name="MainWnd.xml" path="/" exported="true"/>
+    <component id="j6jq1" name="通用按钮2.xml" path="/com/"/>
+    <image id="j6jq2" name="按键2.png" path="/res/" scale="9grid" scale9grid="40,22,303,44"/>
+    <component id="j6jq4" name="Welcome.xml" path="/com/"/>
+    <component id="j6jq5" name="GamePanel.xml" path="/com/"/>
+    <image id="nue08" name="item_1.png" path="/res/" exported="true"/>
+    <image id="nue09" name="item_2.png" path="/res/" exported="true"/>
+    <image id="nue0a" name="item_3.png" path="/res/" exported="true"/>
+    <image id="nue0b" name="item_4.png" path="/res/" exported="true"/>
+    <image id="nue0c" name="item_5.png" path="/res/" exported="true"/>
+    <image id="nue0d" name="item_0.png" path="/res/" exported="true"/>
+    <component id="nue0e" name="ItemCon.xml" path="/com/"/>
+    <component id="nue0f" name="BrickCom.xml" path="/com/"/>
+    <component id="nue0i" name="Brick.xml" path="/com/"/>
+    <component id="tz1az" name="TextCom.xml" path="/com/"/>
+    <image id="tz1a13" name="gameOverText.png" path="/res/EndTxt/"/>
+    <image id="tz1a17" name="zaijiezailiText.png" path="/res/EndTxt/"/>
+    <image id="tz1a18" name="tx_yanhua_015.png" path="/res/FireWork/"/>
+    <image id="tz1a19" name="tx_yanhua_014.png" path="/res/FireWork/"/>
+    <image id="tz1a1a" name="tx_yanhua_013.png" path="/res/FireWork/"/>
+    <image id="tz1a1b" name="tx_yanhua_012.png" path="/res/FireWork/"/>
+    <image id="tz1a1c" name="tx_yanhua_011.png" path="/res/FireWork/"/>
+    <image id="tz1a1d" name="tx_yanhua_010.png" path="/res/FireWork/"/>
+    <image id="tz1a1e" name="tx_yanhua_009.png" path="/res/FireWork/"/>
+    <image id="tz1a1f" name="tx_yanhua_008.png" path="/res/FireWork/"/>
+    <image id="tz1a1g" name="tx_yanhua_007.png" path="/res/FireWork/"/>
+    <image id="tz1a1h" name="tx_yanhua_006.png" path="/res/FireWork/"/>
+    <image id="tz1a1i" name="tx_yanhua_005.png" path="/res/FireWork/"/>
+    <image id="tz1a1j" name="tx_yanhua_004.png" path="/res/FireWork/"/>
+    <image id="tz1a1k" name="tx_yanhua_003.png" path="/res/FireWork/"/>
+    <image id="tz1a1l" name="tx_yanhua_002.png" path="/res/FireWork/"/>
+    <image id="tz1a1m" name="tx_yanhua_001.png" path="/res/FireWork/"/>
+    <image id="tz1a1n" name="tx_yanhua_000.png" path="/res/FireWork/"/>
+    <movieclip id="tz1a1o" name="XH_Boom.jta" path="/res/star_Explosion/" exported="true"/>
+    <image id="tz1a1p" name="bd_0008.png" path="/res/star_Explosion/"/>
+    <image id="tz1a1q" name="bd_0007.png" path="/res/star_Explosion/"/>
+    <image id="tz1a1r" name="bd_0006.png" path="/res/star_Explosion/"/>
+    <image id="tz1a1s" name="bd_0005.png" path="/res/star_Explosion/"/>
+    <movieclip id="tz1a1u" name="Fire.jta" path="/res/FireWork/" exported="true"/>
+    <font id="n3an1w" name="number_gk.fnt" path="/com/Fonts/gk/" exported="true"/>
+    <image id="n3an1y" name="道具底框.png" path="/res/ui切图/ui切图/"/>
+    <image id="n3an21" name="绿.png" path="/res/ui切图/ui切图/"/>
+    <image id="n3an24" name="目标.png" path="/res/ui切图/ui切图/"/>
+    <image id="n3an2a" name="开始.png" path="/res/ui切图/ui切图/"/>
+    <image id="n3an2b" name="底框.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="16,16,32,32"/>
+    <image id="n3an2d" name="incrible.png" path="/res/ui切图/ui切图/" exported="true" scale="9grid" scale9grid="16,16,32,32"/>
+    <image id="n3an2g" name="关卡.png" path="/res/ui切图/ui切图/"/>
+    <image id="n3an2w" name="发光框.png" path="/res/" scale="9grid" scale9grid="16,16,32,32"/>
+    <image id="n3an2x" name="5.png" path="/res/" exported="true"/>
+    <image id="n3an2y" name="4.png" path="/res/" exported="true"/>
+    <image id="n3an2z" name="3.png" path="/res/" exported="true"/>
+    <image id="n3an30" name="2.png" path="/res/" exported="true"/>
+    <image id="n3an31" name="1.png" path="/res/" exported="true"/>
+    <component id="n3an33" name="flowTxt.xml" path="/com/"/>
+    <component id="n3an34" name="ready.xml" path="/com/"/>
+    <font id="n3an35" name="number_flow.fnt" path="/com/Fonts/flow/" exported="true"/>
+    <font id="n3an36" name="number_target.fnt" path="/com/Fonts/target/" exported="true"/>
+    <image id="n3an37" name="9.png" path="/com/Fonts/flow/"/>
+    <image id="n3an38" name="8.png" path="/com/Fonts/flow/"/>
+    <image id="n3an39" name="7.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3a" name="6.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3b" name="5.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3c" name="4.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3d" name="3.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3e" name="2.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3f" name="1.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3g" name="0.png" path="/com/Fonts/flow/"/>
+    <image id="n3an3h" name="9.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3i" name="8.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3j" name="7.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3k" name="6.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3l" name="5.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3m" name="4.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3n" name="3.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3o" name="2.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3p" name="1.png" path="/com/Fonts/gk/"/>
+    <image id="n3an3q" name="9.png" path="/com/Fonts/target/"/>
+    <image id="n3an3r" name="8.png" path="/com/Fonts/target/"/>
+    <image id="n3an3s" name="7.png" path="/com/Fonts/target/"/>
+    <image id="n3an3t" name="6.png" path="/com/Fonts/target/"/>
+    <image id="n3an3u" name="5.png" path="/com/Fonts/target/"/>
+    <image id="n3an3v" name="4.png" path="/com/Fonts/target/"/>
+    <image id="n3an3w" name="3.png" path="/com/Fonts/target/"/>
+    <image id="n3an3x" name="2.png" path="/com/Fonts/target/"/>
+    <image id="n3an3y" name="1.png" path="/com/Fonts/target/"/>
+    <image id="n3an3z" name="0.png" path="/com/Fonts/target/"/>
+    <image id="n3an40" name="0.png" path="/com/Fonts/gk/"/>
+    <image id="n3an41" name="ui.jpg" path="/res/ui切图/ui切图/"/>
+    <image id="uq4r42" name="5-1.png" path="/res/" exported="true"/>
+    <image id="uq4r43" name="4-1.png" path="/res/" exported="true"/>
+    <image id="uq4r44" name="3-1.png" path="/res/" exported="true"/>
+    <image id="uq4r45" name="2-1.png" path="/res/" exported="true"/>
+    <image id="uq4r46" name="1-1.png" path="/res/" exported="true"/>
+    <image id="uq4r48" name="9.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r49" name="8.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4a" name="7.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4b" name="6.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4c" name="5.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4d" name="4.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4e" name="3.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4f" name="2.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4g" name="1.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4h" name="0.png" path="/com/Fonts/addScore/"/>
+    <image id="uq4r4i" name="+.png" path="/com/Fonts/addScore/"/>
+    <font id="uq4r4k" name="NumAdd.fnt" path="/com/Fonts/addScore/" exported="true"/>
+    <image id="ljdn4n" name="sound_on_button.png" path="/res/ui切图/ui切图/"/>
+    <image id="ljdn4o" name="sound_off_button.png" path="/res/ui切图/ui切图/"/>
+    <component id="ljdn4p" name="soundBtn.xml" path="/com/"/>
+    <image id="yvq44q" name="Logo.png" path="/res/"/>
+    <image id="ehsj4r" name="B.png" path="/res/ui切图/ui切图/"/>
+    <image id="ehsj4s" name="A.png" path="/res/ui切图/ui切图/"/>
+    <image id="ehsj4u" name="未标题-3.png" path="/res/ui切图/ui切图/"/>
+    <image id="g5sq4v" name="life.png" path="/res/"/>
+    <component id="i5gz4w" name="VideoTip.xml" path="/com/"/>
+    <component id="hrr64x" name="Mask.xml" path="/com/"/>
+    <component id="87oc4y" name="RewardPanel.xml" path="/com/"/>
+    <component id="ojwp4z" name="RewardItem.xml" path="/com/"/>
+    <component id="ojwp5e" name="actBtn.xml" path="/com/"/>
+    <image id="ojwp5f" name="wenhao.png" path="/res/"/>
+    <image id="ojwp5g" name="gou.png" path="/res/"/>
+    <image id="dhf45h" name="奖励.png" path="/res/ui切图/ui切图/"/>
+    <component id="tqgv5i" name="content.xml" path="/com/"/>
+    <image id="mk0q5j" name="gift.png" path="/res/ui切图/ui切图/"/>
+    <component id="mk0q5k" name="giftBtn.xml" path="/com/"/>
+    <image id="gc3l5l" name="back.png" path="/res/"/>
+    <component id="k62y5p" name="通用按钮.xml" path="/com/"/>
+    <image id="k62y5q" name="button.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="78,0,2,55"/>
+    <component id="k62y5r" name="RewardITip.xml" path="/com/"/>
+    <component id="k62y5t" name="ItemTip.xml" path="/com/"/>
+    <image id="xzdh5v" name="按钮1.png" path="/res/" scale="9grid" scale9grid="36,19,72,38"/>
+    <component id="fjpn5w" name="WelComePanel.xml" path="/com/" exported="true"/>
+    <image id="mtm05x" name="cha.png" path="/res/ui切图/ui切图/"/>
+    <image id="mtm05y" name="5-2.png" path="/res/" exported="true"/>
+    <image id="mtm05z" name="4-2.png" path="/res/" exported="true"/>
+    <image id="mtm060" name="3-2.png" path="/res/" exported="true"/>
+    <image id="mtm061" name="2-2.png" path="/res/" exported="true"/>
+    <image id="mtm062" name="1-2.png" path="/res/" exported="true"/>
+    <image id="kyu263" name="成就文字底.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="10,10,20,20"/>
+    <image id="kyu264" name="成就大底.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="10,10,20,20"/>
+    <image id="kyu265" name="成就底部.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="160,5,320,10"/>
+    <image id="kyu267" name="上光.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="320,0,1,21"/>
+    <image id="kyu268" name="headHighScore.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="319,0,1,80"/>
+    <image id="kyu269" name="itemCount.png" path="/res/ui切图/ui切图/" scale="9grid" scale9grid="14,14,7,8"/>
+    <image id="aq8h6a" name="D.png" path="/res/ui切图/ui切图/"/>
+    <component id="aq8h6b" name="RankBtn.xml" path="/com/"/>
+    <image id="aejq6c" name="share.png" path="/res/ui切图/ui切图/"/>
+    <component id="aejq6d" name="ShareBtn.xml" path="/com/"/>
+    <image id="y4n56e" name="gold.png" path="/res/ui切图/ui切图/" exported="true"/>
+    <component id="y4n56g" name="goldCom.xml" path="/com/"/>
+    <component id="mlv96j" name="OnlineGoldBtn.xml" path="/com/"/>
+    <component id="mlv96l" name="通用按钮-金币.xml" path="/com/"/>
+    <image id="v2ez6m" name="金币底部.png" path="/res/" scale="9grid" scale9grid="35,11,70,22"/>
+    <component id="v2ez6o" name="NewAlert.xml" path="/com/"/>
+    <image id="v2ez6p" name="第二层.png" path="/res/"/>
+    <image id="v2ez6q" name="标题底部.png" path="/res/"/>
+    <image id="v2ez6r" name="标图文字.png" path="/res/"/>
+    <image id="v2ez6s" name="弹框按钮.png" path="/res/" scale="9grid" scale9grid="112,0,6,67"/>
+    <image id="v2ez6t" name="底部.png" path="/res/" scale="9grid" scale9grid="248,149,18,7"/>
+    <component id="v2ez6u" name="通用按钮3.xml" path="/com/"/>
+    <image id="ctsk6v" name="rewardBtn.png" path="/res/ui切图/ui切图/"/>
+    <image id="ctsk6w" name="fun.png" path="/res/ui切图/ui切图/"/>
+    <component id="ctsk6x" name="RewardBtn.xml" path="/com/"/>
+    <component id="rxw86y" name="DropBricks.xml" path="/com/"/>
+  </resources>
+  <publish name="MainWnd" path="G:\reborn\NewLife\Assets\Resources\UI" packageCount="2" extractAlpha="true"/>
+</packageDescription>

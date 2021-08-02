@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="400,400" bgColor="#333333">
+  <displayList>
+    <image id="n0_qhb1" name="n0" src="n3an2b" fileName="res/ui切图/ui切图/底框.png" xy="0,0" size="400,400">
+      <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
+    </image>
+  </displayList>
+</component>
