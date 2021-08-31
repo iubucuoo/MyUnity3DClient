@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AE9DB057-88A8-39BE-F108-313EC765EFBD}</ProjectGuid>
+    <ProjectGuid>{7D129BFB-6D68-12E6-76AE-C61054F216DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -74,6 +74,8 @@
     <Compile Include="Assets\Script\ITools\SoundMgr\BackGroundMusic.cs" />
     <Compile Include="Assets\Script\ITools\SoundMgr\MusicMgr.cs" />
     <Compile Include="Assets\Script\ITools\SoundMgr\MusicUnit.cs" />
+    <Compile Include="Assets\Script\StringBuilder\StringBuilderExtFormat.cs" />
+    <Compile Include="Assets\Script\StringBuilder\StringBuilderExtNumeric.cs" />
     <Compile Include="Assets\Script\Time\TimeEvent.cs" />
     <Compile Include="Assets\Script\Time\TimeMgr.cs" />
     <Compile Include="Assets\ThirdTools\FairyGUI\Scripts\Core\BlendMode.cs" />
@@ -235,25 +237,25 @@
     <None Include="Assets\ThirdTools\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
     <None Include="Assets\ThirdTools\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -457,10 +459,10 @@
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="CString">
-      <HintPath>F:/Unity3DClient/BherryCode/Assets/Plugins/CString.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Assets/Plugins/CString.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>F:/Unity3DClient/BherryCode/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
