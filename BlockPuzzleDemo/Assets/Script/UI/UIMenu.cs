@@ -7,6 +7,7 @@ public class UIMenu : MonoBehaviour
 {
     Transform bgroot;
     Transform addroot;
+    Image addgridbg;
     Image grid;
     Image gridmin;
     Image gridno;
@@ -22,6 +23,7 @@ public class UIMenu : MonoBehaviour
         bgroot = transform.Find("BGROOT");
         addroot = transform.Find("ADDROOT");
         bgrectTransform = bgroot.transform as RectTransform;
+        addgridbg = ResourceMgr.Instance.LoadRes<Image>("Prefab/addgridbg");
         grid = ResourceMgr.Instance.LoadRes<Image>("Prefab/block");
         gridmin = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockmin");
         gridno = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockno");
@@ -38,10 +40,12 @@ public class UIMenu : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            var obj = new GameObject();
+            var obj =Instantiate(addgridbg);
             obj.transform.parent = addroot;
             obj.transform.localPosition = new Vector2((i - 1) * width * 7, 0);
-            obj.AddComponent<DragUI>();
+            obj.name = i.ToString();
+            var addgriddata = obj.gameObject.AddComponent<AddGrid>();
+            addgriddata.SetGridData(data);
             int _width = 0;
             int _height = 4;
             var info = data.DataArray;

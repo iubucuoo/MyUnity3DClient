@@ -56,17 +56,20 @@
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
+    <Compile Include="Assets\Script\Data\GridData.cs" />
     <Compile Include="Assets\Script\UI\DragUI.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
+    <Compile Include="Assets\Script\Tools\ResourceMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioItem.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
-    <Compile Include="Assets\Script\Data\GridData.cs" />
-    <Compile Include="Assets\Script\Tools\ResourceMgr.cs" />
+    <Compile Include="Assets\Script\UI\AddGrid.cs" />
+    <Compile Include="Assets\Script\Tools\DragingGridMgr.cs" />
+    <Compile Include="Assets\Script\UI\InsGridForData.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />
