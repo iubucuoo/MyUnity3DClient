@@ -67,7 +67,7 @@
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
-    <Compile Include="Assets\Script\UI\AddGrid.cs" />
+    <Compile Include="Assets\Script\UI\AddGridGroup.cs" />
     <Compile Include="Assets\Script\Tools\DragingGridMgr.cs" />
     <Compile Include="Assets\Script\UI\InsGridForData.cs" />
     <Compile Include="Assets\Script\Tools\EventTriggerListener.cs" />

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AddGrid : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class AddGridGroup : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool IsUse;
     [SerializeField]
@@ -24,12 +24,12 @@ public class AddGrid : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         DragingGridMgr.Instance.SetDragDown(gridData);
-        //Debug.Log("OnPointerDown   " + transform.name);
+        Debug.Log("OnPointerDown   " + transform.name);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         DragingGridMgr.Instance.SetDragUp(gridData);
-        //Debug.Log("OnPointerUp   " + transform.name);
+        Debug.Log("OnPointerUp   " + transform.name);
     }
 }
