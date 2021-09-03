@@ -70,6 +70,9 @@
     <Compile Include="Assets\Script\UI\AddGrid.cs" />
     <Compile Include="Assets\Script\Tools\DragingGridMgr.cs" />
     <Compile Include="Assets\Script\UI\InsGridForData.cs" />
+    <Compile Include="Assets\Script\Tools\EventTriggerListener.cs" />
+    <Compile Include="Assets\Script\GameGloab.cs" />
+    <Compile Include="Assets\Script\Data\GridGroup.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DragingGridMgr 
 {
+    GridGroup gridData;
     Transform dragroot;
     bool Isdrag;
     static DragingGridMgr _Instance;
@@ -19,14 +20,20 @@ public class DragingGridMgr
             return _Instance;
         }
     }
-    public void SetDragDown(GridData v)
+    public bool IsDrag
+    {
+        get { return Isdrag; }
+    }
+    public void SetDragDown(GridGroup v)
     {
         Instance.Isdrag = true;
-        
-        
+        gridData = v;
+
+
     }
-    public void SetDragUp(GridData v)
+    public void SetDragUp(GridGroup v)
     {
         Instance.Isdrag = false;
+        gridData = null;
     }
 }

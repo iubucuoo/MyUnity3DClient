@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class GridData
 {
-    //public int[] DataArray = {
-    //    1, 1, 1, 1, 1,
-    //    1, 1, 1, 1, 1,
-    //    1, 1, 1, 1, 1,
-    //    1, 1, 1, 1, 1,
-    //    1, 1, 1, 1, 1};
-    public int[] DataArray = {
-        0, 0, 1, 0, 0,
-        0, 0, 1, 0, 0,
-        0, 0, 1, 0, 0,
-        0, 0, 1, 0, 0,
-        1, 1, 1, 1, 1};
+    public bool IsUse;//判断是否存放了格子
+    public Color g_coolr;//格子的颜色
 }
