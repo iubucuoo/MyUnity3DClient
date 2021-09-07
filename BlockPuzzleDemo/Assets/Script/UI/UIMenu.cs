@@ -67,6 +67,13 @@ public class UIMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos1))
+            {
+                Debug.Log("鼠标相对于bgroot的ui位置" + pos1);
+            }    
+        }
         if (Input.GetMouseButton(0))
         {
             if (Time.frameCount % 10 == 0 && DragingGridMgr.Inst.IsDrag)//隔10针检测一次
@@ -79,7 +86,7 @@ public class UIMenu : MonoBehaviour
                 {
                     if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos1))
                     {
-                        Debug.Log("鼠标相对于bgroot的ui位置" + pos1 + (oldmousepos - Input.mousePosition).sqrMagnitude);
+                        //Debug.Log("鼠标相对于bgroot的ui位置" + pos1 + (oldmousepos - Input.mousePosition).sqrMagnitude);
                         CheckAddGrid(pos1);
                     }
                     oldmousepos = Input.mousePosition;
@@ -121,8 +128,8 @@ public class UIMenu : MonoBehaviour
     {
         var gdata = DragingGridMgr.Inst.gridData;
         var alldata = GridGroupMgr.Inst.gridGroup_Ground;
-
-
+        //根据 pos 计算出 i j 对应的grid
+        Debug.Log(pos.x+"   "+pos.y);
     }
     void RefreshGridGroup()
     {

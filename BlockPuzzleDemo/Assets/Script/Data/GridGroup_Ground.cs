@@ -9,7 +9,7 @@ public class GridGroup_Ground : GroupBase
         Isbg = true;
         W_count = 10;
         H_count = 10;
-        Grid = new GridData[10,10];
+        Grid = new GridData[H_count, W_count];
         DataArray = new int[,]{
             { 0, 0, 1, 0, 0 , 0, 0, 1, 0, 0 },
             { 0, 0, 1, 0, 0 , 0, 0, 1, 0, 0 },
