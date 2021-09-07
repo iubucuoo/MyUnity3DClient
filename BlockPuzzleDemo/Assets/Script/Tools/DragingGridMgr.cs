@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class DragingGridMgr
 {
     bool Isdrag;
-    GroupBase gridData;
     Transform dragroot;
     Image mingrid;
     static DragingGridMgr _Instance;
-    public static DragingGridMgr Instance
+    public static DragingGridMgr Inst
     {
         get
         {
@@ -26,10 +25,11 @@ public class DragingGridMgr
         }
     }
 
-    public bool IsDrag { get { return Instance.Isdrag; } }
+    public bool IsDrag { get { return Inst.Isdrag; } }
 
-    public Transform DragRoot { get { return Instance.dragroot; } set { Instance.dragroot = value; } }
+    public Transform DragRoot { get { return Inst.dragroot; } set { Inst.dragroot = value; } }
 
+    public GroupBase gridData;
     void DestroyChild()
     {
         int childCount = DragRoot.childCount;
@@ -47,15 +47,15 @@ public class DragingGridMgr
 
     public void SetDragDown(GroupBase v)
     {
-        Instance.Isdrag = true;
-        Instance.gridData = v;
+        Inst.Isdrag = true;
+        Inst.gridData = v;
         AddDragGroup(v);
     }
 
     public void SetDragUp(GroupBase v)
     {
-        Instance.Isdrag = false;
-        Instance.gridData = null;
+        Inst.Isdrag = false;
+        Inst.gridData = null;
         DestroyChild();
         DragRoot.localPosition = GameGloab.OutScreenV2;
     }

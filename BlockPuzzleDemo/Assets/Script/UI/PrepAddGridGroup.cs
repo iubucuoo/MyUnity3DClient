@@ -24,12 +24,12 @@ public class PrepAddGridGroup : MonoBehaviour
     }
     public void OnPointerUp(GameObject eventData)
     {
-        DragingGridMgr.Instance.SetDragUp(gridData);
+        DragingGridMgr.Inst.SetDragUp(gridData);
         Debug.Log("OnPointerUp   " + transform.name);
     }
     public void OnPointerDown(GameObject eventData)
     {
-        DragingGridMgr.Instance.SetDragDown(gridData);
+        DragingGridMgr.Inst.SetDragDown(gridData);
         Debug.Log("OnPointerDown   " + transform.name);
     }
 }

@@ -8,6 +8,6 @@ public class GroupBase
     public int W_count;
     public int H_count;
     public Vector2 ParentRoot;
-    public int[] DataArray;
-    public GridData[] Grid;
+    public int[,] DataArray;
+    public GridData[,] Grid;
 }

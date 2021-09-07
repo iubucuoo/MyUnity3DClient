@@ -13,13 +13,12 @@ public class UIMenu : MonoBehaviour
     RectTransform bgrectTransform;
     public Button btn_start;
 
-    Vector2 DragUp;
+    Vector2 DragUp = new Vector2(0, 0);
     // Start is called before the first frame update
     void Start()
     {
-        DragUp = new Vector2(0, 200);
         canvas = GetComponent<Canvas>();
-        DragingGridMgr.Instance.DragRoot = transform.Find("DrogRoot");
+        DragingGridMgr.Inst.DragRoot = transform.Find("DrogRoot");
         bgroot = transform.Find("BGROOT");
         addroot = transform.Find("ADDROOT");
         bgrectTransform = bgroot.GetComponent<RectTransform>();
@@ -47,7 +46,7 @@ public class UIMenu : MonoBehaviour
             }
             PrepGroup[i].Root = obj.transform;
         }
-        
+
     }
 
     void OnBtnStart()
@@ -64,21 +63,26 @@ public class UIMenu : MonoBehaviour
         GridTools.AddGrids(bgroot, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
     }
 
+    Vector3 oldmousepos;
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            if (Time.frameCount % 10 == 0 && DragingGridMgr.Instance.IsDrag)//隔10针检测一次
+            if (Time.frameCount % 10 == 0 && DragingGridMgr.Inst.IsDrag)//隔10针检测一次
             {
                 if (RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvasRectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos))
                 {
-                    DragPos = pos+ DragUp;
+                    DragPos = pos + DragUp;
                 }
-                if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos1))
+                if ((oldmousepos - Input.mousePosition).sqrMagnitude > 90)
                 {
-                    Debug.Log("鼠标相对于bgroot的ui位置" + pos1);
-                    CheckAddGrid();
+                    if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos1))
+                    {
+                        Debug.Log("鼠标相对于bgroot的ui位置" + pos1 + (oldmousepos - Input.mousePosition).sqrMagnitude);
+                        CheckAddGrid(pos1);
+                    }
+                    oldmousepos = Input.mousePosition;
                 }
                 //检测能不能放到空格子里
                 //根据拖动物体的位置跟 BGROOT 位置比较
@@ -89,7 +93,7 @@ public class UIMenu : MonoBehaviour
         if (Input.touchCount > 0 &&
             Input.GetTouch(0).phase == TouchPhase.Moved &&
             Time.frameCount % 10 == 0 &&
-            DragingGridMgr.Instance.IsDrag)
+            DragingGridMgr.Inst.IsDrag)
         {
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos))
             {
@@ -104,17 +108,20 @@ public class UIMenu : MonoBehaviour
     Vector2 OldDragPos;
     private void FixedUpdate()
     {
-        if (DragingGridMgr.Instance.IsDrag)
+        if (DragingGridMgr.Inst.IsDrag)
         {
             if (DragPos != OldDragPos)
             {
-                DragingGridMgr.Instance.DragRoot.localPosition = DragPos;
+                DragingGridMgr.Inst.DragRoot.localPosition = DragPos;
                 OldDragPos = DragPos;
             }
         }
     }
-    void CheckAddGrid()
+    void CheckAddGrid(Vector2 pos)
     {
+        var gdata = DragingGridMgr.Inst.gridData;
+        var alldata = GridGroupMgr.Inst.gridGroup_Ground;
+
 
     }
     void RefreshGridGroup()
