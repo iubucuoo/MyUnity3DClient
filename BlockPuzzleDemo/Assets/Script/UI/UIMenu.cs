@@ -142,7 +142,7 @@ public class UIMenu : MonoBehaviour
 
                     if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos))
                     {
-                        DragingGridMgr.Instance.DragRoot.position = pos;
+                        DragingGridMgr.Instance.DragRoot.localPosition = pos;
                         //rectTransform.anchoredPosition = pos;
                         Debug.Log("鼠标相对于bgroot的ui位置" + pos);
                     }
@@ -165,7 +165,7 @@ public class UIMenu : MonoBehaviour
 
                         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgrectTransform, Input.mousePosition, canvas.worldCamera, out Vector2 pos))
                         {
-                            DragingGridMgr.Instance.DragRoot.position = pos;
+                            DragingGridMgr.Instance.DragRoot.localPosition = pos;
                             //rectTransform.anchoredPosition = pos;
                             Debug.Log("鼠标相对于bgroot的ui位置" + pos);
                         }
