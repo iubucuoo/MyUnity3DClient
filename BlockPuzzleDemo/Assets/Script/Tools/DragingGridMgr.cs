@@ -42,7 +42,7 @@ public class DragingGridMgr
     public void AddDragGroup(GroupBase v)
     {
         DestroyChild();
-        GridTools.AddGrids(DragRoot, v, mingrid);
+        GridTools.CreatGrids(DragRoot, v, mingrid);
     }
 
     public void SetDragDown(GroupBase v)
@@ -58,5 +58,6 @@ public class DragingGridMgr
         Inst.gridData = null;
         DestroyChild();
         DragRoot.localPosition = GameGloab.OutScreenV2;
+        GridGroupMgr.Inst.RevertswGrid();//还原预览过的格子
     }
 }

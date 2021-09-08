@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public static class GridTools
 {
     static Vector3 Pos = new Vector3(0, 0);
-    public static void AddGrids(Transform root, GroupBase data, Image obj)
+    public static void CreatGrids(Transform root, GroupBase data, Image obj)
     {
         float width = obj.rectTransform.rect.width;
         float height = obj.rectTransform.rect.height;
