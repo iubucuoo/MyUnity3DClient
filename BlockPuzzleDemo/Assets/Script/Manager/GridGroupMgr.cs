@@ -11,7 +11,7 @@ public class GridGroupMgr : MonoBehaviour
     public Image mingrid;
     public Image usegrid;
     public Image swgrid;
-    readonly Dictionary<int, int> postox = new Dictionary<int, int>()
+    public Dictionary<int, int> Postox { get; } = new Dictionary<int, int>()
     {
         [-270] = 0,
         [-210] = 1,
@@ -24,8 +24,7 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 8,
         [270] = 9,
     };
-    public Dictionary<int, int> Postox { get { return postox; } }
-    readonly Dictionary<int, int> postoy = new Dictionary<int, int>()
+    public Dictionary<int, int> Postoy { get; } = new Dictionary<int, int>()
     {
         [-270] = 9,
         [-210] = 8,
@@ -38,7 +37,6 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 1,
         [270] = 0,
     };
-    public Dictionary<int, int> Postoy { get { return postoy; } }
     List<GridData> swGridList = new List<GridData>();//临时展示在面包上的格子
     public GridGroup_Ground gridGroup_Ground;//主面板数据
     public static GridGroupMgr Inst;
@@ -100,7 +98,7 @@ public class GridGroupMgr : MonoBehaviour
         {
             for (int j = 0; j < gdata.W_count; j++)
             {
-                if (gdata.DataArray[i, j] == 1)
+                if (gdata.Grid[i, j].IsUse)
                 {
                     //若gdata有数据 alldata也有数据 说明不能放
                 }
