@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroupBase  
 {
     public bool Isbg;
+    public bool IsDrag;
 
     public int W_count { get; private set; }
     public int H_count { get; private set; }

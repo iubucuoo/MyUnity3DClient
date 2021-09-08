@@ -13,6 +13,13 @@ public class GridGroup_Prep : GroupBase
             { 0, 0, 1, 0, 0 },
             { 1, 1, 1, 1, 1 }
         };
+        //DataArray = new int[,]{
+        //    //{ 0, 0, 1, 0, 0 },
+        //    //{ 1, 1 },
+        //    { 1, 1 },
+        //    { 1, 1 },
+           
+        //};
         SetData(DataArray);
     }
 }

@@ -18,7 +18,7 @@ public class DragingGridMgr
             {
                 _Instance = new DragingGridMgr
                 {
-                    mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/block")
+                    mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag")
                 };
             }
             return _Instance;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public static class GridTools
 {
     static Vector3 Pos = new Vector3(0, 0);
-    public static void CreatGrids(Transform root, GroupBase data, Image obj)
+    public static void CreatGrids(Transform root, GroupBase data, Image obj,bool isdrag=false)
     {
         float width = obj.rectTransform.rect.width;
         float height = obj.rectTransform.rect.height;
@@ -39,8 +39,14 @@ public static class GridTools
                 {
                     var bg = Object.Instantiate(obj);
                     bg.transform.parent = root;
-                    Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
-                    Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
+                    if (isdrag && M_math.Even(data.W_count))
+                        Pos.x = (j - data.W_count * 0.5f) * width;
+                    else
+                        Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
+                    if (isdrag && M_math.Even(data.H_count))
+                        Pos.y = (h_1 - i - data.H_count * 0.5f) * height;
+                    else
+                        Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
                     bg.transform.localPosition = Pos;
 #if UNITY_EDITOR
                     data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();

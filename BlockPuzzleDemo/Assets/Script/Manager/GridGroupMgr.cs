@@ -11,6 +11,7 @@ public class GridGroupMgr : MonoBehaviour
     public Image mingrid;
     public Image usegrid;
     public Image swgrid;
+    public Image draggrid;
     public Dictionary<int, int> Postox { get; } = new Dictionary<int, int>()
     {
         [-270] = 0,
@@ -51,10 +52,12 @@ public class GridGroupMgr : MonoBehaviour
         defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockno");
         usegrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/block");
         swgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw");
+        draggrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag");
         GameGloab.Sprites["usegrid"] = usegrid.sprite;
         GameGloab.Sprites["mingrid"] = mingrid.sprite;
         GameGloab.Sprites["defgrid"] = defgrid.sprite;
         GameGloab.Sprites["swgrid"] = swgrid.sprite;
+        GameGloab.Sprites["draggrid"] = draggrid.sprite;
 
         gridGroup_Ground = new GridGroup_Ground();
     }
@@ -67,52 +70,106 @@ public class GridGroupMgr : MonoBehaviour
         {
             v.Revert();
         }
+        swGridList.Clear();
     }
     /// <summary>
-    /// 检测现在的位置能不能放
+    /// 检测现在移动到的位置能不能放
     /// </summary>
-    public void CheckAvailable(Vector2 pos)
+    public void CheckAvailable(Vector2 _pos)
     {
+        Vector2 pos = _pos;
         var gdata = DragingGridMgr.Inst.gridData;
         var alldata = gridGroup_Ground;
-        //根据 pos 计算出 i j 对应的grid
-        int x = OutGridPos(pos.x);
-        if (!Postox.ContainsKey(x))
-        {
-            RevertswGrid();
-            return;//超出 不处理
-        }
-        int y = OutGridPos(pos.y);
-        if (!Postoy.ContainsKey(y))
-        {
-            RevertswGrid();
-            return;//超出 不处理
-        }
-        int _i = Postoy[y];
-        int _j = Postox[x];
-        //y是行数 x是列数
-        Debug.Log(y + "   " + x + "  " + _i + "   " + _j);
-        //当前选中的位置 根据拖动出来的展开获取需要处理的grid
+        if (M_math.Even(gdata.H_count))
+            pos.y += 30;
+        if (M_math.Even(gdata.W_count))
+            pos.x -= 30;
 
+        //根据 pos 计算出 i j 对应的grid
+        int w = OutGridPos(pos.x);
+        if (!Postox.ContainsKey(w))
+        {
+            RevertswGrid();
+            return;//超出 不处理
+        }
+        int h = OutGridPos(pos.y);
+        if (!Postoy.ContainsKey(h))
+        {
+            RevertswGrid();
+            return;//超出 不处理
+        }
+        int h_index = Postoy[h];//h:w  坐标
+        int w_index = Postox[w];
+
+        if (CanAddPrep(gdata,alldata, h_index, w_index,true))
+        {
+            foreach (var v in swGridList)
+            {
+                v.Status = 2;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 判断GridGroup_prep能不能放
+    /// </summary>
+    /// <param name="gdata"></param>
+    /// <param name="alldata"></param>
+    /// <param name="h_index"></param>
+    /// <param name="w_index"></param>
+    /// <param name="isadd">是否处理swgrid列表</param>
+    /// <returns></returns>
+    private bool CanAddPrep(GroupBase gdata, GridGroup_Ground alldata, int h_index, int w_index ,bool isadd=false)
+    {
+        bool h_even = M_math.Even(gdata.H_count);
+        bool w_even = M_math.Even(gdata.W_count);
+        int all_maxh = alldata.H_count - 1;
+        int all_maxw = alldata.W_count - 1;
+        int h_ban = h_index - ((int)(gdata.H_count * 0.5f));
+        int w_ban = w_index - ((int)(gdata.W_count * 0.5f));
+        int add_h = h_even ? 1 : 0;
+        int add_w = w_even ? 1 : 0;
+        //当前选中的位置 根据拖动出来的展开获取需要处理的grid
+        int all_h;
+        int all_w;
+        if (isadd)
+            RevertswGrid();//先清理再筛选
         for (int i = 0; i < gdata.H_count; i++)
         {
             for (int j = 0; j < gdata.W_count; j++)
             {
+                //将gdata ij的位置 与alldata的_i_j对应起来
+                all_h = h_ban + i + add_h;
+                all_w = w_ban + j + add_w;
+                if (all_h < 0 || all_h > all_maxh || all_w < 0 || all_w > all_maxw)
+                {
+                    if (isadd)
+                        RevertswGrid();//超出边界
+                    return false;
+                }
                 if (gdata.Grid[i, j].IsUse)
                 {
-                    //若gdata有数据 alldata也有数据 说明不能放
+                    if (alldata.Grid[all_h, all_w].IsUse)
+                    {
+                        if (isadd)
+                            RevertswGrid();//若gdata有数据 alldata也有数据 说明不能放
+                        return false;
+                    }
+                    else if (isadd)
+                    {
+                        swGridList.Add(alldata.Grid[all_h, all_w]);
+                    }
                 }
             }
         }
-
-        var grid = alldata.Grid[_i, _j];
-        if (grid != null)
-        {
-            swGridList.Add(grid);
-            grid.Status = 2;
-        }
+        return true;
     }
 
+    /// <summary>
+    /// 根据坐标的值 装换成最靠近的规整坐标的值
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public static int OutGridPos(float index)
     {
         //x -270 到 270 为0到9   y 270 到 -270 为0到9
@@ -128,7 +185,7 @@ public class GridGroupMgr : MonoBehaviour
             endind = (int)(30 * p_n * Math.Ceiling(num_abs));//向上取整
         else
             endind = (int)(30 * p_n * (float)Math.Floor(num_abs));//向下取整
-        if (M_math.Abs(endind - index) < 20)
+        if (M_math.Abs(endind - index) < 28)
             return endind;
         else
             return 0;
