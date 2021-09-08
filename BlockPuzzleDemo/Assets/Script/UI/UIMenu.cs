@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
-    Transform root_bg;
-    Transform root_prep;
     Canvas canvas;
     RectTransform rectTr_canvas;
     RectTransform rectTr_bg;
@@ -19,10 +17,7 @@ public class UIMenu : MonoBehaviour
     void Start()
     {
         canvas = GetComponent<Canvas>();
-        DragingGridMgr.Inst.DragRoot = transform.Find("DrogRoot");
-        root_bg = transform.Find("BGROOT");
-        root_prep = transform.Find("ADDROOT");
-        rectTr_bg = root_bg.GetComponent<RectTransform>();
+        rectTr_bg = GameGloab.root_bg.GetComponent<RectTransform>();
         rectTr_canvas = gameObject.GetComponent<RectTransform>();
         btn_start.onClick.AddListener(OnBtnStart);
     }
@@ -34,7 +29,7 @@ public class UIMenu : MonoBehaviour
         {
             Vector2 pos = new Vector2((i - 1) * 210, 0);
             var obj = Instantiate(GridGroupMgr.Inst.preproot);
-            obj.transform.parent = root_prep;
+            obj.transform.parent = GameGloab.root_prep;
             obj.transform.localPosition = pos;
 #if UNITY_EDITOR
             obj.name = i.ToString();
@@ -59,7 +54,7 @@ public class UIMenu : MonoBehaviour
 
     void StartBg()
     {
-        GridTools.CreatGrids(root_bg, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
+        GridTools.CreatGrids(GameGloab.root_bg, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
     }
     void RefreshGridGroup()
     {
