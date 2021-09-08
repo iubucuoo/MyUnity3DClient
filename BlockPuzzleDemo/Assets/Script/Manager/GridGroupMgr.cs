@@ -100,13 +100,17 @@ public class GridGroupMgr : MonoBehaviour
         }
         int h_index = Postoy[h];//h:w  坐标
         int w_index = Postox[w];
-
-        if (CanAddPrep(gdata,alldata, h_index, w_index,true))
+        RevertswGrid();//先清理再筛选
+        if (CanAddPrep(gdata, alldata, h_index, w_index, true))
         {
             foreach (var v in swGridList)
             {
                 v.Status = 2;
             }
+        }
+        else
+        {
+            RevertswGrid();
         }
     }
 
@@ -119,7 +123,7 @@ public class GridGroupMgr : MonoBehaviour
     /// <param name="w_index"></param>
     /// <param name="isadd">是否处理swgrid列表</param>
     /// <returns></returns>
-    private bool CanAddPrep(GroupBase gdata, GridGroup_Ground alldata, int h_index, int w_index ,bool isadd=false)
+    private bool CanAddPrep(GroupBase gdata, GridGroup_Ground alldata, int h_index, int w_index, bool isadd = false)
     {
         bool h_even = M_math.Even(gdata.H_count);
         bool w_even = M_math.Even(gdata.W_count);
@@ -132,8 +136,6 @@ public class GridGroupMgr : MonoBehaviour
         //当前选中的位置 根据拖动出来的展开获取需要处理的grid
         int all_h;
         int all_w;
-        if (isadd)
-            RevertswGrid();//先清理再筛选
         for (int i = 0; i < gdata.H_count; i++)
         {
             for (int j = 0; j < gdata.W_count; j++)
@@ -143,17 +145,13 @@ public class GridGroupMgr : MonoBehaviour
                 all_w = w_ban + j + add_w;
                 if (all_h < 0 || all_h > all_maxh || all_w < 0 || all_w > all_maxw)
                 {
-                    if (isadd)
-                        RevertswGrid();//超出边界
-                    return false;
+                    return false; //超出边界
                 }
                 if (gdata.Grid[i, j].IsUse)
                 {
                     if (alldata.Grid[all_h, all_w].IsUse)
                     {
-                        if (isadd)
-                            RevertswGrid();//若gdata有数据 alldata也有数据 说明不能放
-                        return false;
+                        return false;//若gdata有数据 alldata也有数据 说明不能放
                     }
                     else if (isadd)
                     {
