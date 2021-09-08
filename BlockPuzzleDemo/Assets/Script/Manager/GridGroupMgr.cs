@@ -48,11 +48,11 @@ public class GridGroupMgr : MonoBehaviour
     }
     private void Start()
     {
-        preproot = ResourceMgr.Instance.LoadRes<Image>("Prefab/addgridbg");
-        mingrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockmin");
-        defgrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockno");
-        usegrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/block");
-        swgrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blocksw");
+        preproot = ResourceMgr.Inst.LoadRes<Image>("Prefab/addgridbg");
+        mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin");
+        defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockno");
+        usegrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/block");
+        swgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw");
         GameGloab.Sprites["usegrid"] = usegrid.sprite;
         GameGloab.Sprites["mingrid"] = mingrid.sprite;
         GameGloab.Sprites["defgrid"] = defgrid.sprite;
@@ -102,7 +102,7 @@ public class GridGroupMgr : MonoBehaviour
             {
                 if (gdata.DataArray[i, j] == 1)
                 {
-                    //有数据的情况
+                    //若gdata有数据 alldata也有数据 说明不能放
                 }
             }
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceMgr
 {
     static ResourceMgr _instance;
-    public static ResourceMgr Instance
+    public static ResourceMgr Inst
     {
         get
         {
