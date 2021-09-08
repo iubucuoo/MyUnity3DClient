@@ -6,9 +6,10 @@ public class MainC : MonoBehaviour
 {
     private void Awake()
     {
-        GameGloab.root_bg = transform.Find("BGROOT");
-        GameGloab.root_prep = transform.Find("ADDROOT");
-        DragingGridMgr.Inst.DragRoot = transform.Find("DragRoot");
+        var canver = GameObject.Find("Canvas");
+        GameGloab.root_bg = canver.transform.Find("BGROOT");
+        GameGloab.root_prep = canver.transform.Find("ADDROOT");
+        DragingGridMgr.Inst.DragRoot = canver.transform.Find("DragRoot");
     }
     // Start is called before the first frame update
     void Start()
