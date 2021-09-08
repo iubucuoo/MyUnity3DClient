@@ -47,7 +47,6 @@ public class GridGroupMgr : MonoBehaviour
     }
     private void Start()
     {
-
         preproot = ResourceMgr.Inst.LoadRes<Image>("Prefab/addgridbg");
         mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin");
         defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockno");
