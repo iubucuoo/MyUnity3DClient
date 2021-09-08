@@ -32,7 +32,7 @@ public static class GridTools
 #if UNITY_EDITOR
                         data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();
                         if (data.Grid[i, j].IsUse)
-                            data.Grid[i, j].Text.text = i + "  " + j ;
+                            data.Grid[i, j].Text.text = i + ":" + j ;
                         else
                             data.Grid[i, j].Text.text = "";
 #endif
@@ -45,6 +45,14 @@ public static class GridTools
                     Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
                     Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
                     bg.transform.localPosition = Pos;
+                    data.Grid[i, j].IsUse = _id != 0;
+#if UNITY_EDITOR
+                    data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();
+                    if (data.Grid[i, j].IsUse)
+                        data.Grid[i, j].Text.text = i + ":" + j;
+                    else
+                        data.Grid[i, j].Text.text = "";
+#endif
                 }
             }
         }

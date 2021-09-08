@@ -9,6 +9,7 @@ public class GridGroupMgr : MonoBehaviour
     public Image defgrid;
     public Image mingrid;
     public Image usegrid;
+    public Image swgrid;
 
     public GridGroup_Ground gridGroup_Ground;//展示数据
     public static GridGroupMgr Inst;
@@ -22,9 +23,11 @@ public class GridGroupMgr : MonoBehaviour
         mingrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockmin");
         defgrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blockno");
         usegrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/block");
+        swgrid = ResourceMgr.Instance.LoadRes<Image>("Prefab/blocksw");
         GameGloab.Sprites["usegrid"] = usegrid.sprite;
         GameGloab.Sprites["mingrid"] = mingrid.sprite;
         GameGloab.Sprites["defgrid"] = defgrid.sprite;
+        GameGloab.Sprites["swgrid"] = swgrid.sprite;
 
         gridGroup_Ground = new GridGroup_Ground();
     }

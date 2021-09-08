@@ -17,8 +17,22 @@ public class GridData
                 { Image.sprite = GameGloab.Sprites["defgrid"]; }
                 else if (value == 1)
                 { Image.sprite = GameGloab.Sprites["usegrid"]; }
+                else if (value == 2)
+                { Image.sprite = GameGloab.Sprites["swgrid"]; }
             }
             status = value;
+        }
+    }
+    //还原显示状态
+    public void Revert()
+    {
+        if (IsUse)
+        {
+            Status = 1;
+        }
+        else
+        {
+            Status = 0;
         }
     }
     public bool IsUse;//判断是否存放了格子

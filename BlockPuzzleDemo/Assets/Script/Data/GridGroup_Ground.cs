@@ -9,7 +9,6 @@ public class GridGroup_Ground : GroupBase
         Isbg = true;
         W_count = 10;
         H_count = 10;
-        Grid = new GridData[H_count, W_count];
         DataArray = new int[,]{
             { 0, 0, 1, 0, 0 , 0, 0, 1, 0, 0 },
             { 0, 0, 1, 0, 0 , 0, 0, 1, 0, 0 },
@@ -22,6 +21,7 @@ public class GridGroup_Ground : GroupBase
             { 1, 1, 1, 1, 1 , 0, 0, 1, 0, 0 },
             { 1, 1, 1, 1, 1 , 0, 0, 1, 0, 0 }
         };
+        Grid = new GridData[H_count, W_count];
         for (int i = 0; i < H_count; i++)
         {
             for (int j = 0; j < W_count; j++)

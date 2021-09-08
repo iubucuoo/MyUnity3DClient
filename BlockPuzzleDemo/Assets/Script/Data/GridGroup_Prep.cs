@@ -15,6 +15,16 @@ public class GridGroup_Prep : GroupBase
             { 0, 0, 1, 0, 0 },
             { 1, 1, 1, 1, 1 }
         };
- 
+        Grid = new GridData[H_count, W_count];
+        for (int i = 0; i < H_count; i++)
+        {
+            for (int j = 0; j < W_count; j++)
+            {
+                if (Grid[i, j] == null)
+                {
+                    Grid[i, j] = new GridData();
+                }
+            }
+        }
     }
 }
