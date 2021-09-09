@@ -38,7 +38,8 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 1,
         [270] = 0,
     };
-    List<GridData> swGridList = new List<GridData>();//临时展示在面包上的格子
+    List<GridData> swPrepGridList = new List<GridData>();//临时展示在面包上的将要放入的格子
+    List<GridData> swClearGridList = new List<GridData>();//临时展示在面包上的将要删除的格子
     public GridGroup_Ground gridGroup_Ground;//主面板数据
     public static GridGroupMgr Inst;
     private void Awake()
@@ -61,24 +62,11 @@ public class GridGroupMgr : MonoBehaviour
 
         gridGroup_Ground = new GridGroup_Ground();
     }
-    List<GridData> ClearGridList = new List<GridData>();
-    List<GridData> swClearGridList = new List<GridData>();//展示会删除的格子
+
 
     Dictionary<int, int> husecount = new Dictionary<int, int>();
     Dictionary<int, int> wusecount = new Dictionary<int, int>();
-    public void ClearGrid()
-    {
-        if (GetCanClear(ClearGridList))
-        {
-            foreach (var v in ClearGridList)
-            {
-                v.IsUse = false;
-                v.Revert();
-                //播放销毁动画
-            }
-            ClearGridList.Clear();
-        }
-    }
+    
 
     bool GetCanClear(List<GridData> data)
     {
@@ -134,13 +122,20 @@ public class GridGroupMgr : MonoBehaviour
     /// </summary>
     public void RefreshMainGrid()
     {
-        foreach (var v in swGridList)
+        foreach (var v in swPrepGridList)
         {
             v.IsUse = true;
             v.Revert();
         }
-        swGridList.Clear();
-        RevertswClearGrid();
+        swPrepGridList.Clear();
+
+        foreach (var v in swClearGridList)
+        {
+            v.IsUse = false;
+            v.Revert();
+            //播放销毁动画
+        }
+        swClearGridList.Clear();
     }
     void RevertswClearGrid()
     {
@@ -155,11 +150,11 @@ public class GridGroupMgr : MonoBehaviour
     /// </summary>
     void RevertswGrid()
     {
-        foreach (var v in swGridList)
+        foreach (var v in swPrepGridList)
         {
-            v.Revert();
+            v.swPrepRevert();
         }
-        swGridList.Clear();
+        swPrepGridList.Clear();
     }
     /// <summary>
     /// 检测现在移动到的位置能不能放
@@ -195,14 +190,10 @@ public class GridGroupMgr : MonoBehaviour
         RevertswGrid();//先清理再筛选
         if (CanAddPrep(gdata, alldata, h_index, w_index, true))
         {
-            foreach (var v in swGridList)
+            foreach (var v in swPrepGridList)
             {
                 v.swPrep();
             }
-        }
-        else
-        {
-            RevertswGrid();
         }
         //判断有没有可以销毁的 显示不同状态
 
@@ -256,7 +247,7 @@ public class GridGroupMgr : MonoBehaviour
                     }
                     else if (isadd)
                     {
-                        swGridList.Add(alldata.Grid[all_h, all_w]);
+                        swPrepGridList.Add(alldata.Grid[all_h, all_w]);
                     }
                 }
             }
