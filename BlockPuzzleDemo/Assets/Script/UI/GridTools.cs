@@ -19,7 +19,7 @@ public static class GridTools
                 {
                     if (data.Grid[i, j].Image == null)
                     {
-                        var bg = Object.Instantiate(obj);
+                        var bg = PoolMag.Inst.GetPool(obj);//Object.Instantiate(obj);
                         bg.transform.parent = root;
                         Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
                         Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
@@ -37,7 +37,7 @@ public static class GridTools
                 }
                 else if (data.Grid[i, j].IsUse)
                 {
-                    var bg = Object.Instantiate(obj);
+                    var bg = PoolMag.Inst.GetPool(obj);// Object.Instantiate(obj);
                     bg.transform.parent = root;
                     if (isdrag && M_math.Even(data.W_count))
                         Pos.x = (j - data.W_count * 0.5f) * width;

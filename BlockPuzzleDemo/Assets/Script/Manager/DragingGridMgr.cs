@@ -35,7 +35,8 @@ public class DragingGridMgr
         int childCount = DragRoot.childCount;
         for (int i = 0; i < childCount; i++)
         {
-            UnityEngine.Object.Destroy(DragRoot.GetChild(i).gameObject);
+            DragRoot.GetChild(i).gameObject.SetActive(false);
+            //UnityEngine.Object.Destroy(DragRoot.GetChild(i).gameObject);
         }
     }
 

@@ -195,6 +195,10 @@ public class GridGroupMgr : MonoBehaviour
                 v.swPrep();
             }
         }
+        else
+        {
+            RevertswGrid();
+        }
         //判断有没有可以销毁的 显示不同状态
 
         if (GetCanClear(swClearGridList))

@@ -77,6 +77,7 @@
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
     <Compile Include="Assets\Script\MainC.cs" />
     <Compile Include="Assets\Script\Tools\M_math.cs" />
+    <Compile Include="Assets\Script\Manager\PoolMag.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />

@@ -28,7 +28,7 @@ public class UIMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Vector2 pos = new Vector2((i - 1) * 210, 0);
-            var obj = Instantiate(GridGroupMgr.Inst.preproot);
+            var obj = PoolMag.Inst.GetPool(GridGroupMgr.Inst.preproot);// Instantiate(GridGroupMgr.Inst.preproot);
             obj.transform.parent = GameGloab.root_prep;
             obj.transform.localPosition = pos;
 #if UNITY_EDITOR
