@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GridData
 {
+    public GroupType g_type;
+    public Transform parent;
     int status;
     public int Status
     {

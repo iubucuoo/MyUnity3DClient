@@ -28,7 +28,7 @@ public class UIMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Vector2 pos = new Vector2((i - 1) * 210, 0);
-            var obj = PoolMag.Inst.GetPool(GridGroupMgr.Inst.preproot);// Instantiate(GridGroupMgr.Inst.preproot);
+            var obj = ObjectMgr.InstantiateGameObj(GridGroupMgr.Inst.preproot); //Instantiate(GridGroupMgr.Inst.preproot);
             obj.transform.parent = GameGloab.root_prep;
             obj.transform.localPosition = pos;
 #if UNITY_EDITOR
@@ -54,17 +54,38 @@ public class UIMenu : MonoBehaviour
 
     void StartBg()
     {
-        GridTools.CreatGrids(GameGloab.root_bg, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
+        GridGroupMgr.Inst.gridGroup_Ground.CreatGrids(GameGloab.root_bg);
+        //GridTools.CreatGrids(GameGloab.root_bg, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
     }
     void RefreshGridGroup()
     {
+        List<int[,]> datalist = new List<int[,]>();
+        datalist.Add(new int[,]{
+            { 1,1 },
+            { 0,1 },
+        });
+        datalist.Add(new int[,]{
+            { 1,1 },
+            { 1,0 },
+        });
+        datalist.Add(new int[,]{
+            { 0,1 },
+            { 1,1 },
+        });
+        datalist.Add(new int[,]{
+            { 1,0 },
+            { 1,1 },
+        });
+        
         for (int i = 0; i < 3; i++)
         {
+            PrepGroup[i].Reset();
             var trs = PrepGroup[i].Root;
-            var data = new GridGroup_Prep();
+            var data = new GridGroup_Prep(datalist[UnityEngine.Random.Range(0, 4)]);
             data.ParentRoot = trs.localPosition;
             PrepGroup[i].SetGridData(data);
-            GridTools.CreatGrids(trs, data, GridGroupMgr.Inst.mingrid);
+            data.CreatGrids(trs);
+            //GridTools.CreatGrids(trs, data, GridGroupMgr.Inst.mingrid);
         }
     }
 

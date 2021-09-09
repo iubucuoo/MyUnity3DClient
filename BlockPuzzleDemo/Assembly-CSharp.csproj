@@ -77,7 +77,9 @@
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
     <Compile Include="Assets\Script\MainC.cs" />
     <Compile Include="Assets\Script\Tools\M_math.cs" />
-    <Compile Include="Assets\Script\Manager\PoolMag.cs" />
+    <Compile Include="Assets\Script\Manager\PoolMgr.cs" />
+    <Compile Include="Assets\Script\Manager\ObjectMgr.cs" />
+    <Compile Include="Assets\Script\Data\GridGroup_MinPrep.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />

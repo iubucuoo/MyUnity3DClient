@@ -8,8 +8,8 @@ public static class GridTools
     static Vector3 Pos = new Vector3(0, 0);
     public static void CreatGrids(Transform root, GroupBase data, Image obj,bool isdrag=false)
     {
-        float width = obj.rectTransform.rect.width;
-        float height = obj.rectTransform.rect.height;
+        float width = data.g_width;
+        float height = data.g_height;
         int h_1 = data.H_count - 1;
         for (int i = 0; i < data.H_count; i++)
         {
@@ -19,12 +19,12 @@ public static class GridTools
                 {
                     if (data.Grid[i, j].Image == null)
                     {
-                        var bg = PoolMag.Inst.GetPool(obj);//Object.Instantiate(obj);
+                        var bg = PoolMgr.Inst.GetPool(data.g_type) as GameObject;//Object.Instantiate(obj);
                         bg.transform.parent = root;
-                        Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
-                        Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
+                        Pos.x = (j - data.W_count * 0.5f + 0.5f) * data.g_width;
+                        Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * data.g_height;
                         bg.transform.localPosition = Pos;
-                        data.Grid[i, j].Image = bg;
+                        data.Grid[i, j].Image = bg.GetComponent<Image>() ;
                         data.Grid[i, j].Revert();
 #if UNITY_EDITOR
                         data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();
@@ -37,16 +37,16 @@ public static class GridTools
                 }
                 else if (data.Grid[i, j].IsUse)
                 {
-                    var bg = PoolMag.Inst.GetPool(obj);// Object.Instantiate(obj);
+                    var bg = PoolMgr.Inst.GetPool(data.g_type) as GameObject;// Object.Instantiate(obj);
                     bg.transform.parent = root;
                     if (isdrag && M_math.Even(data.W_count))
-                        Pos.x = (j - data.W_count * 0.5f) * width;
+                        Pos.x = (j - data.W_count * 0.5f) * data.g_width;
                     else
-                        Pos.x = (j - data.W_count * 0.5f + 0.5f) * width;
+                        Pos.x = (j - data.W_count * 0.5f + 0.5f) * data.g_width;
                     if (isdrag && M_math.Even(data.H_count))
-                        Pos.y = (h_1 - i - data.H_count * 0.5f) * height;
+                        Pos.y = (h_1 - i - data.H_count * 0.5f) * data.g_height;
                     else
-                        Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
+                        Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * data.g_height;
                     bg.transform.localPosition = Pos;
 #if UNITY_EDITOR
                     data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();

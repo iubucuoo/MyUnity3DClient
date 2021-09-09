@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GridGroupMgr : MonoBehaviour
 {
-    public Image preproot;
+    public GameObject preproot;
     public Image defgrid;
     public Image mingrid;
     public Image usegrid;
@@ -48,9 +48,9 @@ public class GridGroupMgr : MonoBehaviour
     }
     private void Start()
     {
-        preproot = ResourceMgr.Inst.LoadRes<Image>("Prefab/addgridbg");
+        preproot = ResourceMgr.Inst.LoadRes<GameObject>("Prefab/addgridbg");
         mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin");
-        defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockno");
+        defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef");
         usegrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/block");
         swgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw");
         draggrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag");
@@ -120,12 +120,17 @@ public class GridGroupMgr : MonoBehaviour
     /// <summary>
     /// 根据可放置的拖动的gridgroup 放入maingroup 
     /// </summary>
-    public void RefreshMainGrid()
+    public bool RefreshMainGrid()
     {
+        bool isuse = false;
         foreach (var v in swPrepGridList)
         {
             v.IsUse = true;
             v.Revert();
+            if (! isuse)
+            {
+                isuse = true;
+            }
         }
         swPrepGridList.Clear();
 
@@ -136,6 +141,8 @@ public class GridGroupMgr : MonoBehaviour
             //播放销毁动画
         }
         swClearGridList.Clear();
+
+        return isuse;
     }
     void RevertswClearGrid()
     {

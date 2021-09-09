@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class GridGroup_Prep : GroupBase
 {
-    public GridGroup_Prep()
+    public GridGroup_Prep(int[,] DataArray)
     {
-        //DataArray = new int[,]{
-        //    //{ 0, 0, 1, 0, 0 },
-        //    { 0, 0, 1, 0, 0 },
-        //    { 0, 0, 1, 0, 0 },
-        //    { 0, 0, 1, 0, 0 },
-        //    { 1, 1, 1, 1, 1 }
-        //};
-        DataArray = new int[,]{
-            //{ 0, 0, 1, 0, 0 },
-            //{ 1, 1 },
-            { 1,1 },
-            { 1,1 },
-
-        };
+        g_width = 60;
+        g_height = 60;
+        g_type = GroupType.Prep;
+        resName = "Prefab/blockdrag";//拖动出来的格子
         SetData(DataArray);
     }
 }

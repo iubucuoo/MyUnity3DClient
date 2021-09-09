@@ -30,20 +30,22 @@ public class DragingGridMgr
     public Transform DragRoot { get { return Inst.dragroot; } set { Inst.dragroot = value; } }
 
     public GroupBase gridData;
+
     void DestroyChild()
     {
-        int childCount = DragRoot.childCount;
-        for (int i = 0; i < childCount; i++)
+        foreach (var v in gridData.Grid)
         {
-            DragRoot.GetChild(i).gameObject.SetActive(false);
-            //UnityEngine.Object.Destroy(DragRoot.GetChild(i).gameObject);
+            //obj.transform.parent = transform;
+            //obj.gameObject.SetActive(false);
+            PoolMgr.Inst.Release(v.Image, gridData.g_type);
         }
     }
 
     public void AddDragGroup(GroupBase v)
     {
         DestroyChild();
-        GridTools.CreatGrids(DragRoot, v, mingrid);
+        v.CreatGrids(DragRoot,true);
+        //GridTools.CreatGrids(DragRoot, v, mingrid);
     }
 
     public void SetDragDown(GroupBase v)
@@ -53,15 +55,11 @@ public class DragingGridMgr
         AddDragGroup(v);
     }
 
-    public void SetDragUp(GroupBase v)
+    public void SetDragUp(PrepAddGridGroup v)
     {
-        Inst.Isdrag = false;
-        Inst.gridData = null;
         DestroyChild();
         DragRoot.localPosition = GameGloab.OutScreenV2;
-        GridGroupMgr.Inst.RefreshMainGrid(); //如果当前可以放置 刷新主面板显示
-        //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
-        //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.ClearGrid(); //如果有可以销毁的 实现销毁并添加积分
-        //待放格子区 检测是否可以放置 不能放的变灰 无法使用
+        Inst.Isdrag = false;
+        Inst.gridData = null;
     }
 }
