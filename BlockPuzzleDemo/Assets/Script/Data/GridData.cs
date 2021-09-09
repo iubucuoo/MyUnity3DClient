@@ -9,7 +9,7 @@ public class GridData
     public int Status
     {
         get { return status; }
-        set
+        private set
         {
             if (status!=value && Image != null)
             {
@@ -19,10 +19,42 @@ public class GridData
                 { Image.sprite = GameGloab.Sprites["usegrid"]; }
                 else if (value == 2)
                 { Image.sprite = GameGloab.Sprites["swgrid"]; }
+                else if (value == 3)
+                { Image.sprite = GameGloab.Sprites["mingrid"]; }
             }
             status = value;
         }
     }
+    /// <summary>
+    /// 将要删除的展示
+    /// </summary>
+    public void swClear()
+    {
+        Status = 3;
+    }
+    /// <summary>
+    /// 将要删除的展示还原
+    /// </summary>
+    public void swClearRevert()
+    {
+        Revert();
+    }
+
+    /// <summary>
+    /// 将要放入的展示
+    /// </summary>
+    public void swPrep()
+    {
+        Status = 2;
+    }
+    /// <summary>
+    /// 还原将要放入的展示
+    /// </summary>
+    public void swPrepRevert()
+    {
+        Revert();
+    }
+
     //还原显示状态
     public void Revert()
     {

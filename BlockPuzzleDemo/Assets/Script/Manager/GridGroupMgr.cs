@@ -38,7 +38,7 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 1,
         [270] = 0,
     };
-    List<GridData> swGridList  = new List<GridData>();//临时展示在面包上的格子
+    List<GridData> swGridList = new List<GridData>();//临时展示在面包上的格子
     public GridGroup_Ground gridGroup_Ground;//主面板数据
     public static GridGroupMgr Inst;
     private void Awake()
@@ -62,37 +62,54 @@ public class GridGroupMgr : MonoBehaviour
         gridGroup_Ground = new GridGroup_Ground();
     }
     List<GridData> ClearGridList = new List<GridData>();
+    List<GridData> swClearGridList = new List<GridData>();//展示会删除的格子
 
     Dictionary<int, int> husecount = new Dictionary<int, int>();
     Dictionary<int, int> wusecount = new Dictionary<int, int>();
     public void ClearGrid()
     {
+        if (GetCanClear(ClearGridList))
+        {
+            foreach (var v in ClearGridList)
+            {
+                v.IsUse = false;
+                v.Revert();
+                //播放销毁动画
+            }
+            ClearGridList.Clear();
+        }
+    }
+
+    bool GetCanClear(List<GridData> data)
+    {
+        bool isadd = false;
         var alldata = gridGroup_Ground;
         husecount.Clear();
         wusecount.Clear();
         for (int i = 0; i < alldata.H_count; i++)
         {
-            husecount[i]=0;
-            wusecount[i]=0;
+            husecount[i] = 0;
+            wusecount[i] = 0;
             for (int j = 0; j < alldata.W_count; j++)
             {
-                if (alldata.Grid[i,j].IsUse)
+                if (alldata.Grid[i, j].Status != 0)
                 {
-                    husecount[i] +=1;
+                    husecount[i] += 1;
                 }
-                if (alldata.Grid[j, i].IsUse)
+                if (alldata.Grid[j, i].Status != 0)
                 {
                     wusecount[i] += 1;
                 }
             }
-            if (husecount[i]== alldata.W_count)
+            if (husecount[i] == alldata.W_count)
             {
                 ////i这一行满了
                 for (int _w = 0; _w < alldata.W_count; _w++)
                 {
-                    if (!ClearGridList.Contains(alldata.Grid[i, _w]))
+                    if (!data.Contains(alldata.Grid[i, _w]))
                     {
-                        ClearGridList.Add(alldata.Grid[i, _w]);
+                        isadd = true;
+                        data.Add(alldata.Grid[i, _w]);
                     }
                 }
             }
@@ -101,23 +118,19 @@ public class GridGroupMgr : MonoBehaviour
                 ////i这一竖满了
                 for (int _h = 0; _h < alldata.H_count; _h++)
                 {
-                    if (!ClearGridList.Contains(alldata.Grid[_h, i]))
+                    if (!data.Contains(alldata.Grid[_h, i]))
                     {
-                        ClearGridList.Add(alldata.Grid[_h, i]);
+                        isadd = true;
+                        data.Add(alldata.Grid[_h, i]);
                     }
                 }
             }
         }
-        foreach (var v in ClearGridList)
-        {
-            v.IsUse = false;
-            v.Revert();
-            //播放销毁动画
-        }
-        ClearGridList.Clear();
+        return isadd;
     }
+
     /// <summary>
-    /// 根据可放置的拖动的gridgroup 放入maingroup
+    /// 根据可放置的拖动的gridgroup 放入maingroup 
     /// </summary>
     public void RefreshMainGrid()
     {
@@ -127,6 +140,15 @@ public class GridGroupMgr : MonoBehaviour
             v.Revert();
         }
         swGridList.Clear();
+        RevertswClearGrid();
+    }
+    void RevertswClearGrid()
+    {
+        foreach (var v in swClearGridList)
+        {
+            v.swClearRevert();
+        }
+        swClearGridList.Clear();
     }
     /// <summary>
     /// 还原临时显示的grid
@@ -156,28 +178,40 @@ public class GridGroupMgr : MonoBehaviour
         int w = OutGridPos(pos.x);
         if (!Postox.ContainsKey(w))
         {
+            RevertswClearGrid();
             RevertswGrid();
             return;//超出 不处理
         }
         int h = OutGridPos(pos.y);
         if (!Postoy.ContainsKey(h))
         {
+            RevertswClearGrid();
             RevertswGrid();
             return;//超出 不处理
         }
         int h_index = Postoy[h];//h:w  坐标
         int w_index = Postox[w];
+        RevertswClearGrid();
         RevertswGrid();//先清理再筛选
         if (CanAddPrep(gdata, alldata, h_index, w_index, true))
         {
             foreach (var v in swGridList)
             {
-                v.Status = 2;
+                v.swPrep();
             }
         }
         else
         {
             RevertswGrid();
+        }
+        //判断有没有可以销毁的 显示不同状态
+
+        if (GetCanClear(swClearGridList))
+        {
+            foreach (var v in swClearGridList)
+            {
+                v.swClear();
+            }
         }
     }
 
@@ -203,18 +237,18 @@ public class GridGroupMgr : MonoBehaviour
         //当前选中的位置 根据拖动出来的展开获取需要处理的grid
         int all_h;
         int all_w;
-        for (int i = 0; i < gdata.H_count; i++)
+        for (int _h = 0; _h < gdata.H_count; _h++)
         {
-            for (int j = 0; j < gdata.W_count; j++)
+            for (int _w = 0; _w < gdata.W_count; _w++)
             {
                 //将gdata ij的位置 与alldata的_i_j对应起来
-                all_h = h_ban + i + add_h;
-                all_w = w_ban + j + add_w;
+                all_h = h_ban + _h + add_h;
+                all_w = w_ban + _w + add_w;
                 if (all_h < 0 || all_h > all_maxh || all_w < 0 || all_w > all_maxw)
                 {
                     return false; //超出边界
                 }
-                if (gdata.Grid[i, j].IsUse)
+                if (gdata.Grid[_h, _w].IsUse)
                 {
                     if (alldata.Grid[all_h, all_w].IsUse)
                     {
@@ -250,7 +284,7 @@ public class GridGroupMgr : MonoBehaviour
             endind = (int)(30 * p_n * Math.Ceiling(num_abs));//向上取整
         else
             endind = (int)(30 * p_n * (float)Math.Floor(num_abs));//向下取整
-        if (M_math.Abs(endind - index) < 28)
+        if (M_math.Abs(endind - index) < 28)//一个格子半径30  28聊胜于无
             return endind;
         else
             return 0;

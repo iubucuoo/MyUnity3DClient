@@ -25,7 +25,7 @@ public static class GridTools
                         Pos.y = (h_1 - i - data.H_count * 0.5f + 0.5f) * height;
                         bg.transform.localPosition = Pos;
                         data.Grid[i, j].Image = bg;
-                        data.Grid[i, j].Status = data.Grid[i, j].IsUse ? 1:0;
+                        data.Grid[i, j].Revert();
 #if UNITY_EDITOR
                         data.Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();
                         if (data.Grid[i, j].IsUse)
