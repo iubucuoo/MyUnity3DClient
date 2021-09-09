@@ -58,9 +58,9 @@ public class DragingGridMgr
         Inst.gridData = null;
         DestroyChild();
         DragRoot.localPosition = GameGloab.OutScreenV2;
-        GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
-        //如果当前可以放置 刷新主面板显示
-        //如果有可以销毁的 实现销毁并添加积分
+        GridGroupMgr.Inst.RefreshMainGrid(); //如果当前可以放置 刷新主面板显示
+        //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
+        GridGroupMgr.Inst.ClearGrid(); //如果有可以销毁的 实现销毁并添加积分
         //待放格子区 检测是否可以放置 不能放的变灰 无法使用
     }
 }

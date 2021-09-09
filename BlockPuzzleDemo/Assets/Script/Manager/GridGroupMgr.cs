@@ -38,7 +38,7 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 1,
         [270] = 0,
     };
-    List<GridData> swGridList = new List<GridData>();//临时展示在面包上的格子
+    List<GridData> swGridList  = new List<GridData>();//临时展示在面包上的格子
     public GridGroup_Ground gridGroup_Ground;//主面板数据
     public static GridGroupMgr Inst;
     private void Awake()
@@ -61,10 +61,77 @@ public class GridGroupMgr : MonoBehaviour
 
         gridGroup_Ground = new GridGroup_Ground();
     }
+    List<GridData> ClearGridList = new List<GridData>();
+
+    Dictionary<int, int> husecount = new Dictionary<int, int>();
+    Dictionary<int, int> wusecount = new Dictionary<int, int>();
+    public void ClearGrid()
+    {
+        var alldata = gridGroup_Ground;
+        husecount.Clear();
+        wusecount.Clear();
+        for (int i = 0; i < alldata.H_count; i++)
+        {
+            husecount[i]=0;
+            wusecount[i]=0;
+            for (int j = 0; j < alldata.W_count; j++)
+            {
+                if (alldata.Grid[i,j].IsUse)
+                {
+                    husecount[i] +=1;
+                }
+                if (alldata.Grid[j, i].IsUse)
+                {
+                    wusecount[i] += 1;
+                }
+            }
+            if (husecount[i]== alldata.W_count)
+            {
+                ////i这一行满了
+                for (int _w = 0; _w < alldata.W_count; _w++)
+                {
+                    if (!ClearGridList.Contains(alldata.Grid[i, _w]))
+                    {
+                        ClearGridList.Add(alldata.Grid[i, _w]);
+                    }
+                }
+            }
+            if (wusecount[i] == alldata.H_count)
+            {
+                ////i这一竖满了
+                for (int _h = 0; _h < alldata.H_count; _h++)
+                {
+                    if (!ClearGridList.Contains(alldata.Grid[_h, i]))
+                    {
+                        ClearGridList.Add(alldata.Grid[_h, i]);
+                    }
+                }
+            }
+        }
+        foreach (var v in ClearGridList)
+        {
+            v.IsUse = false;
+            v.Revert();
+            //播放销毁动画
+        }
+        ClearGridList.Clear();
+    }
+    /// <summary>
+    /// 根据可放置的拖动的gridgroup 放入maingroup
+    /// </summary>
+    public void RefreshMainGrid()
+    {
+        foreach (var v in swGridList)
+        {
+            v.IsUse = true;
+            v.Revert();
+        }
+        swGridList.Clear();
+    }
     /// <summary>
     /// 还原临时显示的grid
     /// </summary>
-    public void RevertswGrid()
+    void RevertswGrid()
     {
         foreach (var v in swGridList)
         {
