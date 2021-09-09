@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class PoolMgr : MonoBehaviour
 {
     [SerializeField]
-    public Queue<Object> Ground_Stack = new Queue<Object>();
+    public Queue<GameObject> Ground_Stack = new Queue<GameObject>();
     [SerializeField]
-    public Queue<Object> MinPrep_Stack = new Queue<Object>();
+    public Queue<GameObject> MinPrep_Stack = new Queue<GameObject>();
     [SerializeField]
-    public Queue<Object> Prep_Stack = new Queue<Object>();
+    public Queue<GameObject> Prep_Stack = new Queue<GameObject>();
     private static PoolMgr _instance;
     public static PoolMgr Inst
     {
@@ -29,40 +29,47 @@ public class PoolMgr : MonoBehaviour
     }
     public object GetPool(GroupType type)
     {
+        GameObject obj;
         switch (type)
         {
             case GroupType.Ground:
-                return Get(Ground_Stack, type);
+                obj =  Get(Ground_Stack, type);
+                break;
             case GroupType.MinPrep:
-                return Get(MinPrep_Stack, type);
+                obj = Get(MinPrep_Stack, type);
+                break;
             case GroupType.Prep:
-                return Get(Prep_Stack, type);
+                obj = Get(Prep_Stack, type);
+                break;
             default:
-                return Get(Ground_Stack, type);
+                obj = Get(Ground_Stack, type);
+                break;
         }
+        obj.gameObject.SetActive(true);
+        return obj;
     }
-    object Get(Queue<Object> stack, GroupType type)
+    GameObject Get(Queue<GameObject> stack, GroupType type)
     {
-        object _obj;
+        GameObject _obj;
         if (stack.Count == 0)
         {
-            Object obj;
+            GameObject obj;
             switch (type)
             {
                 case GroupType.Ground:
-                    obj = ResourceMgr.Inst.LoadRes<Object>("Prefab/blockdef");
+                    obj = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").gameObject;
                     break;
                 case GroupType.MinPrep:
-                    obj = ResourceMgr.Inst.LoadRes<Object>("Prefab/blockmin");
+                    obj = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").gameObject;
                     break;
                 case GroupType.Prep:
-                    obj = ResourceMgr.Inst.LoadRes<Object>("Prefab/blockdrag");
+                    obj = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").gameObject;
                     break;
                 default:
-                    obj = ResourceMgr.Inst.LoadRes<Object>("Prefab/blockdef");
+                    obj = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").gameObject;
                     break;
             }
-            _obj = ObjectMgr.InstantiateObj(obj);
+            _obj = ObjectMgr.InstantiateGameObj(obj);
         }
         else
         {
@@ -85,10 +92,10 @@ public class PoolMgr : MonoBehaviour
         }
         return _obj;
     }
-    public void Release(Object obj, GroupType type)
+    public void Release(GameObject obj, GroupType type)
     {
-        //obj.transform.parent = transform;
-        //obj.gameObject.SetActive(false);
+        obj.transform.parent = transform;
+        obj.gameObject.SetActive(false);
         switch (type)
         {
             case GroupType.Ground:

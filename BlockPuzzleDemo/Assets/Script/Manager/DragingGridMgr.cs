@@ -30,29 +30,29 @@ public class DragingGridMgr
     public Transform DragRoot { get { return Inst.dragroot; } set { Inst.dragroot = value; } }
 
     public GroupBase gridData;
-
+    public GridGroup_Prep prepData;
     void DestroyChild()
     {
-        foreach (var v in gridData.Grid)
+        foreach (var v in prepData.Grid)
         {
-            //obj.transform.parent = transform;
-            //obj.gameObject.SetActive(false);
-            PoolMgr.Inst.Release(v.Image, gridData.g_type);
+            if (v.Status != 0)
+            {
+                PoolMgr.Inst.Release(v.Image.gameObject, prepData.g_type);
+            }
         }
     }
 
     public void AddDragGroup(GroupBase v)
     {
         DestroyChild();
-        v.CreatGrids(DragRoot,true);
-        //GridTools.CreatGrids(DragRoot, v, mingrid);
+        v.CreatGrids(DragRoot);
     }
 
     public void SetDragDown(GroupBase v)
     {
         Inst.Isdrag = true;
-        Inst.gridData = v;
-        AddDragGroup(v);
+        Inst.prepData = new GridGroup_Prep(v.DataArray);
+        AddDragGroup(prepData);
     }
 
     public void SetDragUp(PrepAddGridGroup v)
@@ -60,6 +60,6 @@ public class DragingGridMgr
         DestroyChild();
         DragRoot.localPosition = GameGloab.OutScreenV2;
         Inst.Isdrag = false;
-        Inst.gridData = null;
+        Inst.prepData = null;
     }
 }

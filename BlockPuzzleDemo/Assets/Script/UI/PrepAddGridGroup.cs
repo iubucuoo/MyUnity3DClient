@@ -24,7 +24,8 @@ public class PrepAddGridGroup : MonoBehaviour
         {
             //obj.transform.parent = transform;
             //obj.gameObject.SetActive(false);
-            PoolMgr.Inst.Release(v.Image,v.g_type);
+            if (v.Status != 0)
+                PoolMgr.Inst.Release(v.Image.gameObject,v.g_type);
         }
     }
     

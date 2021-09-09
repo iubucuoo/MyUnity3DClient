@@ -23,9 +23,10 @@ public class GroupBase
     public int H_count { get; private set; }
     public Vector2 ParentRoot;
     public GridData[,] Grid;
-    protected int[,] DataArray;
+    public int[,] DataArray { get; protected set; }
     public void SetData(int[,] data)
     {
+        DataArray = data;
         W_count = data.GetLength(1);
         H_count = data.GetLength(0);
         Grid = new GridData[H_count, W_count];
@@ -57,8 +58,6 @@ public class GroupBase
                     {
                         Grid[i, j].parent = root;
                         var bg = PoolMgr.Inst.GetPool(g_type) as GameObject;
-                        Debug.Log(bg == null);
-                        Debug.Log(root == null);
                         bg.transform.parent = root;
                         Pos.x = (j - W_count * 0.5f + 0.5f) * g_width;
                         Pos.y = (h_1 - i - H_count * 0.5f + 0.5f) * g_height;
@@ -78,15 +77,17 @@ public class GroupBase
                 {
                     var bg = PoolMgr.Inst.GetPool(g_type) as GameObject;// Object.Instantiate(obj);
                     bg.transform.parent = root;
-                    if (isdrag && M_math.Even(W_count))
-                        Pos.x = (j - W_count * 0.5f) * g_width;
-                    else
+                    //if (isdrag && M_math.Even(W_count))
+                    //    Pos.x = (j - W_count * 0.5f) * g_width;
+                    //else
                         Pos.x = (j - W_count * 0.5f + 0.5f) * g_width;
-                    if (isdrag && M_math.Even(H_count))
-                        Pos.y = (h_1 - i - H_count * 0.5f) * g_height;
-                    else
+                    //if (isdrag && M_math.Even(H_count))
+                    //    Pos.y = (h_1 - i - H_count * 0.5f) * g_height;
+                    //else
                         Pos.y = (h_1 - i - H_count * 0.5f + 0.5f) * g_height;
                     bg.transform.localPosition = Pos;
+                    Grid[i, j].Image = bg.GetComponent<Image>();
+                    Grid[i, j].Revert();
 #if UNITY_EDITOR
                     Grid[i, j].Text = bg.transform.Find("Text").GetComponent<Text>();
                     Grid[i, j].Text.text = i + ":" + j;

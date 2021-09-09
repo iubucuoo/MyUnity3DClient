@@ -169,7 +169,7 @@ public class GridGroupMgr : MonoBehaviour
     public void CheckAvailable(Vector2 _pos)
     {
         Vector2 pos = _pos;
-        var gdata = DragingGridMgr.Inst.gridData;
+        var gdata = DragingGridMgr.Inst.prepData;
         var alldata = gridGroup_Ground;
         if (M_math.Even(gdata.H_count))
             pos.y += 30;
