@@ -77,6 +77,7 @@ public class GroupBase
                 {
                     var bg = PoolMgr.Inst.GetPool(g_type) as GameObject;// Object.Instantiate(obj);
                     bg.transform.parent = root;
+
                     //if (isdrag && M_math.Even(W_count))
                     //    Pos.x = (j - W_count * 0.5f) * g_width;
                     //else
