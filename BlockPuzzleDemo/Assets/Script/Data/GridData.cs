@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class GridData
+public class GridData:IPool
 {
-    public GroupType g_type;
+    GameObject gridobj;
     public Transform parent;
+    public Text Text;
+    public Image Image;
+    public string resName;
     int status;
-    public int Status
+    public int Status//临时显示的修改
     {
         get { return status; }
-        private set
+        protected set
         {
-            if (status!=value && Image != null)
+            if (status != value && Image != null)
             {
                 if (value == 0)
                 { Image.sprite = GameGloab.Sprites["defgrid"]; }
@@ -25,6 +27,23 @@ public class GridData
                 { Image.sprite = GameGloab.Sprites["mingrid"]; }
             }
             status = value;
+        }
+    }
+
+    public virtual PoolsType PoolType { get { return PoolsType.GridData; } }
+
+    public bool IsRecycled { get ; set; }
+
+    public bool IsUse;//判断是否存放了格子
+    public void Revert()
+    {
+        if (IsUse)
+        {
+            Status = 1;
+        }
+        else
+        {
+            Status = 0;
         }
     }
     /// <summary>
@@ -56,21 +75,27 @@ public class GridData
     {
         Revert();
     }
-
-    //还原显示状态
-    public void Revert()
+    public void CreatObj(Transform _parent ,Vector2 _Pos, string res)
     {
-        if (IsUse)
+        resName = res;
+        if (gridobj==null)
         {
-            Status = 1;
+            gridobj = ObjectMgr.InstantiateGameObj(ResourceMgr.Inst.LoadRes<Image>(res).gameObject);
+            Image = gridobj.GetComponent<Image>();
+#if UNITY_EDITOR
+            Text = gridobj.transform.Find("Text").GetComponent<Text>();
+#endif
         }
-        else
+        gridobj.SetActive(true);
+        gridobj.transform.parent = _parent;
+        gridobj.transform.localPosition = _Pos;
+        Revert();
+    }
+    public virtual void OnRecycled()
+    {
+        if (gridobj)
         {
-            Status = 0;
+            gridobj.SetActive(false);
         }
     }
-    public bool IsUse;//判断是否存放了格子
-    //public Color g_coolr;//格子的颜色
-    public Image Image;
-    public Text Text;
 }

@@ -81,7 +81,8 @@ public class UIMenu : MonoBehaviour
         {
             PrepGroup[i].Reset();
             var trs = PrepGroup[i].Root;
-            var data = new GridGroup_MinPrep(datalist[UnityEngine.Random.Range(0, 4)]);
+            var data = PoolMgr.Allocate(PoolsType.GridGroup_MinPrep)as GridGroup_MinPrep;// new GridGroup_MinPrep(datalist[UnityEngine.Random.Range(0, 4)]);
+            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PoolsType.GridDataMin);
             data.ParentRoot = trs.localPosition;
             PrepGroup[i].SetGridData(data);
             data.CreatGrids(trs);

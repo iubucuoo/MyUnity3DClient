@@ -60,7 +60,8 @@ public class GridGroupMgr : MonoBehaviour
         GameGloab.Sprites["swgrid"] = swgrid.sprite;
         GameGloab.Sprites["draggrid"] = draggrid.sprite;
 
-        gridGroup_Ground = new GridGroup_Ground();
+        gridGroup_Ground = PoolMgr.Allocate( PoolsType.GridGroup_Ground)as GridGroup_Ground;
+        Debug.Log(gridGroup_Ground.resName);
     }
 
 
@@ -226,7 +227,7 @@ public class GridGroupMgr : MonoBehaviour
     /// <param name="w_index"></param>
     /// <param name="isadd">是否处理swgrid列表</param>
     /// <returns></returns>
-    private bool CanAddPrep(GroupBase gdata, GridGroup_Ground alldata, int h_index, int w_index, bool isadd = false)
+    private bool CanAddPrep(GridGroup gdata, GridGroup_Ground alldata, int h_index, int w_index, bool isadd = false)
     {
         bool h_even = M_math.Even(gdata.H_count);
         bool w_even = M_math.Even(gdata.W_count);

@@ -9,7 +9,7 @@ public class PrepAddGridGroup : MonoBehaviour
     public Transform Root;
     public bool IsUse;
     [SerializeField]
-    GroupBase gridData;
+    GridGroup_MinPrep gridData;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +20,11 @@ public class PrepAddGridGroup : MonoBehaviour
     {
         IsUse = true;
         //所有的子类消失
-        foreach (var v in gridData.Grid)
-        {
-            //obj.transform.parent = transform;
-            //obj.gameObject.SetActive(false);
-            if (v.Status != 0)
-                PoolMgr.Inst.Release(v.Image.gameObject,v.g_type);
-        }
+        PoolMgr.Recycle(gridData);
+        
     }
     
-    public void SetGridData(GroupBase v)
+    public void SetGridData(GridGroup_MinPrep v)
     {
         gridData = v;
     }
@@ -53,8 +48,9 @@ public class PrepAddGridGroup : MonoBehaviour
     }
     public void OnPointerDown(GameObject eventData)
     {
-        if (IsUse)
+        if (IsUse || gridData.IsRecycled)
         {
+            Debug.LogError(gridData.IsRecycled);
             return;
         }
         DragingGridMgr.Inst.SetDragDown(gridData);
@@ -62,7 +58,6 @@ public class PrepAddGridGroup : MonoBehaviour
     }
     public void Reset()
     {
-        gridData = null;
         IsUse = false;
     }
 }
