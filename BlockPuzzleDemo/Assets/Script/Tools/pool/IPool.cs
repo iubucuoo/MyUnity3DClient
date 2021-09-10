@@ -44,14 +44,16 @@ public abstract class Pool:IPoolable
     protected Stack<IPool> mCacheStack = new Stack<IPool>();
     public virtual IPool Allocate(PoolsType _type)
     {
-        //Debug.LogError(_type.ToString() + "    " + CurCount);
         if (CurCount <= 0)
         {
-            Debug.LogError(_type.ToString() + "    " + CurCount);
+            //Debug.LogError(_type.ToString() + "    " + CurCount);
             return mFactory.Create(_type);
         }
         else
+        {
+            //Debug.LogError(_type.ToString() + "    " + CurCount);
             return mCacheStack.Pop();
+        }
     }
     public abstract bool Recycle(IPool obj);
 }

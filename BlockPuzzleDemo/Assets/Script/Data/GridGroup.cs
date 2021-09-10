@@ -22,10 +22,7 @@ public class GridGroup
     {
         foreach (var v in Grid)
         {
-            if (v.IsUse)
-            {
-                PoolMgr.Recycle(v);
-            }
+            PoolMgr.Recycle(v);
         }
     }
     public void SetData(int[,] data , PoolsType poolsType)
