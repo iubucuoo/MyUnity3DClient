@@ -65,11 +65,14 @@
     <Compile Include="Assets\Script\Data\GridGroup_Prep.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
     <Compile Include="Assets\Script\Tools\EventTriggerListener.cs" />
+    <Compile Include="Assets\Script\Data\GridDataMin.cs" />
+    <Compile Include="Assets\Script\Tools\pool\IPool.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
     <Compile Include="Assets\Script\Manager\ObjectMgr.cs" />
     <Compile Include="Assets\Script\Manager\ResourceMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
+    <Compile Include="Assets\Script\Data\GridDataDef.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioItem.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
@@ -79,9 +82,6 @@
     <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
-    <Compile Include="Assets\Script\Tools\pool\IPool.cs" />
-    <Compile Include="Assets\Script\Data\GridDataDef.cs" />
-    <Compile Include="Assets\Script\Data\GridDataMin.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />
