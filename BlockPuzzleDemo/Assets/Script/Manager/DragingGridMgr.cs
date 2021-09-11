@@ -27,15 +27,14 @@ public class DragingGridMgr
 
     public void AddDragGroup(GridGroup_Prep v)
     {
-        //PoolMgr.Recycle(prepData);
         v.CreatGrids(DragRoot);
     }
 
     public void SetDragDown(GridGroup v)
     {
         IsDrag = true;
-        prepData = PoolMgr.Allocate(PoolsType.GridGroup_Prep)as GridGroup_Prep;
-        prepData.SetData(v.DataArray, PoolsType.GridDataDef);
+        prepData = PoolMgr.Allocate(IPoolsType.GridGroup_Prep)as GridGroup_Prep;
+        prepData.SetData(v.DataArray);
         AddDragGroup(prepData);
     }
 

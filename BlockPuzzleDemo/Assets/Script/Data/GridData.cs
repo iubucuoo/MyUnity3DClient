@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class GridData:IPool
+public class GridData:IPoolable
 {
     GameObject gridobj;
     public Transform parent;
-    public Text Text;
-    public Image Image;
-    public string resName;
+    public Text Text { get; private set; }
+    Image Image;
+    string resName;
     int status;
     public int Status//临时显示的修改
     {
@@ -30,7 +30,7 @@ public class GridData:IPool
         }
     }
 
-    public virtual PoolsType PoolType { get { return PoolsType.GridData; } }
+    public virtual IPoolsType IPoolsType { get { return IPoolsType.GridData; } }
 
     public bool IsRecycled { get ; set; }
 

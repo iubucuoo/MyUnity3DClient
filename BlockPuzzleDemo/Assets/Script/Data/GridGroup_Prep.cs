@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGroup_Prep : GridGroup,IPool
+public class GridGroup_Prep : GridGroup
 {
-    public PoolsType PoolsType = PoolsType.GridGroup_Prep;
+    public IPoolsType PoolsType = IPoolsType.GridGroup_Prep;
     public GridGroup_Prep()
     {
         g_width = 60;
@@ -12,12 +12,5 @@ public class GridGroup_Prep : GridGroup,IPool
         resName = "Prefab/blockdrag";//拖动出来的格子
     }
 
-    public PoolsType PoolType { get { return PoolsType.GridGroup_Prep; } }
-
-    public bool IsRecycled { get ; set ; }
-
-    public void OnRecycled()
-    {
-        RecycleGrid();
-    }
+    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_Prep; } }
 }

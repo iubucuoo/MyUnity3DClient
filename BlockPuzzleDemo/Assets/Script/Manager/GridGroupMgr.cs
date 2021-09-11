@@ -6,12 +6,6 @@ using UnityEngine.UI;
 
 public class GridGroupMgr : MonoBehaviour
 {
-    public GameObject preproot;
-    public Image defgrid;
-    public Image mingrid;
-    public Image usegrid;
-    public Image swgrid;
-    public Image draggrid;
     public Dictionary<int, int> Postox { get; } = new Dictionary<int, int>()
     {
         [-270] = 0,
@@ -48,19 +42,12 @@ public class GridGroupMgr : MonoBehaviour
     }
     private void Start()
     {
-        preproot = ResourceMgr.Inst.LoadRes<GameObject>("Prefab/addgridbg");
-        mingrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin");
-        defgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef");
-        usegrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/block");
-        swgrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw");
-        draggrid = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag");
-        GameGloab.Sprites["usegrid"] = usegrid.sprite;
-        GameGloab.Sprites["mingrid"] = mingrid.sprite;
-        GameGloab.Sprites["defgrid"] = defgrid.sprite;
-        GameGloab.Sprites["swgrid"] = swgrid.sprite;
-        GameGloab.Sprites["draggrid"] = draggrid.sprite;
-
-        gridGroup_Ground = PoolMgr.Allocate( PoolsType.GridGroup_Ground)as GridGroup_Ground;
+        GameGloab.Sprites["usegrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/block").sprite;
+        GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
+        GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
+        GameGloab.Sprites["swgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw").sprite;
+        GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
+        gridGroup_Ground = PoolMgr.Allocate( IPoolsType.GridGroup_Ground)as GridGroup_Ground;
         Debug.Log(gridGroup_Ground.resName);
     }
 

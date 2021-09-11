@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGroup_MinPrep : GridGroup,IPool
+public class GridGroup_MinPrep : GridGroup,IPoolable
 {
     public GridGroup_MinPrep()
     {
@@ -11,12 +11,5 @@ public class GridGroup_MinPrep : GridGroup,IPool
         resName = "Prefab/blockmin";//min的格子
     }
 
-    public PoolsType PoolType { get { return PoolsType.GridGroup_MinPrep; } }
-
-    public bool IsRecycled { get; set ; }
-
-    public void OnRecycled()
-    {
-        RecycleGrid();
-    }
+    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_MinPrep; } }
 }

@@ -28,7 +28,7 @@ public class UIMenu : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Vector2 pos = new Vector2((i - 1) * 210, 0);
-            var obj = ObjectMgr.InstantiateGameObj(GridGroupMgr.Inst.preproot); //Instantiate(GridGroupMgr.Inst.preproot);
+            var obj = ObjectMgr.InstantiateGameObj(ObjectMgr.LoadResource("Prefab/addgridbg")as GameObject);
             obj.transform.parent = GameGloab.root_prep;
             obj.transform.localPosition = pos;
 #if UNITY_EDITOR
@@ -81,12 +81,11 @@ public class UIMenu : MonoBehaviour
         {
             PrepGroup[i].Reset();
             var trs = PrepGroup[i].Root;
-            var data = PoolMgr.Allocate(PoolsType.GridGroup_MinPrep)as GridGroup_MinPrep;// new GridGroup_MinPrep(datalist[UnityEngine.Random.Range(0, 4)]);
-            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PoolsType.GridDataMin);
+            var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep)as GridGroup_MinPrep;
+            data.SetData(datalist[UnityEngine.Random.Range(0, 4)]);
             data.ParentRoot = trs.localPosition;
             PrepGroup[i].SetGridData(data);
             data.CreatGrids(trs);
-            //GridTools.CreatGrids(trs, data, GridGroupMgr.Inst.mingrid);
         }
     }
 

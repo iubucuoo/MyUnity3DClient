@@ -36,11 +36,12 @@ public class ObjectMgr
 
     public static Object LoadResource(string path)
     {
-//#if _CHECK_OPTIMIZE
-//		System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-//		stopwatch.Start();
-//#endif
-        var obj = Resources.Load(path);
+        //#if _CHECK_OPTIMIZE
+        //		System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+        //		stopwatch.Start();
+        //#endif
+        var obj = ResourceMgr.Inst.LoadRes<GameObject>(path);
+        //var obj = Resources.Load(path);
 //#if _CHECK_OPTIMIZE
 //		stopwatch.Stop();
 //		if (stopwatch.ElapsedMilliseconds > 5)

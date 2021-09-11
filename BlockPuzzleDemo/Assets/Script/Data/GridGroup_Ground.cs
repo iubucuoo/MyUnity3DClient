@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGroup_Ground : GridGroup,IPool
+public class GridGroup_Ground : GridGroup,IPoolable
 {
     public GridGroup_Ground()
     {
@@ -22,15 +22,9 @@ public class GridGroup_Ground : GridGroup,IPool
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 },
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 }
         };
-        SetData(DataArray,PoolsType.GridDataDef);
+        SetData(DataArray);
     }
 
-    public PoolsType PoolType { get { return PoolsType.GridGroup_MinPrep; } }
+    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_Ground; } }
 
-    public bool IsRecycled { get ; set ; }
-
-    public void OnRecycled()
-    {
-        RecycleGrid();
-    }
 }
