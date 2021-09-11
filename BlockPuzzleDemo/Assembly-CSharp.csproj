@@ -56,7 +56,7 @@
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
     <Compile Include="Assets\Script\Data\GridGroup.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
-    <Compile Include="Assets\Script\Tools\pool\PoolMgr.cs" />
+    <Compile Include="Assets\Script\Manager\PoolMgr.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
     <Compile Include="Assets\Script\Data\GameGloab.cs" />
     <Compile Include="Assets\Script\Data\GridData.cs" />
@@ -64,9 +64,9 @@
     <Compile Include="Assets\Script\Data\GridGroup_MinPrep.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Prep.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
-    <Compile Include="Assets\Script\Tools\EventTriggerListener.cs" />
+    <Compile Include="Assets\Script\Tools\UGuiEventListener\EventTriggerListener.cs" />
     <Compile Include="Assets\Script\Data\GridDataMin.cs" />
-    <Compile Include="Assets\Script\Tools\pool\IPool.cs" />
+    <Compile Include="Assets\Script\Tools\Pool\IPool.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
     <Compile Include="Assets\Script\Manager\ObjectMgr.cs" />
@@ -77,12 +77,12 @@
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
     <Compile Include="Assets\Script\UI\PrepAddGridGroup.cs" />
-    <Compile Include="Assets\Script\Tools\M_math.cs" />
+    <Compile Include="Assets\Script\Tools\Math\M_math.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
     <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
-    <Compile Include="Assets\Script\Tools\pool\ObjPool.cs" />
+    <Compile Include="Assets\Script\Tools\Pool\ObjPool.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />

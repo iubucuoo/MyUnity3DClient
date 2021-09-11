@@ -41,16 +41,19 @@ public class PrepAddGridGroup : MonoBehaviour
         {
             //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
             //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.ClearGrid(); //如果有可以销毁的 实现销毁并添加积分
-            SetUse();//使用过了
+            SetUse();//设置当前待放入的group为使用过了
+        }
+        else
+        {
+            //使用失败 返回到指定位置
         }
 
         //待放格子区 检测是否可以放置 不能放的变灰 无法使用
     }
     public void OnPointerDown(GameObject eventData)
     {
-        if (IsUse || gridData.IsRecycled)
+        if (IsUse )
         {
-            Debug.LogError(gridData.IsRecycled);
             return;
         }
         DragingGridMgr.Inst.SetDragDown(gridData);
