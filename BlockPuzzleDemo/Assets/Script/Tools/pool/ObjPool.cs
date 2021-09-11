@@ -12,6 +12,10 @@ public abstract class Pool : IPool
 {
     public int CurCount { get { return mCacheStack.Count; } }
 
+    //public virtual IPoolsType IPoolsType { get { return IPoolsType.GridGroup; } }
+
+    //public bool IsRecycled { get; set ; }
+
     protected IObjectFactory<IPoolable> mFactory;
     protected Stack<IPoolable> mCacheStack = new Stack<IPoolable>();
     public virtual IPoolable Allocate(IPoolsType _type)
@@ -28,6 +32,9 @@ public abstract class Pool : IPool
         }
     }
     public abstract bool Recycle(IPoolable obj);
+
+    //public abstract void OnRecycled();
+    
 }
 
 public class ObjectPool : Pool
@@ -54,4 +61,8 @@ public class ObjectPool : Pool
         mCacheStack.Push(obj);
         return true;
     }
+    //public override void OnRecycled()
+    //{
+
+    //}
 }

@@ -40,8 +40,27 @@ public class GridGroupMgr : MonoBehaviour
     {
         Inst = this;
     }
+    List<int[,]> datalist;
     private void Start()
     {
+        datalist = new List<int[,]>();
+        datalist.Add(new int[,]{
+            { 1,1 },
+            { 0,1 },
+            { 0,1 },
+        });
+        datalist.Add(new int[,]{
+            { 1,1,1 },
+            { 1,0,1},
+        });
+        datalist.Add(new int[,]{
+            { 0,1 },
+            { 1,1 },
+        });
+        datalist.Add(new int[,]{
+            { 1,0 },
+            { 1,1 },
+        });
         GameGloab.Sprites["usegrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/block").sprite;
         GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
         GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
@@ -51,11 +70,52 @@ public class GridGroupMgr : MonoBehaviour
         Debug.Log(gridGroup_Ground.resName);
     }
 
+    PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];
+    public void StartAddGroupRoot()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Vector2 pos = new Vector2((i - 1) * 210, 0);
+            var obj = ObjectMgr.InstantiateGameObj(ObjectMgr.LoadResource("Prefab/addgridbg") as GameObject);
+            obj.transform.parent = GameGloab.root_prep;
+            obj.transform.localPosition = pos;
+#if UNITY_EDITOR
+            obj.name = i.ToString();
+#endif
+            PrepGroup[i] = obj.transform.GetComponent<PrepAddGridGroup>();
+            if (PrepGroup[i] == null)
+            {
+                PrepGroup[i] = obj.gameObject.AddComponent<PrepAddGridGroup>();
+            }
+            PrepGroup[i].Root = obj.transform;
+        }
+    }
+    public void RefreshPrepGridGroup()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            PrepGroup[i].Reset();
+            var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep) as GridGroup_MinPrep;
+            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root,IPoolsType.GridDataMin);
+            PrepGroup[i].SetGridData(data);
+            data.CreatGrids();
+        }
+    }
+    public bool IsOverPrep()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (!PrepGroup[i].IsUse)
+            {
+                return false;
+            }
+            
+        }
+        return true;
+    }
 
     Dictionary<int, int> husecount = new Dictionary<int, int>();
     Dictionary<int, int> wusecount = new Dictionary<int, int>();
-    
-
     bool GetCanClear(List<GridData> data)
     {
         bool isadd = false;
@@ -238,7 +298,7 @@ public class GridGroupMgr : MonoBehaviour
                 {
                     return false; //超出边界
                 }
-                if (gdata.Grid[_h, _w].IsUse)
+                if (gdata.Grid[_h, _w]!=null && gdata.Grid[_h, _w].IsUse)
                 {
                     if (alldata.Grid[all_h, all_w].IsUse)
                     {

@@ -33,7 +33,8 @@ public class PoolMgr
     }
     void RecycleV(IPoolable pool)
     {
-        if (dic.TryGetValue((int)pool.IPoolsType,out Pool v))
+        int typeint = (int)pool.IPoolsType;
+        if (dic.TryGetValue(typeint,out Pool v))
         {
             v.Recycle(pool);
         }

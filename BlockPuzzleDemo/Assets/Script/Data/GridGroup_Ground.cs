@@ -22,7 +22,7 @@ public class GridGroup_Ground : GridGroup,IPoolable
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 },
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 }
         };
-        SetData(DataArray);
+        SetData(DataArray, GameGloab.root_bg, IPoolsType.GridDataDef);
     }
 
     public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_Ground; } }

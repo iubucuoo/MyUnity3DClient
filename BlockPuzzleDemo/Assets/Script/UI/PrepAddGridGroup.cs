@@ -21,7 +21,10 @@ public class PrepAddGridGroup : MonoBehaviour
         IsUse = true;
         //所有的子类消失
         PoolMgr.Recycle(gridData);
-        
+        if (GridGroupMgr.Inst.IsOverPrep())
+        {
+            GridGroupMgr.Inst.RefreshPrepGridGroup();
+        }
     }
     
     public void SetGridData(GridGroup_MinPrep v)
@@ -42,6 +45,7 @@ public class PrepAddGridGroup : MonoBehaviour
             //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
             //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.ClearGrid(); //如果有可以销毁的 实现销毁并添加积分
             SetUse();//设置当前待放入的group为使用过了
+
         }
         else
         {

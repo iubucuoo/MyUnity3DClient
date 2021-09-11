@@ -22,72 +22,22 @@ public class UIMenu : MonoBehaviour
         btn_start.onClick.AddListener(OnBtnStart);
     }
 
-    PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];
-    void StartAddGroupRoot()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            Vector2 pos = new Vector2((i - 1) * 210, 0);
-            var obj = ObjectMgr.InstantiateGameObj(ObjectMgr.LoadResource("Prefab/addgridbg")as GameObject);
-            obj.transform.parent = GameGloab.root_prep;
-            obj.transform.localPosition = pos;
-#if UNITY_EDITOR
-            obj.name = i.ToString();
-#endif
-            PrepGroup[i] = obj.transform.GetComponent<PrepAddGridGroup>();
-            if (PrepGroup[i] == null)
-            {
-                PrepGroup[i] = obj.gameObject.AddComponent<PrepAddGridGroup>();
-            }
-            PrepGroup[i].Root = obj.transform;
-        }
-    }
-
+   
     void OnBtnStart()
     {
+        
         Debug.Log("开始游戏");
-        StartAddGroupRoot();
+        GridGroupMgr.Inst.StartAddGroupRoot();
         btn_start.gameObject.SetActive(false);
         StartBg();
-        RefreshGridGroup();
+        GridGroupMgr.Inst.RefreshPrepGridGroup();
     }
 
     void StartBg()
     {
-        GridGroupMgr.Inst.gridGroup_Ground.CreatGrids(GameGloab.root_bg);
-        //GridTools.CreatGrids(GameGloab.root_bg, GridGroupMgr.Inst.gridGroup_Ground, GridGroupMgr.Inst.defgrid);
+        GridGroupMgr.Inst.gridGroup_Ground.CreatGrids();
     }
-    void RefreshGridGroup()
-    {
-        List<int[,]> datalist = new List<int[,]>();
-        datalist.Add(new int[,]{
-            { 1,1 },
-            { 0,1 },
-        });
-        datalist.Add(new int[,]{
-            { 1,1 },
-            { 1,0 },
-        });
-        datalist.Add(new int[,]{
-            { 0,1 },
-            { 1,1 },
-        });
-        datalist.Add(new int[,]{
-            { 1,0 },
-            { 1,1 },
-        });
-        
-        for (int i = 0; i < 3; i++)
-        {
-            PrepGroup[i].Reset();
-            var trs = PrepGroup[i].Root;
-            var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep)as GridGroup_MinPrep;
-            data.SetData(datalist[UnityEngine.Random.Range(0, 4)]);
-            data.ParentRoot = trs.localPosition;
-            PrepGroup[i].SetGridData(data);
-            data.CreatGrids(trs);
-        }
-    }
+   
 
     Vector3 oldmousepos;
     // Update is called once per frame
