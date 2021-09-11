@@ -9,6 +9,8 @@ public class GridData:IPoolable
     public Text Text { get; private set; }
     Image Image;
     string resName;
+
+    public int TrueStatus;
     int status;
     public int Status//临时显示的修改
     {
@@ -25,6 +27,8 @@ public class GridData:IPoolable
                 { Image.sprite = GameGloab.Sprites["swgrid"]; }
                 else if (value == 3)
                 { Image.sprite = GameGloab.Sprites["mingrid"]; }
+                else if (value == 4)
+                { Image.sprite = GameGloab.Sprites["draggrid"]; }
             }
             status = value;
         }
@@ -39,7 +43,7 @@ public class GridData:IPoolable
     {
         if (IsUse)
         {
-            Status = 1;
+            Status = TrueStatus;
         }
         else
         {
@@ -83,6 +87,7 @@ public class GridData:IPoolable
             gridobj = ObjectMgr.InstantiateGameObj(ResourceMgr.Inst.LoadRes<Image>(res).gameObject);
             Image = gridobj.GetComponent<Image>();
 #if UNITY_EDITOR
+            gridobj.name = resName;
             Text = gridobj.transform.Find("Text").GetComponent<Text>();
 #endif
         }

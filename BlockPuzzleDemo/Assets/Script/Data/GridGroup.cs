@@ -35,14 +35,17 @@ public class GridGroup : IPoolable
         {
             for (int j = 0; j < W_count; j++)
             {
-                if (DataArray[i, j] == 1 || Isbg)
+                if (DataArray[i, j] >0 || Isbg)
                 {
                     if (Grid[i, j] == null)
                     {
                         Grid[i, j] = PoolMgr.Allocate(gridpooltype) as GridData;
                     }
-                    Grid[i, j].IsUse = DataArray[i, j] == 1;
-
+                    Grid[i, j].IsUse = DataArray[i, j] >0 ;
+                    if (IPoolsType == IPoolsType.GridGroup_Prep)
+                        Grid[i, j].TrueStatus = 4;
+                    else
+                        Grid[i, j].TrueStatus = DataArray[i, j];
                     Pos.x = (j - W_count * 0.5f + 0.5f) * g_width;
                     Pos.y = (h_1 - i - H_count * 0.5f + 0.5f) * g_height;
                     Grid[i, j].CreatObj(Root, Pos, resName);
