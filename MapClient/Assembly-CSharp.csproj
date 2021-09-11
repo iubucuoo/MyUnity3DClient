@@ -237,25 +237,25 @@
     <None Include="Assets\ThirdTools\FairyGUI\Resources\Shaders\FairyGUI-Image.shader" />
     <None Include="Assets\ThirdTools\FairyGUI\Resources\Shaders\FairyGUI-BMFont.shader" />
     <Reference Include="UnityEngine.Purchasing">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -459,10 +459,10 @@
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="CString">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Assets/Plugins/CString.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Assets/Plugins/CString.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>F:/GitHub/wangshijun12/MapClient/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>F:/GitHub/MyUnity3DClient/MapClient/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/UnityOffice/2018.4.30/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

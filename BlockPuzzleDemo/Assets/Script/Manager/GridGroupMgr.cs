@@ -79,7 +79,7 @@ public class GridGroupMgr : MonoBehaviour
         {
             Vector2 pos = new Vector2((i - 1) * 210, 0);
             var obj = ObjectMgr.InstantiateGameObj(ObjectMgr.LoadResource("Prefab/addgridbg") as GameObject);
-            obj.transform.parent = GameGloab.root_prep;
+            obj.transform.SetParent(GameGloab.root_prep);
             obj.transform.localPosition = pos;
 #if UNITY_EDITOR
             obj.name = i.ToString();

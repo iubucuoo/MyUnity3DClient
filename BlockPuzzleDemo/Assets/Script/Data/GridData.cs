@@ -92,7 +92,7 @@ public class GridData:IPoolable
 #endif
         }
         gridobj.SetActive(true);
-        gridobj.transform.parent = _parent;
+        gridobj.transform.SetParent(_parent);
         gridobj.transform.localPosition = _Pos;
         Revert();
     }
