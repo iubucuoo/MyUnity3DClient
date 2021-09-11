@@ -69,7 +69,7 @@ public class GridGroupMgr : MonoBehaviour
         GameGloab.Sprites["swgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw").sprite;
         GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
         gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
-        Debug.Log(gridGroup_Ground.resName);
+        //Debug.Log(gridGroup_Ground.resName);
     }
 
     PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];

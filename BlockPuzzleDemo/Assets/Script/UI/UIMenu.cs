@@ -25,7 +25,6 @@ public class UIMenu : MonoBehaviour
    
     void OnBtnStart()
     {
-        
         Debug.Log("开始游戏");
         GridGroupMgr.Inst.StartAddGroupRoot();
         btn_start.gameObject.SetActive(false);
