@@ -56,20 +56,21 @@
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
     <Compile Include="Assets\Script\Data\GridGroup.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
-    <Compile Include="Assets\Script\Manager\PoolMgr.cs" />
+    <Compile Include="Assets\Script\Tools\Mgr\PoolMgr.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
+    <Compile Include="Assets\Script\Tools\Pool\ObjPool.cs" />
     <Compile Include="Assets\Script\Data\GameGloab.cs" />
     <Compile Include="Assets\Script\Data\GridData.cs" />
     <Compile Include="Assets\Script\MainC.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_MinPrep.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Prep.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
-    <Compile Include="Assets\Script\Tools\UGuiEventListener\EventTriggerListener.cs" />
+    <Compile Include="Assets\Script\Tools\UGUIEventListener\EventTriggerListener.cs" />
     <Compile Include="Assets\Script\Data\GridDataMin.cs" />
     <Compile Include="Assets\Script\Tools\Pool\IPool.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
-    <Compile Include="Assets\Script\Manager\ObjectMgr.cs" />
+    <Compile Include="Assets\Script\Tools\Mgr\ObjectMgr.cs" />
     <Compile Include="Assets\Script\Manager\ResourceMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
     <Compile Include="Assets\Script\Data\GridDataDef.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
     <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
-    <Compile Include="Assets\Script\Tools\Pool\ObjPool.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />

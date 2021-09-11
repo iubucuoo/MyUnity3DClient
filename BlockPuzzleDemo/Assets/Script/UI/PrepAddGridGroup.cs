@@ -9,7 +9,7 @@ public class PrepAddGridGroup : MonoBehaviour
     public Transform Root;
     public bool IsUse;
     [SerializeField]
-    GridGroup_MinPrep gridData;
+    GridGroup_MinPrep minPrepGroup;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +19,21 @@ public class PrepAddGridGroup : MonoBehaviour
      public void SetUse()
     {
         IsUse = true;
-        //所有的子类消失
-        PoolMgr.Recycle(gridData);
+        PoolMgr.Recycle(minPrepGroup);//回收
+
+        //待放格子区 检测是否可以放置 不能放的变灰 无法使用
+        //如果不能放 执行相应的操作
+
+        //判断是否需要刷新
         if (GridGroupMgr.Inst.IsOverPrep())
         {
             GridGroupMgr.Inst.RefreshPrepGridGroup();
         }
     }
-    
+
     public void SetGridData(GridGroup_MinPrep v)
     {
-        gridData = v;
+        minPrepGroup = v;
     }
     public void OnPointerUp(GameObject eventData)
     {
@@ -39,20 +43,15 @@ public class PrepAddGridGroup : MonoBehaviour
         }
         DragingGridMgr.Inst.SetDragUp(this);
         Debug.Log("OnPointerUp   " + transform.name);
-
         if (GridGroupMgr.Inst.RefreshMainGrid())//如果当前可以放置 刷新主面板显示
         {
-            //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.RevertswGrid();//还原预览的格子
-            //////////////////////////////////////刷新主面板显示时候执行该操作 GridGroupMgr.Inst.ClearGrid(); //如果有可以销毁的 实现销毁并添加积分
             SetUse();//设置当前待放入的group为使用过了
-
         }
         else
         {
-            //使用失败 返回到指定位置
+            //使用失败 跑一个回到原始位置的动画
         }
 
-        //待放格子区 检测是否可以放置 不能放的变灰 无法使用
     }
     public void OnPointerDown(GameObject eventData)
     {
@@ -60,7 +59,7 @@ public class PrepAddGridGroup : MonoBehaviour
         {
             return;
         }
-        DragingGridMgr.Inst.SetDragDown(gridData);
+        DragingGridMgr.Inst.SetDragDown(minPrepGroup);
         Debug.Log("OnPointerDown   " + transform.name);
     }
     public void Reset()

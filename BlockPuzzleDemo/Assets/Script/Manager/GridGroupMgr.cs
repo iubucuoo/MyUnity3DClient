@@ -43,30 +43,32 @@ public class GridGroupMgr : MonoBehaviour
     List<int[,]> datalist;
     private void Start()
     {
-        datalist = new List<int[,]>();
-        datalist.Add(new int[,]{
-            { 1,1 },
-            { 0,1 },
-            { 0,1 },
-        });
-        datalist.Add(new int[,]{
-            { 1,1,1 },
-            { 1,0,1},
-        });
-        datalist.Add(new int[,]{
-            { 0,1 },
-            { 1,1 },
-        });
-        datalist.Add(new int[,]{
-            { 1,0 },
-            { 1,1 },
-        });
+        datalist = new List<int[,]>
+        {
+            new int[,]{
+                { 1,1 },
+                { 0,1 },
+                { 0,1 },
+            },
+            new int[,]{
+                { 1,1,1},
+                { 1,0,1},
+            },
+            new int[,]{
+                { 0,1 },
+                { 1,1 },
+            },
+            new int[,]{
+                { 1,0 },
+                { 1,1 },
+            }
+        };
         GameGloab.Sprites["usegrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/block").sprite;
         GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
         GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
         GameGloab.Sprites["swgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw").sprite;
         GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
-        gridGroup_Ground = PoolMgr.Allocate( IPoolsType.GridGroup_Ground)as GridGroup_Ground;
+        gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         Debug.Log(gridGroup_Ground.resName);
     }
 
@@ -96,7 +98,7 @@ public class GridGroupMgr : MonoBehaviour
         {
             PrepGroup[i].Reset();
             var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep) as GridGroup_MinPrep;
-            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root,IPoolsType.GridDataMin);
+            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root, IPoolsType.GridDataMin);
             PrepGroup[i].SetGridData(data);
             data.CreatGrids();
         }
@@ -109,7 +111,6 @@ public class GridGroupMgr : MonoBehaviour
             {
                 return false;
             }
-            
         }
         return true;
     }
@@ -175,7 +176,7 @@ public class GridGroupMgr : MonoBehaviour
         {
             v.IsUse = true;
             v.Revert();
-            if (! isuse)
+            if (!isuse)
             {
                 isuse = true;
             }
@@ -298,7 +299,7 @@ public class GridGroupMgr : MonoBehaviour
                 {
                     return false; //超出边界
                 }
-                if (gdata.Grid[_h, _w]!=null && gdata.Grid[_h, _w].IsUse)
+                if (gdata.Grid[_h, _w] != null && gdata.Grid[_h, _w].IsUse)
                 {
                     if (alldata.Grid[all_h, all_w].IsUse)
                     {

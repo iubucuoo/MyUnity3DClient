@@ -32,14 +32,16 @@ public class DragingGridMgr
 
     public void SetDragDown(GridGroup v)
     {
-        IsDrag = true;
         prepData = PoolMgr.Allocate(IPoolsType.GridGroup_Prep)as GridGroup_Prep;
         prepData.SetData(v.DataArray, DragRoot, IPoolsType.GridDataDef);
         AddDragGroup(prepData);
+        //生成组 跑一个动画  然后跟随手拖动位置
+        IsDrag = true;
     }
 
     public void SetDragUp(PrepAddGridGroup v)
     {
+        //放手
         DragRoot.localPosition = GameGloab.OutScreenV2;
         PoolMgr.Recycle(prepData);
         IsDrag = false;
