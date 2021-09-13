@@ -15,7 +15,7 @@ public enum IPoolsType
 }
 public interface IPoolable
 {
-    IPoolsType IPoolsType { get; }
+    IPoolsType GroupType { get; }
     void OnRecycled();//重置
     bool IsRecycled { get; set; }
 

@@ -6,10 +6,11 @@ public class GridGroup_MinPrep : GridGroup,IPoolable
 {
     public GridGroup_MinPrep()
     {
-        g_width = 30;
-        g_height = 30;
-        resName = "Prefab/blockmin";//min的格子
+        G_width = 30;
+        G_height = 30;
+        ResName = "Prefab/blockmin";//min的格子
     }
 
-    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_MinPrep; } }
+    public override IPoolsType GroupType { get { return IPoolsType.GridGroup_MinPrep; } }
+    public override IPoolsType GridType =>  IPoolsType.GridDataMin;
 }

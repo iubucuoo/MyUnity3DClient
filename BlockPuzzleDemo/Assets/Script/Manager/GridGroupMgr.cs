@@ -46,20 +46,20 @@ public class GridGroupMgr : MonoBehaviour
         datalist = new List<int[,]>
         {
             new int[,]{
-                { 1,1 },
+                { 1,4 },
                 { 1,1 },
             },
             new int[,]{
                 { 1,1},
-                { 1,1},
+                { 4,1},
+            },
+            new int[,]{
+                { 4,1 },
+                { 1,1 },
             },
             new int[,]{
                 { 1,1 },
-                { 1,1 },
-            },
-            new int[,]{
-                { 1,1 },
-                { 1,1 },
+                { 1,4 },
             },
             //new int[,]{
             //    { 1,1 },
@@ -79,15 +79,11 @@ public class GridGroupMgr : MonoBehaviour
             //    { 1,1 },
             //}
         };
-        //GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
-        //GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
-        //GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
-        gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
-        //Debug.Log(gridGroup_Ground.resName);
     }
     public void GameStart()
     {
         StartAddGroupRoot();
+        gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         gridGroup_Ground.CreatGrids();
         RefreshPrepGridGroup();
     }
@@ -117,7 +113,7 @@ public class GridGroupMgr : MonoBehaviour
         {
             PrepGroup[i].Reset();
             var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep) as GridGroup_MinPrep;
-            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root, IPoolsType.GridDataMin);
+            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root);
             PrepGroup[i].SetGridData(data);
             data.CreatGrids();
         }
@@ -207,7 +203,7 @@ public class GridGroupMgr : MonoBehaviour
             v.IsUse = false;
             v.TrueStatus = 0;
             v.Revert();
-            EffectPool.Instance.PlayBubbleExplode(3, v.position);//播放销毁动画
+            EffectPool.Instance.PlayBubbleExplode(3, v.Position);//播放销毁动画
             //Debug.LogError("播放销毁动画");
         }
         swClearGridList.Clear();

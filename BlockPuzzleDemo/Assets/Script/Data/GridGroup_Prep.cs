@@ -7,10 +7,11 @@ public class GridGroup_Prep : GridGroup
     public IPoolsType PoolsType = IPoolsType.GridGroup_Prep;
     public GridGroup_Prep()
     {
-        g_width = 60;
-        g_height = 60;
-        resName = "Prefab/blockdrag";//拖动出来的格子
+        G_width = 60;
+        G_height = 60;
+        ResName = "Prefab/blockdrag";//拖动出来的格子
     }
 
-    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_Prep; } }
+    public override IPoolsType GroupType { get { return IPoolsType.GridGroup_Prep; } }
+    public override IPoolsType GridType =>  IPoolsType.GridDataPrep;
 }

@@ -6,10 +6,9 @@ public class GridGroup_Ground : GridGroup,IPoolable
 {
     public GridGroup_Ground()
     {
-        g_width = 60;
-        g_height = 60;
-        resName = "Prefab/blockdef";//默认的背景格子
-        Isbg = true;
+        G_width = 60;
+        G_height = 60;
+        ResName = "Prefab/blockdef";//默认的背景格子
         DataArray = new int[,]{
             { 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0 , 0, 0, 0, 0, 0 },
@@ -22,9 +21,9 @@ public class GridGroup_Ground : GridGroup,IPoolable
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 },
             { 1, 1, 0, 0, 0 , 0, 0, 0, 0, 0 }
         };
-        SetData(DataArray, GameGloab.root_bg, IPoolsType.GridDataDef);
+        SetData(DataArray, GameGloab.root_bg);
     }
 
-    public override IPoolsType IPoolsType { get { return IPoolsType.GridGroup_Ground; } }
-
+    public override IPoolsType GroupType { get { return IPoolsType.GridGroup_Ground; } }
+    public override IPoolsType GridType =>  IPoolsType.GridDataDef;
 }

@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GridData : IPoolable
 {
-    GameObject gridobj;
-    public Transform parent;
+    public virtual IPoolsType GroupType { get { return IPoolsType.GridData; } }
+    public bool IsRecycled { get; set; }
+    public bool IsUse;//判断是否存放了格子
+    public Transform Parent;
     public Text Text { get; private set; }
+    GameObject GridObj;
     Image DefImage;
-    Image desImage;//将要删除的展示图;
-    Image prepImage;//将要放置的展示图;
+    Image DesImage;//将要删除的展示图;
+    Image PrepImage;//将要放置的展示图;
     string resName;
 
     int _turestaus;
     public int TrueStatus { get { return _turestaus; } set { _turestaus = value; _TempStatus = _turestaus; } }//配置里的值，主面板的可修改
     public int _TempStatus;//临时存放的truestatus，如可以放置或着可销毁的时候临时用的
 
-    public Vector3 position { get { return gridobj ? gridobj.transform.position : Vector3.zero; } }
+    public Vector3 Position { get { return GridObj ? GridObj.transform.position : (Vector3)GameGloab.OutScreenV2; } }
 
     void SetSprites()
     {
@@ -31,18 +34,15 @@ public class GridData : IPoolable
         else if (TrueStatus == 4)
         { DefImage.sprite = GameGloab.Sprites["ColorBubble"]; }
     }
-    public virtual IPoolsType IPoolsType { get { return IPoolsType.GridData; } }
 
-    public bool IsRecycled { get; set; }
 
-    public bool IsUse;//判断是否存放了格子
     public void Revert()
     {
         TrueStatus = _TempStatus;
-        if (IPoolsType == IPoolsType.GridDataDef)
+        if (GroupType == IPoolsType.GridDataDef)
         {
-            desImage.gameObject.SetActive(false);
-            prepImage.gameObject.SetActive(false);
+            DesImage.gameObject.SetActive(false);
+            PrepImage.gameObject.SetActive(false);
         }
         SetSprites();
     }
@@ -51,10 +51,10 @@ public class GridData : IPoolable
     /// </summary>
     public void swClear()
     {
-        if (IPoolsType == IPoolsType.GridDataDef)
+        if (GroupType == IPoolsType.GridDataDef)
         {
-            desImage.gameObject.SetActive(true);
-            prepImage.gameObject.SetActive(false);
+            DesImage.gameObject.SetActive(true);
+            PrepImage.gameObject.SetActive(false);
         }
     }
     /// <summary>
@@ -62,8 +62,8 @@ public class GridData : IPoolable
     /// </summary>
     public void swClearRevert()
     {
-        if (IPoolsType == IPoolsType.GridDataDef)
-            desImage.gameObject.SetActive(false);
+        if (GroupType == IPoolsType.GridDataDef)
+            DesImage.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -71,49 +71,49 @@ public class GridData : IPoolable
     /// </summary>
     public void swPrep()
     {
-        if (IPoolsType == IPoolsType.GridDataDef)
-            prepImage.gameObject.SetActive(true);
+        if (GroupType == IPoolsType.GridDataDef)
+            PrepImage.gameObject.SetActive(true);
     }
     /// <summary>
     /// 还原将要放入的展示
     /// </summary>
     public void swPrepRevert()
     {
-        if (IPoolsType == IPoolsType.GridDataDef)
-            prepImage.gameObject.SetActive(false);
+        if (GroupType == IPoolsType.GridDataDef)
+            PrepImage.gameObject.SetActive(false);
         _TempStatus = TrueStatus;
     }
     public void CreatObj(Transform _parent, Vector2 _Pos, string res)
     {
         resName = res;
-        if (gridobj == null)
+        if (GridObj == null)
         {
-            gridobj = ObjectMgr.InstantiateGameObj(ResourceMgr.Inst.LoadRes<GameObject>(res));
-            DefImage = gridobj.transform.Find("def").GetComponent<Image>();
-            if (IPoolsType == IPoolsType.GridDataDef)
+            GridObj = ObjectMgr.InstantiateGameObj(ResourceMgr.Inst.LoadRes<GameObject>(res));
+            DefImage = GridObj.transform.Find("def").GetComponent<Image>();
+            if (GroupType == IPoolsType.GridDataDef)
             {
-                desImage = gridobj.transform.Find("des").GetComponent<Image>();
-                prepImage = gridobj.transform.Find("prep").GetComponent<Image>();
+                DesImage = GridObj.transform.Find("des").GetComponent<Image>();
+                PrepImage = GridObj.transform.Find("prep").GetComponent<Image>();
             }
-            if (IPoolsType == IPoolsType.GridDataPrep)
+            if (GroupType == IPoolsType.GridDataPrep)
             {
                 DefImage.rectTransform.sizeDelta *= 0.8f;
             }
 #if UNITY_EDITOR
-            gridobj.name = resName;
+            GridObj.name = resName;
             //Text = gridobj.transform.Find("Text").GetComponent<Text>();
 #endif
         }
-        gridobj.SetActive(true);
-        gridobj.transform.SetParent(_parent);
-        gridobj.transform.localPosition = _Pos;
+        GridObj.SetActive(true);
+        GridObj.transform.SetParent(_parent);
+        GridObj.transform.localPosition = _Pos;
         Revert();
     }
     public virtual void OnRecycled()
     {
-        if (gridobj)
+        if (GridObj)
         {
-            gridobj.SetActive(false);
+            GridObj.SetActive(false);
         }
     }
 }

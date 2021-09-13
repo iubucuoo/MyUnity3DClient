@@ -33,7 +33,7 @@ public class DragingGridMgr
     public void SetDragDown(GridGroup v)
     {
         prepData = PoolMgr.Allocate(IPoolsType.GridGroup_Prep)as GridGroup_Prep;
-        prepData.SetData(v.DataArray, DragRoot, IPoolsType.GridDataPrep);
+        prepData.SetData(v.DataArray, DragRoot);
         AddDragGroup(prepData);
         //生成组 跑一个动画  然后跟随手拖动位置
         IsDrag = true;
