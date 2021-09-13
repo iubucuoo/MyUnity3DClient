@@ -11,6 +11,7 @@ public enum IPoolsType
     GridData,
     GridDataMin,
     GridDataDef,
+    GridDataPrep,
 }
 public interface IPoolable
 {

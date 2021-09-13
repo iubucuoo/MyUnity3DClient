@@ -56,8 +56,13 @@
     <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioLogView.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioController_Editor.cs" />
     <Compile Include="Assets\AudioToolkit\AudioToolkit\Editor\AudioItemOverview.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\Common\PGEditorUtils.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\PoolManager\PreRuntimePoolItemInspector.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\PoolManager\SpawnPoolInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\DOTween\DOTween\Editor\DOTweenEditor.dll" />
+     <None Include="Assets\DOTween\DOTween\Editor\DOTweenEditor.XML" />
     <Reference Include="UnityEngine">
       <HintPath>D:\UnityOffice\2020.1.0f1\Unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -261,6 +266,12 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\15.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\DOTween\DOTween\Editor\DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -645,6 +656,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{276B1FF6-E4E2-EE91-056C-64678D492E41}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{0B02B07A-1FC7-E574-F84A-2F32922DC0EA}</Project>
       <Name>Assembly-CSharp</Name>

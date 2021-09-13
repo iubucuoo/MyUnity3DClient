@@ -26,17 +26,9 @@ public class UIMenu : MonoBehaviour
     void OnBtnStart()
     {
         Debug.Log("开始游戏");
-        GridGroupMgr.Inst.StartAddGroupRoot();
         btn_start.gameObject.SetActive(false);
-        StartBg();
-        GridGroupMgr.Inst.RefreshPrepGridGroup();
+        GridGroupMgr.Inst.GameStart();
     }
-
-    void StartBg()
-    {
-        GridGroupMgr.Inst.gridGroup_Ground.CreatGrids();
-    }
-   
 
     Vector3 oldmousepos;
     // Update is called once per frame

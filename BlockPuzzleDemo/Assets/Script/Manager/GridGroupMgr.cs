@@ -47,33 +47,52 @@ public class GridGroupMgr : MonoBehaviour
         {
             new int[,]{
                 { 1,1 },
-                { 0,1 },
-                { 0,1 },
-            },
-            new int[,]{
-                { 1,1,1},
-                { 1,0,1},
-            },
-            new int[,]{
-                { 0,1 },
                 { 1,1 },
             },
             new int[,]{
-                { 1,0 },
+                { 1,1},
+                { 1,1},
+            },
+            new int[,]{
                 { 1,1 },
-            }
+                { 1,1 },
+            },
+            new int[,]{
+                { 1,1 },
+                { 1,1 },
+            },
+            //new int[,]{
+            //    { 1,1 },
+            //    { 0,1 },
+            //    { 0,1 },
+            //},
+            //new int[,]{
+            //    { 1,1,1},
+            //    { 1,0,1},
+            //},
+            //new int[,]{
+            //    { 0,1 },
+            //    { 1,1 },
+            //},
+            //new int[,]{
+            //    { 1,0 },
+            //    { 1,1 },
+            //}
         };
-        GameGloab.Sprites["usegrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/block").sprite;
-        GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
-        GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
-        GameGloab.Sprites["swgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blocksw").sprite;
-        GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
+        //GameGloab.Sprites["mingrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockmin").sprite;
+        //GameGloab.Sprites["defgrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdef").sprite;
+        //GameGloab.Sprites["draggrid"] = ResourceMgr.Inst.LoadRes<Image>("Prefab/blockdrag").sprite;
         gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         //Debug.Log(gridGroup_Ground.resName);
     }
-
+    public void GameStart()
+    {
+        StartAddGroupRoot();
+        gridGroup_Ground.CreatGrids();
+        RefreshPrepGridGroup();
+    }
     PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];
-    public void StartAddGroupRoot()
+    void StartAddGroupRoot()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -129,11 +148,11 @@ public class GridGroupMgr : MonoBehaviour
             wusecount[i] = 0;
             for (int j = 0; j < alldata.W_count; j++)
             {
-                if (alldata.Grid[i, j].Status != 0)
+                if (alldata.Grid[i, j]._TempStatus > 0)
                 {
                     husecount[i] += 1;
                 }
-                if (alldata.Grid[j, i].Status != 0)
+                if (alldata.Grid[j, i]._TempStatus > 0)
                 {
                     wusecount[i] += 1;
                 }
@@ -186,8 +205,10 @@ public class GridGroupMgr : MonoBehaviour
         foreach (var v in swClearGridList)
         {
             v.IsUse = false;
+            v.TrueStatus = 0;
             v.Revert();
-            //播放销毁动画
+            EffectPool.Instance.PlayBubbleExplode(3, v.position);//播放销毁动画
+            //Debug.LogError("播放销毁动画");
         }
         swClearGridList.Clear();
 
@@ -307,6 +328,7 @@ public class GridGroupMgr : MonoBehaviour
                     }
                     else if (isadd)
                     {
+                        alldata.Grid[all_h, all_w]._TempStatus = gdata.Grid[_h, _w].TrueStatus;
                         swPrepGridList.Add(alldata.Grid[all_h, all_w]);
                     }
                 }

@@ -42,18 +42,15 @@ public class GridGroup : IPoolable
                         Grid[i, j] = PoolMgr.Allocate(gridpooltype) as GridData;
                     }
                     Grid[i, j].IsUse = DataArray[i, j] >0 ;
-                    if (IPoolsType == IPoolsType.GridGroup_Prep)
-                        Grid[i, j].TrueStatus = 4;
-                    else
-                        Grid[i, j].TrueStatus = DataArray[i, j];
+                    Grid[i, j].TrueStatus = DataArray[i, j];
                     Pos.x = (j - W_count * 0.5f + 0.5f) * g_width;
                     Pos.y = (h_1 - i - H_count * 0.5f + 0.5f) * g_height;
                     Grid[i, j].CreatObj(Root, Pos, resName);
 #if UNITY_EDITOR
-                    if (Grid[i, j].IsUse)
-                        Grid[i, j].Text.text = i + ":" + j;
-                    else
-                        Grid[i, j].Text.text = "";
+                    //if (Grid[i, j].IsUse)
+                    //    Grid[i, j].Text.text = i + ":" + j;
+                    //else
+                    //    Grid[i, j].Text.text = "";
 #endif
                 }
             }

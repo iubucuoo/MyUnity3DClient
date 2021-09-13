@@ -11,10 +11,15 @@ public class MainC : MonoBehaviour
         GameGloab.root_prep = canver.transform.Find("ADDROOT");
         DragingGridMgr.Inst.DragRoot = canver.transform.Find("DragRoot");
     }
+    public List<Sprite> sprites = new List<Sprite>();
     // Start is called before the first frame update
     void Start()
     {
         gameObject.AddComponent<GridGroupMgr>();
+        foreach (var v in sprites)
+        {
+            GameGloab.Sprites[v.name] = v;
+        }
     }
 
     // Update is called once per frame
