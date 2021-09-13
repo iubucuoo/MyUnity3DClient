@@ -203,7 +203,7 @@ public class GridGroupMgr : MonoBehaviour
             v.IsUse = false;
             v.TrueStatus = 0;
             v.Revert();
-            EffectPool.Instance.PlayBubbleExplode(3, v.Position);//播放销毁动画
+            EffectPool.Inst.PlayBubbleExplode(3, v.Position);//播放销毁动画
             //Debug.LogError("播放销毁动画");
         }
         swClearGridList.Clear();

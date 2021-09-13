@@ -6,21 +6,18 @@ using DG.Tweening;
 /// 特效池
 /// </summary>
 public class EffectPool : MonoBehaviour {
-
-	public static EffectPool Instance = null;
-
+	public static EffectPool Inst ;
 	SpawnPool pool;
 
 	void Awake()
 	{
-		Instance = this;
+		Inst = this;
 	}
 	// Use this for initialization
 	void Start () {
 		pool = PoolManager.Pools["EffectPool"];
 	}
 
-    public Transform UIParent;
 	/// <summary>
 	/// Play the specified name and position.
 	/// </summary>
@@ -32,13 +29,10 @@ public class EffectPool : MonoBehaviour {
 		if (particleTran == null) {
 			return;
 		}
-
 		ParticleSystem particle = particleTran.GetComponent<ParticleSystem> ();
 		if (particle == null) {
 			return;
 		}
-        particleTran.SetParent(UIParent);
-        particle.GetComponent<Renderer>().sortingOrder = 1;
         particleTran.position = position;
 		particle.Play ();
 		StartCoroutine (Recycle(particle));
@@ -46,10 +40,8 @@ public class EffectPool : MonoBehaviour {
 
 	IEnumerator Recycle(ParticleSystem particle)
 	{
-        float time = particle.main.duration;// particle.duration;
+        float time = particle.main.duration;
 		yield return new WaitForSeconds(time +0.1f);
-        particle.transform.parent = transform;
-
         pool.Despawn (particle.transform);
 	}
 
@@ -69,30 +61,22 @@ public class EffectPool : MonoBehaviour {
 		} else {
 			effectName = "BubbleExplodeGreen";
 		}
-
 		Play (effectName,pos);
-
 	}
 
 	public void PlayFlowEffect(Vector3 pos)
 	{
 		StartCoroutine (IEPlayFlowEffect(pos));
 	}
-	IEnumerator IEPlayFlowEffect(Vector3 pos)
+    WaitForSeconds Secounds = new WaitForSeconds(1f);
+    IEnumerator IEPlayFlowEffect(Vector3 pos)
 	{
 		Transform particleTran = pool.Spawn ("FlowEffect");
-
 		ParticleSystem particle = particleTran.GetComponent<ParticleSystem> ();
-
-		
 		particleTran.position = pos;
 		particle.Play ();
-
 		particleTran.DOMove (new Vector3 (-200, 360, 0f), 0.7f);
-
-		yield return  new WaitForSeconds (1f);
-
+		yield return Secounds;
 		pool.Despawn (particleTran);
-
 	}
 }
