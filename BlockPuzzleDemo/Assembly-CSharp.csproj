@@ -52,54 +52,54 @@
     <UnityVersion>2020.1.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioController.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioController.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\RegisteredComponent.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Script\Data\GridGroup.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\SystemTime.cs" />
     <Compile Include="Assets\Script\Tools\Mgr\PoolMgr.cs" />
-    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioFader.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioFader.cs" />
     <Compile Include="Assets\Script\Tools\Pool\ObjPool.cs" />
-    <Compile Include="Assets\Script\Data\GameGloab.cs" />
+    <Compile Include="Assets\Script\GameGloab.cs" />
     <Compile Include="Assets\Script\Data\GridData.cs" />
     <Compile Include="Assets\Script\MainC.cs" />
+    <Compile Include="Assets\Script\EffectPool.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_MinPrep.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Prep.cs" />
-    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioObject.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioObject.cs" />
     <Compile Include="Assets\Script\Tools\UGUIEventListener\EventTriggerListener.cs" />
     <Compile Include="Assets\Script\Data\GridDataMin.cs" />
     <Compile Include="Assets\Script\Tools\Pool\IPool.cs" />
+    <Compile Include="Assets\Script\Test\UIDepth.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
     <Compile Include="Assets\Script\Manager\GridGroupMgr.cs" />
     <Compile Include="Assets\Script\Tools\Mgr\ObjectMgr.cs" />
-    <Compile Include="Assets\Script\Manager\ResourceMgr.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
-    <Compile Include="Assets\Script\Data\GridDataDef.cs" />
-    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioItem.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
-    <Compile Include="Assets\Script\UI\PrepAddGridGroup.cs" />
-    <Compile Include="Assets\Script\Tools\Math\M_math.cs" />
-    <Compile Include="Assets\AudioToolkit\AudioToolkit\AudioLog.cs" />
-    <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
-    <Compile Include="Assets\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
-    <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
-    <Compile Include="Assets\Script\EffectPool.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\DOTween\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Script\UI\UIDepth.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Script\Data\GridDataPrep.cs" />
+    <Compile Include="Assets\Script\Manager\ResourceMgr.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
+    <Compile Include="Assets\Script\Data\GridDataDef.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioItem.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\ArrayHelper.cs" />
+    <Compile Include="Assets\Script\UI\PrepAddGridGroup.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Script\Tools\Math\M_math.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioLog.cs" />
+    <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
+    <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />
-     <None Include="Assets\DOTween\DOTween\readme.txt" />
-     <None Include="Assets\DOTween\DOTween\DOTween.dll" />
-     <None Include="Assets\DOTween\DOTween\DOTween.XML" />
+     <None Include="Assets\ThirdTools\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />
+     <None Include="Assets\ThirdTools\DOTween\DOTween\readme.txt" />
+     <None Include="Assets\ThirdTools\DOTween\DOTween\DOTween.dll" />
+     <None Include="Assets\ThirdTools\DOTween\DOTween\DOTween.XML" />
     <Reference Include="UnityEngine">
       <HintPath>D:\UnityOffice\2020.1.0f1\Unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -281,7 +281,7 @@
       <HintPath>D:\UnityOffice\2020.1.0f1\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween\DOTween.dll</HintPath>
+      <HintPath>Assets\ThirdTools\DOTween\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>D:\UnityOffice\2020.1.0f1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
