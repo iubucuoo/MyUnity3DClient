@@ -8,13 +8,12 @@ public class PrepAddGridGroup : MonoBehaviour
 {
     public Transform Root;
     public bool IsUse;
-    bool canuse;
+    bool canuse=true;
     public bool IsCanUse { get { return canuse; } set {
             if (canuse!=value)
             {
                 Debug.Log("cant use   " + transform.name);
-                minPrepGroup.SetCanUseStatus(value);
-                //设置表现
+                minPrepGroup.SetCanUseStatus(value);//设置表现
             }
             canuse = value;
         } }
@@ -29,20 +28,16 @@ public class PrepAddGridGroup : MonoBehaviour
      void UsePrepGridGroup()
     {
         IsUse = true;
-        PoolMgr.Recycle(minPrepGroup);//回收
+        Recycle();
         //三个格子都用完了，刷新三个待放入的格子
         if (GridGroupMgr.Inst.IsCantUseAllPrep())
         {
             GridGroupMgr.Inst.RefreshPrepGridGroup();
         }
-        else
-        { 
-            //待放格子区 检测是否可以放置 不能放的变灰 无法使用
-            //如果不能放 执行相应的操作(比如游戏结束)
-            if (!GridGroupMgr.Inst.IsCanPrepNext())
-            {
-                Debug.LogError("游戏结束");
-            }
+        //就算三个用完重新刷新 也需要判断能不能放置
+        if (!GridGroupMgr.Inst.IsCanPrepNext())
+        {
+            Debug.LogError("游戏结束");
         }
     }
 
@@ -59,7 +54,7 @@ public class PrepAddGridGroup : MonoBehaviour
     }
     public void OnPointerUp(GameObject eventData)
     {
-        if (IsUse)
+        if (IsUse || !IsCanUse)
         {
             return;
         }
@@ -76,7 +71,7 @@ public class PrepAddGridGroup : MonoBehaviour
     }
     public void OnPointerDown(GameObject eventData)
     {
-        if (IsUse )
+        if (IsUse || !IsCanUse)
         {
             return;
         }
@@ -84,12 +79,18 @@ public class PrepAddGridGroup : MonoBehaviour
         DragingGridMgr.Inst.SetDragDown(minPrepGroup);
         SetChildActive(false);
     }
-    public void Reset()
+    void Recycle()
     {
-        IsUse = false;
-        if (minPrepGroup!=null)
+        if (minPrepGroup != null && !minPrepGroup.IsRecycled)
         {
             PoolMgr.Recycle(minPrepGroup);
+            minPrepGroup = null;
         }
+    }
+    public void Reset()
+    {
+        Recycle();
+        IsUse = false;
+        canuse = true;
     }
 }

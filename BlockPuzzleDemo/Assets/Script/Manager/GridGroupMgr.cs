@@ -71,25 +71,20 @@ public class GridGroupMgr : MonoBehaviour
     {
         datalist = new List<int[,]>
         {
-            //new int[,]{
-            //    { 1,4 },
-            //    { 1,1 },
-            //},
-            //new int[,]{
-            //    { 1,1},
-            //    { 4,1},
-            //},
-            //new int[,]{
-            //    { 4,1 },
-            //    { 1,1 },
-            //},
-            //new int[,]{
-            //    { 1,1 },
-            //    { 1,4 },
-            //},
+            new int[,]{
+                { 1 },
+            },
+            new int[,]{
+                { 1,1},
+            },
+            new int[,]{
+                { 1,1,1 },
+            },
+            new int[,]{
+                { 1,1 ,1,1},
+            },
             new int[,]{
                 { 1,1 },
-                { 0,1 },
                 { 0,1 },
             },
             new int[,]{
@@ -97,11 +92,12 @@ public class GridGroupMgr : MonoBehaviour
                 { 1,0,1},
             },
             new int[,]{
-                { 1,0,1 },
-                { 1,1,1 },
+                { 1,0,1,1 },
+                { 1,1,1,1 },
             },
             new int[,]{
-                { 1,1,0 },
+                { 1,1,1 },
+                { 1,1,1 },
                 { 1,1,1 },
             }
         };
@@ -143,8 +139,8 @@ public class GridGroupMgr : MonoBehaviour
         {
             PrepGroup[i].Reset();
             var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep) as GridGroup_MinPrep;
-            data.SetData(datalist[UnityEngine.Random.Range(0, 4)], PrepGroup[i].Root);
             PrepGroup[i].SetGridData(data);
+            data.SetData(datalist[UnityEngine.Random.Range(0, datalist.Count-1)], PrepGroup[i].Root);
             data.CreatGrids();
         }
     }
