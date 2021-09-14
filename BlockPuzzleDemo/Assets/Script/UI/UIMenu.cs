@@ -10,6 +10,7 @@ public class UIMenu : MonoBehaviour
     RectTransform rectTr_canvas;
     RectTransform rectTr_bg;
     public Button btn_start;
+    public Button btn_reset;
   
     Vector2 DragUp = new Vector2(0, 180);//y高度 对应60的倍数
     
@@ -20,8 +21,12 @@ public class UIMenu : MonoBehaviour
         rectTr_bg = GameGloab.root_bg.GetComponent<RectTransform>();
         rectTr_canvas = gameObject.GetComponent<RectTransform>();
         btn_start.onClick.AddListener(OnBtnStart);
+        btn_reset.onClick.AddListener(OnBtnReset);
     }
-
+    void OnBtnReset()
+    {
+        GridGroupMgr.Inst.GameReset();
+    }
    
     void OnBtnStart()
     {

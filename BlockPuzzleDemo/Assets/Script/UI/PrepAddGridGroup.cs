@@ -31,7 +31,7 @@ public class PrepAddGridGroup : MonoBehaviour
         IsUse = true;
         PoolMgr.Recycle(minPrepGroup);//回收
         //三个格子都用完了，刷新三个待放入的格子
-        if (GridGroupMgr.Inst.IsOverPrep())
+        if (GridGroupMgr.Inst.IsCantUseAllPrep())
         {
             GridGroupMgr.Inst.RefreshPrepGridGroup();
         }
@@ -87,5 +87,9 @@ public class PrepAddGridGroup : MonoBehaviour
     public void Reset()
     {
         IsUse = false;
+        if (minPrepGroup!=null)
+        {
+            PoolMgr.Recycle(minPrepGroup);
+        }
     }
 }

@@ -24,7 +24,7 @@ public class GridData : IPoolable
     void SetSprites()
     {
         if (TrueStatus == 0)
-        { DefImage.sprite = GameGloab.Sprites["SelectBubble"]; }
+        { DefImage.sprite = GameGloab.Sprites["PanelBoard"]; }
         else if (TrueStatus == 1)
         { DefImage.sprite = GameGloab.Sprites["FreezeStonr"]; }
         else if (TrueStatus == 2)
@@ -119,6 +119,7 @@ public class GridData : IPoolable
     }
     public virtual void OnRecycled()
     {
+        IsUse = false;
         if (GridObj)
         {
             DefImage.color = Color.white;

@@ -106,12 +106,16 @@ public class GridGroupMgr : MonoBehaviour
             }
         };
     }
-    public void GameStart()
+    public void GameReset()
     {
-        AddPrepGroupRoot();
         gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         gridGroup_Ground.CreatGrids();
         RefreshPrepGridGroup();
+    }
+    public void GameStart()
+    {
+        AddPrepGroupRoot();
+        GameReset();
     }
     PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];
     void AddPrepGroupRoot()
@@ -147,13 +151,13 @@ public class GridGroupMgr : MonoBehaviour
     public bool IsCanPrepNext()
     {
         var alldata = gridGroup_Ground;
-
+        bool canuse=false;
         for (int p = 0; p < 3; p++)
         {
             var prepgroup = PrepGroup[p];
             if (!prepgroup.IsUse)
             {
-                bool canuse = false; ;
+                canuse = false; ;
                 for (int i = 0; i < alldata.H_count; i++)
                 {
                     for (int j = 0; j < alldata.W_count; j++)
@@ -185,7 +189,8 @@ public class GridGroupMgr : MonoBehaviour
         }
         return false;
     }
-    public bool IsOverPrep()
+
+    public bool IsCantUseAllPrep()
     {
         for (int i = 0; i < 3; i++)
         {
