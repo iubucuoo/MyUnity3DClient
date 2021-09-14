@@ -19,6 +19,19 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 8,
         [270] = 9,
     };
+    //int Pos_tox(int w)
+    //{
+    //    if (w < -270 || w > 270)
+    //    {
+    //        return -1;
+    //    }
+    //    int chu = 270 + w;
+    //    if (chu <= 0)
+    //    {
+    //        return 0;
+    //    }
+    //    return chu / 60;
+    //}
     public Dictionary<int, int> Postoy { get; } = new Dictionary<int, int>()
     {
         [-270] = 9,
@@ -32,6 +45,19 @@ public class GridGroupMgr : MonoBehaviour
         [210] = 1,
         [270] = 0,
     };
+    //int Pos_toy(int h)
+    //{
+    //    if (h<-270 || h>270)
+    //    {
+    //        return -1;
+    //    }
+    //    int chu = 270 - h;
+    //    if (chu<=0)
+    //    {
+    //        return 0;
+    //    }
+    //    return chu / 60;
+    //}
     List<GridData> swPrepGridList = new List<GridData>();//临时展示在面包上的将要放入的格子
     List<GridData> swClearGridList = new List<GridData>();//临时展示在面包上的将要删除的格子
     public GridGroup_Ground gridGroup_Ground;//主面板数据
@@ -45,50 +71,50 @@ public class GridGroupMgr : MonoBehaviour
     {
         datalist = new List<int[,]>
         {
-            new int[,]{
-                { 1,4 },
-                { 1,1 },
-            },
-            new int[,]{
-                { 1,1},
-                { 4,1},
-            },
-            new int[,]{
-                { 4,1 },
-                { 1,1 },
-            },
-            new int[,]{
-                { 1,1 },
-                { 1,4 },
-            },
             //new int[,]{
-            //    { 1,1 },
-            //    { 0,1 },
-            //    { 0,1 },
-            //},
-            //new int[,]{
-            //    { 1,1,1},
-            //    { 1,0,1},
-            //},
-            //new int[,]{
-            //    { 0,1 },
+            //    { 1,4 },
             //    { 1,1 },
             //},
             //new int[,]{
-            //    { 1,0 },
+            //    { 1,1},
+            //    { 4,1},
+            //},
+            //new int[,]{
+            //    { 4,1 },
             //    { 1,1 },
-            //}
+            //},
+            //new int[,]{
+            //    { 1,1 },
+            //    { 1,4 },
+            //},
+            new int[,]{
+                { 1,1 },
+                { 0,1 },
+                { 0,1 },
+            },
+            new int[,]{
+                { 1,1,1},
+                { 1,0,1},
+            },
+            new int[,]{
+                { 1,0,1 },
+                { 1,1,1 },
+            },
+            new int[,]{
+                { 1,1,0 },
+                { 1,1,1 },
+            }
         };
     }
     public void GameStart()
     {
-        StartAddGroupRoot();
+        AddPrepGroupRoot();
         gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         gridGroup_Ground.CreatGrids();
         RefreshPrepGridGroup();
     }
     PrepAddGridGroup[] PrepGroup = new PrepAddGridGroup[3];
-    void StartAddGroupRoot()
+    void AddPrepGroupRoot()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -117,6 +143,47 @@ public class GridGroupMgr : MonoBehaviour
             PrepGroup[i].SetGridData(data);
             data.CreatGrids();
         }
+    }
+    public bool IsCanPrepNext()
+    {
+        var alldata = gridGroup_Ground;
+
+        for (int p = 0; p < 3; p++)
+        {
+            var prepgroup = PrepGroup[p];
+            if (!prepgroup.IsUse)
+            {
+                bool canuse = false; ;
+                for (int i = 0; i < alldata.H_count; i++)
+                {
+                    for (int j = 0; j < alldata.W_count; j++)
+                    {
+                        if (CanAddPrep(prepgroup.minPrepGroup, alldata, i, j))//每一个都判断能不能放，设置不能放置的表现
+                        {
+                            canuse = true;
+                            break;
+                        }
+                    }
+                    if (canuse)
+                    {
+                        break;
+                    }
+                }
+                prepgroup.IsCanUse = canuse;
+            }
+        }
+        for (int p = 0; p < 3; p++)
+        {
+            var prepgroup = PrepGroup[p];
+            if (!prepgroup.IsUse)
+            {
+                if (prepgroup.IsCanUse)
+                {
+                    return true;//有可以放置的返回true
+                }
+            }
+        }
+        return false;
     }
     public bool IsOverPrep()
     {

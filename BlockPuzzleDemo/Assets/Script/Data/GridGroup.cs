@@ -54,7 +54,16 @@ public class GridGroup : IPoolable
             }
         }
     }
-
+    public void SetCanUseStatus(bool st)
+    {
+        foreach (var v in Grid)
+        {
+            if (v!=null && !v.IsRecycled)
+            {
+                v.swPrepGray(st);
+            }
+        }
+    }
     public void OnRecycled()
     {
         foreach (var v in Grid)

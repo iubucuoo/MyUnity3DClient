@@ -83,6 +83,14 @@ public class GridData : IPoolable
             PrepImage.gameObject.SetActive(false);
         _TempStatus = TrueStatus;
     }
+    /// <summary>
+    /// 设置待放入的minprep 能不能放的状态 false时不能使用显示外灰色
+    /// </summary>
+    public void swPrepGray(bool can)
+    {
+        DefImage.color = can?Color.white:Color.gray;
+    }
+
     public void CreatObj(Transform _parent, Vector2 _Pos, string res)
     {
         resName = res;
@@ -113,6 +121,7 @@ public class GridData : IPoolable
     {
         if (GridObj)
         {
+            DefImage.color = Color.white;
             GridObj.SetActive(false);
         }
     }
