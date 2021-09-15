@@ -104,6 +104,11 @@ public class GridGroupMgr : MonoBehaviour
     }
     public void GameReset()
     {
+        if (gridGroup_Ground!=null)
+        {
+            PoolMgr.Recycle(gridGroup_Ground);
+            gridGroup_Ground = null;
+        }
         gridGroup_Ground = PoolMgr.Allocate(IPoolsType.GridGroup_Ground) as GridGroup_Ground;
         gridGroup_Ground.CreatGrids();
         RefreshPrepGridGroup();

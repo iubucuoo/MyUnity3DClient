@@ -71,7 +71,7 @@ public class UIMenu : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                if (Time.frameCount % 10 == 0 && DragingGridMgr.Inst.IsDrag)
+                if (/*Time.frameCount % 5 == 0 && */DragingGridMgr.Inst.IsDrag)
                 {
                     PosCheck();
                 }

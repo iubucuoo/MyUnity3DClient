@@ -65,5 +65,6 @@ public class ObjectMgr
 //#endif
         return obj;
 #endif
+        return null;
     }
 }

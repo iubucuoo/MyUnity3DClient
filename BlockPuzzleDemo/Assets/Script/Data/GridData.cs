@@ -122,8 +122,11 @@ public class GridData : IPoolable
         IsUse = false;
         if (GridObj)
         {
+            GridObj.transform.SetParent(null);
             DefImage.color = Color.white;
             GridObj.SetActive(false);
         }
+        TrueStatus = 0;
+        resName = "";
     }
 }
