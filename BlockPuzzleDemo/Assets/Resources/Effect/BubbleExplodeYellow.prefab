@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 439586}
   - component: {fileID: 19826394}
   - component: {fileID: 19981394}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BubbleExplodeYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
