@@ -63,6 +63,7 @@ public class UIMenu : MonoBehaviour
         }else if (Input.GetMouseButtonUp(0))
         {
             OldDragPos = Vector2.zero;
+            DragPos = GameGloab.OutScreenV2;
             //Debug.LogError("GetMouseButtonUp------    " + DragingGridMgr.Inst.IsDrag);
         }
 #endif
@@ -78,7 +79,8 @@ public class UIMenu : MonoBehaviour
             }
             else if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
-                OldDragPos = Vector2.zero;
+                OldDragPos = Vector2.zero;//放置同一个位置点击的时候不处理位置改动
+                DragPos = GameGloab.OutScreenV2;//防止残留的位置是上次的位置导致显示闪一下
             }
         }
     }

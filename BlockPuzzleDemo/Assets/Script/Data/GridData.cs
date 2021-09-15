@@ -112,9 +112,9 @@ public class GridData : IPoolable
             //Text = gridobj.transform.Find("Text").GetComponent<Text>();
 #endif
         }
-        GridObj.SetActive(true);
         GridObj.transform.SetParent(_parent);
         GridObj.transform.localPosition = _Pos;
+        GridObj.SetActive(true);
         Revert();
     }
     public virtual void OnRecycled()

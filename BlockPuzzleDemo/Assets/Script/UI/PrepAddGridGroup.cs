@@ -54,7 +54,7 @@ public class PrepAddGridGroup : MonoBehaviour
         {
             return;
         }
-        Debug.Log("OnPointerUp   " + transform.name);
+        //Debug.Log("OnPointerUp   " + transform.name);
         DragingGridMgr.Inst.SetDragUp(this);
         if (GridGroupMgr.Inst.RefreshMainGrid())//如果当前可以放置 刷新主面板显示
         {
@@ -74,7 +74,7 @@ public class PrepAddGridGroup : MonoBehaviour
             return;
         }
         AudioManager.Instance.PlayPick();
-        Debug.Log("OnPointerDown   " + transform.name);
+        //Debug.Log("OnPointerDown   " + transform.name);
         DragingGridMgr.Inst.SetDragDown(minPrepGroup);
         SetChildActive(false);
     }
