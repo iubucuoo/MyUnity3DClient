@@ -58,10 +58,12 @@ public class PrepAddGridGroup : MonoBehaviour
         DragingGridMgr.Inst.SetDragUp(this);
         if (GridGroupMgr.Inst.RefreshMainGrid())//如果当前可以放置 刷新主面板显示
         {
+            AudioManager.Instance.PlayPlace();
             UsePrepGridGroup();//设置当前待放入的group为使用过了
         }
         else
         {
+            AudioManager.Instance.PlayReturn();
             SetChildActive(true);//使用失败 跑一个回到原始位置的动画
         }
     }
@@ -71,6 +73,7 @@ public class PrepAddGridGroup : MonoBehaviour
         {
             return;
         }
+        AudioManager.Instance.PlayPick();
         Debug.Log("OnPointerDown   " + transform.name);
         DragingGridMgr.Inst.SetDragDown(minPrepGroup);
         SetChildActive(false);

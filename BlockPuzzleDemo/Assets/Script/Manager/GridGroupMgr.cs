@@ -8,11 +8,11 @@ public class GridGroupMgr : MonoBehaviour
 {
     public Dictionary<int, int> Postox { get; } = new Dictionary<int, int>()
     {
-        [-GameGloab.wh_2 * 9] = 0,
-        [-GameGloab.wh_2 * 7] = 1,
-        [-GameGloab.wh_2 * 5] = 2,
-        [-GameGloab.wh_2 * 3] = 3,
-        [-GameGloab.wh_2 * 1] = 4,
+        [GameGloab.wh_2 * -9] = 0,
+        [GameGloab.wh_2 * -7] = 1,
+        [GameGloab.wh_2 * -5] = 2,
+        [GameGloab.wh_2 * -3] = 3,
+        [GameGloab.wh_2 * -1] = 4,
         [GameGloab.wh_2 * 1] = 5,
         [GameGloab.wh_2 * 3] = 6,
         [GameGloab.wh_2 * 5] = 7,
@@ -34,11 +34,11 @@ public class GridGroupMgr : MonoBehaviour
     //}
     public Dictionary<int, int> Postoy { get; } = new Dictionary<int, int>()
     {
-        [-GameGloab.wh_2 * 9] = 9,
-        [-GameGloab.wh_2 * 7] = 8,
-        [-GameGloab.wh_2 * 5] = 7,
-        [-GameGloab.wh_2 * 3] = 6,
-        [-GameGloab.wh_2 * 1] = 5,
+        [GameGloab.wh_2 * -9] = 9,
+        [GameGloab.wh_2 * -7] = 8,
+        [GameGloab.wh_2 * -5] = 7,
+        [GameGloab.wh_2 * -3] = 6,
+        [GameGloab.wh_2 * -1] = 5,
         [GameGloab.wh_2 * 1] = 4,
         [GameGloab.wh_2 * 3] = 3,
         [GameGloab.wh_2 * 5] = 2,
