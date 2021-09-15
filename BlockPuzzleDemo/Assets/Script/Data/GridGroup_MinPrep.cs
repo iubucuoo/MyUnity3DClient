@@ -6,8 +6,8 @@ public class GridGroup_MinPrep : GridGroup,IPoolable
 {
     public GridGroup_MinPrep()
     {
-        G_width = 30;
-        G_height = 30;
+        G_width = GameGloab.wh/2;
+        G_height = GameGloab.wh/2;
         ResName = "Prefab/blockmin";//min的格子
     }
 

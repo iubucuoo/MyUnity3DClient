@@ -8,16 +8,16 @@ public class GridGroupMgr : MonoBehaviour
 {
     public Dictionary<int, int> Postox { get; } = new Dictionary<int, int>()
     {
-        [-270] = 0,
-        [-210] = 1,
-        [-150] = 2,
-        [-90] = 3,
-        [-30] = 4,
-        [30] = 5,
-        [90] = 6,
-        [150] = 7,
-        [210] = 8,
-        [270] = 9,
+        [-GameGloab.wh_2 * 9] = 0,
+        [-GameGloab.wh_2 * 7] = 1,
+        [-GameGloab.wh_2 * 5] = 2,
+        [-GameGloab.wh_2 * 3] = 3,
+        [-GameGloab.wh_2 * 1] = 4,
+        [GameGloab.wh_2 * 1] = 5,
+        [GameGloab.wh_2 * 3] = 6,
+        [GameGloab.wh_2 * 5] = 7,
+        [GameGloab.wh_2 * 7] = 8,
+        [GameGloab.wh_2 * 9] = 9,
     };
     //int Pos_tox(int w)
     //{
@@ -34,16 +34,16 @@ public class GridGroupMgr : MonoBehaviour
     //}
     public Dictionary<int, int> Postoy { get; } = new Dictionary<int, int>()
     {
-        [-270] = 9,
-        [-210] = 8,
-        [-150] = 7,
-        [-90] = 6,
-        [-30] = 5,
-        [30] = 4,
-        [90] = 3,
-        [150] = 2,
-        [210] = 1,
-        [270] = 0,
+        [-GameGloab.wh_2 * 9] = 9,
+        [-GameGloab.wh_2 * 7] = 8,
+        [-GameGloab.wh_2 * 5] = 7,
+        [-GameGloab.wh_2 * 3] = 6,
+        [-GameGloab.wh_2 * 1] = 5,
+        [GameGloab.wh_2 * 1] = 4,
+        [GameGloab.wh_2 * 3] = 3,
+        [GameGloab.wh_2 * 5] = 2,
+        [GameGloab.wh_2 * 7] = 1,
+        [GameGloab.wh_2 * 9] = 0,
     };
     //int Pos_toy(int h)
     //{
@@ -118,7 +118,7 @@ public class GridGroupMgr : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector2 pos = new Vector2((i - 1) * 210, 0);
+            Vector2 pos = new Vector2((i - 1) * (7*GameGloab.wh_2), 0);
             var obj = ObjectMgr.InstantiateGameObj(ObjectMgr.LoadResource("Prefab/addgridbg") as GameObject);
             obj.transform.SetParent(GameGloab.root_prep);
             obj.transform.localPosition = pos;
@@ -140,14 +140,14 @@ public class GridGroupMgr : MonoBehaviour
             PrepGroup[i].Reset();
             var data = PoolMgr.Allocate(IPoolsType.GridGroup_MinPrep) as GridGroup_MinPrep;
             PrepGroup[i].SetGridData(data);
-            data.SetData(datalist[UnityEngine.Random.Range(0, datalist.Count-1)], PrepGroup[i].Root);
+            data.SetData(datalist[UnityEngine.Random.Range(0, datalist.Count - 1)], PrepGroup[i].Root);
             data.CreatGrids();
         }
     }
     public bool IsCanPrepNext()
     {
         var alldata = gridGroup_Ground;
-        bool canuse=false;
+        bool canuse = false;
         for (int p = 0; p < 3; p++)
         {
             var prepgroup = PrepGroup[p];
@@ -306,9 +306,9 @@ public class GridGroupMgr : MonoBehaviour
         var gdata = DragingGridMgr.Inst.prepData;
         var alldata = gridGroup_Ground;
         if (M_math.Even(gdata.H_count))
-            pos.y += 30;
+            pos.y += GameGloab.wh_2;
         if (M_math.Even(gdata.W_count))
-            pos.x -= 30;
+            pos.x -= GameGloab.wh_2;
 
         //根据 pos 计算出 i j 对应的grid
         int w = OutGridPos(pos.x);
@@ -413,15 +413,15 @@ public class GridGroupMgr : MonoBehaviour
         //30倍数   -9    -7    -5   -3   -1    1   3     5     7     9
         //        0       1     2    3    4    5    6    7    8      9   
         // 坐标数除30 得到奇数向下取整  偶数向上取整
-        float num = index / 30;//30倍数
+        float num = index / GameGloab.wh_2;//30倍数
         int p_n = num > 0 ? 1 : -1;//正负值
         float num_abs = M_math.Abs(num);
         int endind = 0;
         if (M_math.Even((int)num_abs))
-            endind = (int)(30 * p_n * Math.Ceiling(num_abs));//向上取整
+            endind = (int)(GameGloab.wh_2 * p_n * Math.Ceiling(num_abs));//向上取整
         else
-            endind = (int)(30 * p_n * (float)Math.Floor(num_abs));//向下取整
-        if (M_math.Abs(endind - index) < 28)//一个格子半径30  28聊胜于无
+            endind = (int)(GameGloab.wh_2 * p_n * (float)Math.Floor(num_abs));//向下取整
+        if (M_math.Abs(endind - index) < (GameGloab.wh_2 - 2))//一个格子半径30  28聊胜于无
             return endind;
         else
             return 0;

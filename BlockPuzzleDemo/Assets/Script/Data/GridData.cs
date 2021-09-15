@@ -26,7 +26,7 @@ public class GridData : IPoolable
         if (TrueStatus == 0)
         { DefImage.sprite = GameGloab.Sprites["Dark_BG_BS"]; }
         else if (TrueStatus == 1)
-        { DefImage.sprite = GameGloab.Sprites["FreezeStonr"]; }
+        { DefImage.sprite = GameGloab.Sprites["Block_Wood"]; }
         else if (TrueStatus == 2)
         { DefImage.sprite = GameGloab.Sprites["swgrid"]; }
         else if (TrueStatus == 3)

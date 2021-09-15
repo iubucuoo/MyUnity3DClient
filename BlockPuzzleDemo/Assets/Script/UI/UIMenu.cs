@@ -13,7 +13,8 @@ public class UIMenu : MonoBehaviour
     public Button btn_reset;
   
     Vector2 DragUp = new Vector2(0, 180);//y高度 对应60的倍数
-    
+
+    public GameObject homebg;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,7 @@ public class UIMenu : MonoBehaviour
     void OnBtnStart()
     {
         Debug.Log("开始游戏");
+        homebg.SetActive(false);
         btn_start.gameObject.SetActive(false);
         GridGroupMgr.Inst.GameStart();
     }
