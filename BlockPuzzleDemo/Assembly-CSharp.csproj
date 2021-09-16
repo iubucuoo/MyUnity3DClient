@@ -97,9 +97,16 @@
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Art\word2\atlas\number_days.fnt" />
      <None Include="Assets\ThirdTools\Toon Particles - Magic Collection\ToonMagic - Readme.txt" />
+     <None Include="Assets\Art\word2\atlas\score_best.fnt" />
+     <None Include="Assets\Art\word2\atlas\number_score.fnt" />
      <None Include="Assets\ThirdTools\DOTween\DOTween\readme.txt" />
      <None Include="Assets\ThirdTools\DOTween\DOTween\DOTween.dll" />
+     <None Include="Assets\Art\word2\atlas\number_bestscore.fnt" />
+     <None Include="Assets\Art\word2\atlas\number_percentage.fnt" />
+     <None Include="Assets\Art\word2\atlas\number_years.fnt" />
+     <None Include="Assets\Art\word2\atlas\number_days_2.fnt" />
      <None Include="Assets\ThirdTools\DOTween\DOTween\DOTween.XML" />
     <Reference Include="UnityEngine">
       <HintPath>D:\UnityOffice\2020.1.0f1\Unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
@@ -655,6 +662,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
