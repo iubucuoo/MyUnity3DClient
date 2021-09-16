@@ -11,9 +11,7 @@ public class UIMenu : MonoBehaviour
     RectTransform rectTr_bg;
     public Button btn_start;
     public Button btn_reset;
-
-    Vector2 DragUp = new Vector2(0, 180);//y高度 对应60的倍数
-
+    
     public GameObject homebg;
     // Start is called before the first frame update
     void Start()
@@ -88,14 +86,14 @@ public class UIMenu : MonoBehaviour
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTr_canvas, Input.mousePosition, canvas.worldCamera, out Vector2 pos))
         {
-            DragPos = pos + DragUp;//拖动位置用来显示
+            DragPos = pos + GameGloab.DragUp;//拖动位置用来显示
         }
         if ((oldmousepos - Input.mousePosition).sqrMagnitude > 90)
         {
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTr_bg, Input.mousePosition, canvas.worldCamera, out Vector2 pos1))
             {
                 //Debug.Log("鼠标相对于bgroot的ui位置" + pos1 + (oldmousepos - Input.mousePosition).sqrMagnitude);
-                GridGroupMgr.Inst.CheckAvailable(pos1 + DragUp);//位置检测 用来判断能否放置
+                GridGroupMgr.Inst.CheckAvailable(pos1 + GameGloab.DragUp);//位置检测 用来判断能否放置
             }
             oldmousepos = Input.mousePosition;
         }
