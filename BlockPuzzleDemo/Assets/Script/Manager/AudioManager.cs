@@ -59,6 +59,14 @@ public class AudioManager : MonoBehaviour {
         }
         Play("gameover");
     }
+    public void PlayBoom()
+    {
+        if (isPlaying_Sound == false)
+        {
+            return;
+        }
+        Play("sfx_combo_2");
+    }
     public void PlayGameOpen()
     {
         if (isPlaying_Sound == false)

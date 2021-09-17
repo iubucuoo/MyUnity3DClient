@@ -320,6 +320,7 @@ public class GridGroupMgr : MonoBehaviour
         }
         swPrepGridList.Clear();
 
+        bool isswEff=false;
         foreach (var v in swClearGridList)
         {
             UIManager.Inst.SetNowScore(v.TrueStatus);
@@ -328,6 +329,11 @@ public class GridGroupMgr : MonoBehaviour
             v.Revert();
             EffectPool.Inst.PlayBubbleExplode(1, v.Position);//播放销毁动画
             //Debug.LogError("播放销毁动画");
+            isswEff = true;
+        }
+        if (isswEff)
+        {
+            AudioManager.Inst.PlayBoom();
         }
         swClearGridList.Clear();
 
