@@ -42,8 +42,10 @@ public class UI_SetPanel : MonoBehaviour
         confirmYes.onClick.RemoveListener(OnBtnConfirmYes);
         Confirm.SetActive(false);
         gameObject.SetActive(false);
+
         GridGroupMgr.Inst.GameReset();//重新启动游戏
         AudioManager.Inst.PlayGameOpen();
+        UIManager.Inst.ResetTop();
     }
 
     private void OnBtnResetGame()

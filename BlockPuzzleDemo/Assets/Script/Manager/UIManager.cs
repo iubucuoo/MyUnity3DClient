@@ -5,16 +5,37 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Inst;
+    UI_TopPanel TopPanel;
+    UI_GameOverPanel GameOverPanel;
     private void Awake()
     {
         Inst = this;
+        TopPanel = toppanel.GetComponent<UI_TopPanel>();
+        GameOverPanel = gameoverpanel.GetComponent<UI_GameOverPanel>();
     }
     public GameObject setpanel;
     public GameObject gameoverpanel;
-
+    public GameObject toppanel;
+    
+    public void ResetTop()
+    {
+        TopPanel.ResetTop();
+    }
+    public void ResetNowScore()
+    {
+        TopPanel.ResetNowScore();
+    }
+    public bool IsTopScore()
+    {
+       return TopPanel.IsTopScore();
+    }
+    public void SetNowScore(int score)
+    {
+        TopPanel.SetNowScore(score);
+    }
     public void OpenGameOverPanel()
     {
-        gameoverpanel.SetActive(true);
+        GameOverPanel.ShowGameOver();
     }
     public void OnBtnSetHide()
     {

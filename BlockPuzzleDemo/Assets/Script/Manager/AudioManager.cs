@@ -67,6 +67,14 @@ public class AudioManager : MonoBehaviour {
         }
         Play("gameopen");
     }
+    public void PlayNewRecord()
+    {
+        if (isPlaying_Sound == false)
+        {
+            return;
+        }
+        Play("newrecord");
+    }
     public void PlayPick()
 	{
 		if (isPlaying_Sound == false) {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class GameGloab
 {
+    public static int Topscore = 0;
     public static int wh = 90;// 60;
     public static int wh_2 = 45;// 30;
     public static Vector2 OutScreenV2 = new Vector2(5000, 5000);

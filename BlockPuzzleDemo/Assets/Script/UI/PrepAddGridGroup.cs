@@ -34,7 +34,6 @@ public class PrepAddGridGroup : MonoBehaviour
         if (!GridGroupMgr.Inst.IsCanPrepNext())
         {
             Debug.LogError("游戏结束");
-            AudioManager.Inst.PlayGameOver();
             UIManager.Inst.OpenGameOverPanel();
         }
     }

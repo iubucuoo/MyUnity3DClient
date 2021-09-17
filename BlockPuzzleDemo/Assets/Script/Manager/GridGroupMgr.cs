@@ -322,6 +322,7 @@ public class GridGroupMgr : MonoBehaviour
 
         foreach (var v in swClearGridList)
         {
+            UIManager.Inst.SetNowScore(v.TrueStatus);
             v.IsUse = false;
             v.TrueStatus = 0;
             v.Revert();

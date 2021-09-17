@@ -96,10 +96,11 @@
     <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
     <Compile Include="Assets\Script\UI\UI_MToggle.cs" />
-    <Compile Include="Assets\Script\UI\UI_SetPanel.cs" />
+    <Compile Include="Assets\Script\UI\UI_Panel\UI_SetPanel.cs" />
     <Compile Include="Assets\Script\Manager\UIManager.cs" />
-    <Compile Include="Assets\Script\UI\UI_GameOver.cs" />
-    <Compile Include="Assets\Script\UI\UIBoxBase.cs" />
+    <Compile Include="Assets\Script\UI\UI_Panel\UI_GameOverPanel.cs" />
+    <Compile Include="Assets\Script\UI\UI_Panel\UIPanelBase.cs" />
+    <Compile Include="Assets\Script\UI\UI_TopPanel.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Art\word2\atlas\number_days.fnt" />

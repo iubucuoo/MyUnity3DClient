@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class UIBoxBase : MonoBehaviour
+public class UIPanelBase : MonoBehaviour
 {
     public virtual void InitBox()
     {
