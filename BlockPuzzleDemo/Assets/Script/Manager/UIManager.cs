@@ -18,19 +18,19 @@ public class UIManager : MonoBehaviour
     }
     public void OnBtnSetHide()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         setpanel.SetActive(false);
     }
     public void OnBtnSetSw()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         setpanel.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.isPlaying_Music = PlayerPrefs.GetInt("MusicIsOn", 0) == 0;
-        AudioManager.Instance.isPlaying_Sound = PlayerPrefs.GetInt("SoundIsOn", 0) == 0;
+        AudioManager.Inst.isPlaying_Music = PlayerPrefs.GetInt("MusicIsOn", 0) == 0;
+        AudioManager.Inst.isPlaying_Sound = PlayerPrefs.GetInt("SoundIsOn", 0) == 0;
     }
      
 }

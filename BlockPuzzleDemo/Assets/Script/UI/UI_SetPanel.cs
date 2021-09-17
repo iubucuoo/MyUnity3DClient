@@ -29,7 +29,7 @@ public class UI_SetPanel : MonoBehaviour
 
     private void OnBtnConfirmNo()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         confirmNo.onClick.RemoveListener(OnBtnConfirmNo);
         confirmYes.onClick.RemoveListener(OnBtnConfirmYes);
         Confirm.SetActive(false);
@@ -37,18 +37,18 @@ public class UI_SetPanel : MonoBehaviour
 
     private void OnBtnConfirmYes()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         confirmNo.onClick.RemoveListener(OnBtnConfirmNo);
         confirmYes.onClick.RemoveListener(OnBtnConfirmYes);
         Confirm.SetActive(false);
         gameObject.SetActive(false);
         GridGroupMgr.Inst.GameReset();//重新启动游戏
-        AudioManager.Instance.PlayGameOpen();
+        AudioManager.Inst.PlayGameOpen();
     }
 
     private void OnBtnResetGame()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         Confirm.SetActive(true);
         confirmNo.onClick.AddListener(OnBtnConfirmNo);
         confirmYes.onClick.AddListener(OnBtnConfirmYes);
@@ -56,29 +56,29 @@ public class UI_SetPanel : MonoBehaviour
 
     private void OnBtnAllBg()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         gameObject.SetActive(false);
     }
 
     public void ChangeSoundIsOn(bool ison)
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         PlayerPrefs.SetInt("SoundIsOn", ison ? 0 : 1);
-        AudioManager.Instance.isPlaying_Sound = ison;
+        AudioManager.Inst.isPlaying_Sound = ison;
        
     }
     public void ChangeMusicIsOn(bool ison)
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         PlayerPrefs.SetInt("MusicIsOn", ison ? 0 : 1);
-        AudioManager.Instance.isPlaying_Music = ison;
+        AudioManager.Inst.isPlaying_Music = ison;
         if (ison)
         {
-            AudioManager.Instance.PlayBGMusic();
+            AudioManager.Inst.PlayBGMusic();
         }
         else
         {
-            AudioManager.Instance.StopBGMusic();
+            AudioManager.Inst.StopBGMusic();
         }
     }
     

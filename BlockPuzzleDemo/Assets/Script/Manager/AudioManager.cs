@@ -3,14 +3,14 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	public static AudioManager Instance=null;
+	public static AudioManager Inst=null;
 
 	public bool isPlaying_Sound= true;
 	public bool isPlaying_Music= true;
 
 	void Awake()
 	{
-		Instance = this;
+		Inst = this;
 	}
     
 

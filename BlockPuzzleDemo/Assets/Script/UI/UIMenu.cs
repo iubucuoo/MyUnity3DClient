@@ -25,14 +25,14 @@ public class UIMenu : MonoBehaviour
 
     void OnBtnStart()
     {
-        AudioManager.Instance.ButtonClick();
+        AudioManager.Inst.ButtonClick();
         Debug.Log("开始游戏");
         homebg.SetActive(false);
         btn_start.gameObject.SetActive(false);
         GridGroupMgr.Inst.GameStart();
-        if (AudioManager.Instance.isPlaying_Music)
+        if (AudioManager.Inst.isPlaying_Music)
         {
-            AudioManager.Instance.PlayBGMusic();
+            AudioManager.Inst.PlayBGMusic();
         }
     }
 

@@ -99,6 +99,7 @@
     <Compile Include="Assets\Script\UI\UI_SetPanel.cs" />
     <Compile Include="Assets\Script\Manager\UIManager.cs" />
     <Compile Include="Assets\Script\UI\UI_GameOver.cs" />
+    <Compile Include="Assets\Script\UI\UIBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Art\word2\atlas\number_days.fnt" />
