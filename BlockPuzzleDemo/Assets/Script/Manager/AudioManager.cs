@@ -5,7 +5,8 @@ public class AudioManager : MonoBehaviour {
 
 	public static AudioManager Instance=null;
 
-	public bool isPlaying= true;
+	public bool isPlaying_Sound= true;
+	public bool isPlaying_Music= true;
 
 	void Awake()
 	{
@@ -15,16 +16,28 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayMusic(string music)
 	{
-		if (isPlaying == false) {
+		if (isPlaying_Music == false) {
 			return;
 		}
 
-		AudioController.PlayMusic (music);
+		AudioController.PlayMusic (music,.7f,.7f);
 	}
+    public void StopMusic()
+    {
+        AudioController.StopMusic(.4f);
+    }
+    public void StopBGMusic()
+    {
+        StopMusic();
+    }
+    public void PlayBGMusic()
+    {
+        PlayMusic("UiMusic");
+    }
 
-	public void Play(string sound)
+    public void Play(string sound)
 	{
-		if (isPlaying == false) {
+		if (isPlaying_Sound == false) {
 			return;
 		}
 
@@ -33,14 +46,14 @@ public class AudioManager : MonoBehaviour {
 
 	public void ButtonClick()
 	{
-		if (isPlaying == false) {
+		if (isPlaying_Sound == false) {
 			return;
 		}
 		Play ("click");
 	}
     public void PlayGameOver()
     {
-        if (isPlaying == false)
+        if (isPlaying_Sound == false)
         {
             return;
         }
@@ -48,7 +61,7 @@ public class AudioManager : MonoBehaviour {
     }
     public void PlayGameOpen()
     {
-        if (isPlaying == false)
+        if (isPlaying_Sound == false)
         {
             return;
         }
@@ -56,14 +69,14 @@ public class AudioManager : MonoBehaviour {
     }
     public void PlayPick()
 	{
-		if (isPlaying == false) {
+		if (isPlaying_Sound == false) {
 			return;
 		}
 		Play ("pick");
 	}
     public void PlayReturn()
     {
-        if (isPlaying == false)
+        if (isPlaying_Sound == false)
         {
             return;
         }
@@ -71,7 +84,7 @@ public class AudioManager : MonoBehaviour {
     }
     public void PlayPlace()
 	{
-		if (isPlaying == false) {
+		if (isPlaying_Sound == false) {
 			return;
 		}
 		Play ("place");

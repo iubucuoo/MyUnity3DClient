@@ -10,9 +10,10 @@ public class UIMenu : MonoBehaviour
     RectTransform rectTr_canvas;
     RectTransform rectTr_bg;
     public Button btn_start;
-    public Button btn_reset;
     
     public GameObject homebg;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,19 +21,19 @@ public class UIMenu : MonoBehaviour
         rectTr_bg = GameGloab.root_bg.GetComponent<RectTransform>();
         rectTr_canvas = gameObject.GetComponent<RectTransform>();
         btn_start.onClick.AddListener(OnBtnStart);
-        btn_reset.onClick.AddListener(OnBtnReset);
-    }
-    void OnBtnReset()
-    {
-        GridGroupMgr.Inst.GameReset();
     }
 
     void OnBtnStart()
     {
+        AudioManager.Instance.ButtonClick();
         Debug.Log("开始游戏");
         homebg.SetActive(false);
         btn_start.gameObject.SetActive(false);
         GridGroupMgr.Inst.GameStart();
+        if (AudioManager.Instance.isPlaying_Music)
+        {
+            AudioManager.Instance.PlayBGMusic();
+        }
     }
 
     Vector3 oldmousepos;
