@@ -9,7 +9,7 @@ public class LanguageText : MonoBehaviour
     Text m_text;
     public void LChange()
     {
-       var txt = LanguageManger.Inst().GetTextByKey(key);
+       var txt = LanguageManger.Inst.GetTextByKey(key);
         if (txt!=null)
         {
             m_text.text = txt;
@@ -18,12 +18,12 @@ public class LanguageText : MonoBehaviour
     
     private void OnEnable()
     {
-        LanguageManger.Inst().RegisterText(this);
+        LanguageManger.Inst.RegisterText(this);
         LChange();
     }
     private void OnDisable()
     {
-        LanguageManger.Inst().UnregisterText(this);
+        LanguageManger.Inst.UnregisterText(this);
     }
     private void Awake()
     {

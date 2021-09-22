@@ -26,11 +26,11 @@ public class UIMenu : MonoBehaviour
     }
     public void OnBtnChinese()
     {
-        LanguageManger.Inst().ChangeLanguage(LanguageList.Cn);
+        LanguageManger.Inst.ChangeLanguage(LanguageList.Cn);
     }
     public void OnBtnEnglish()
     {
-        LanguageManger.Inst().ChangeLanguage(LanguageList.En);
+        LanguageManger.Inst.ChangeLanguage(LanguageList.En);
     }
     void OnBtnStart()
     {

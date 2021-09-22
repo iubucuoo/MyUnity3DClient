@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,12 +8,20 @@ public class UI_TopPanel : MonoBehaviour
 {
     public Text strtopnum;
     public Text strnownum;
+    public Button setbtn;
     public int nownum=0;
     // Start is called before the first frame update
     void Start()
     {
+        setbtn.onClick.AddListener(OnBtnSwSetPanel);
         ResetTop();
     }
+
+    private void OnBtnSwSetPanel()
+    {
+        UIManager.Inst.OnBtnSetSw();
+    }
+
     public void ResetTop()
     {
         ResetTopScore();
