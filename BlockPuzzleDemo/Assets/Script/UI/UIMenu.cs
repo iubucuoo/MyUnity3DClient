@@ -14,7 +14,6 @@ public class UIMenu : MonoBehaviour
     public GameObject homebg;
 
     public GameObject panelbg;
-    public GameObject paneltop;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +36,6 @@ public class UIMenu : MonoBehaviour
         AudioManager.Inst.ButtonClick();
         Debug.Log("开始游戏");
         panelbg.SetActive(true);
-        paneltop.SetActive(true);
         homebg.SetActive(false);
         btn_start.gameObject.SetActive(false);
         GridGroupMgr.Inst.GameStart();
