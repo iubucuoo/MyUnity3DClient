@@ -17,8 +17,11 @@ public class LanguageEditor : EditorWindow
         GetWindow(typeof(LanguageEditor)).Show();
     }
 
+    Vector2 scrollPos = Vector2.zero;
     private void OnGUI()
     {
+        
+
         #region LoadData Button & CreateData Button & PrettyPrint Toggle & SaveData Button
 
         EditorGUILayout.Space();
@@ -45,9 +48,9 @@ public class LanguageEditor : EditorWindow
         #endregion
 
         EditorGUILayout.Space();
-
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
         #region Handle Data Box
-        GUILayout.BeginVertical("Box");
+        GUILayout.BeginVertical("box");
         if (myData != null)
         {
             GUILayout.Label(filePath);
@@ -58,6 +61,7 @@ public class LanguageEditor : EditorWindow
             serializedObject.ApplyModifiedProperties();                     //应用修改的属性
         }
         GUILayout.EndVertical();
+        EditorGUILayout.EndScrollView();
         #endregion
 
     }
