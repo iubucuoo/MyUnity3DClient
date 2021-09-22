@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class UI_GameOverPanel : UIPanelBase
 {
+    public GameObject gameover;
+    public GameObject newrecord;
+    public Text newrecordtxt;
     public Button btnRefresh;
     // Start is called before the first frame update
     void Start()
@@ -15,9 +18,13 @@ public class UI_GameOverPanel : UIPanelBase
     public void ShowGameOver()
     {
         gameObject.SetActive(true);
-        if (UIManager.Inst.IsTopScore())
+        bool isnewrecord = UIManager.Inst.IsTopScore();
+        gameover.SetActive(!isnewrecord);
+        newrecord.SetActive(isnewrecord);
+        if (isnewrecord)
         {
             AudioManager.Inst.PlayNewRecord();//播放 新记录音乐UI
+            newrecordtxt.text = PlayerPrefs.GetInt("Topscore", 0).ToString();
         }
         else
         {

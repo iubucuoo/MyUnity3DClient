@@ -58,9 +58,10 @@
     <Compile Include="Assets\Editor\PathologicalGames\PoolManager\PreRuntimePoolItemInspector.cs" />
     <Compile Include="Assets\Editor\PathologicalGames\PoolManager\SpawnPoolInspector.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\Editor\AudioController_Editor.cs" />
-    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\Editor\AudioItemOverview.cs" />
     <Compile Include="Assets\Script\UI\Editor\LanguageEditor.cs" />
+    <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\Editor\AudioItemOverview.cs" />
     <Compile Include="Assets\Editor\ArtEditor\ArtEidtorMsg.cs" />
+    <Compile Include="Assets\Editor\CreatFont\CreatFontTool.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\ThirdTools\DOTween\DOTween\Editor\DOTweenEditor.dll" />

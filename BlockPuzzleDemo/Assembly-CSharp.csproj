@@ -69,13 +69,17 @@
     <Compile Include="Assets\Script\UI\UI_Panel\UI_GameOverPanel.cs" />
     <Compile Include="Assets\Script\MainC.cs" />
     <Compile Include="Assets\Script\EffectPool.cs" />
+    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSON.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_MinPrep.cs" />
+    <Compile Include="Assets\Script\UI\LanguageChange\LanguageManger.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Prep.cs" />
+    <Compile Include="Assets\Script\UI\LanguageChange\LanguageData\LanguageData.cs" />
     <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioObject.cs" />
     <Compile Include="Assets\Script\Manager\AudioManager.cs" />
     <Compile Include="Assets\Script\Tools\UGUIEventListener\EventTriggerListener.cs" />
     <Compile Include="Assets\Script\Data\GridDataMin.cs" />
+    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSONBinary.cs" />
     <Compile Include="Assets\Script\Tools\Pool\IPool.cs" />
     <Compile Include="Assets\Script\Test\UIDepth.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
@@ -86,6 +90,8 @@
     <Compile Include="Assets\Script\Manager\ResourceMgr.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\UnitySingleton.cs" />
     <Compile Include="Assets\Script\Data\GridDataDef.cs" />
+    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSONUnity.cs" />
+    <Compile Include="Assets\Script\UI\LanguageChange\LanguageText.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\AudioToolkit\AudioItem.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\FlashSupport.cs" />
     <Compile Include="Assets\ThirdTools\DOTween\DOTween\Modules\DOTweenModuleUI.cs" />
@@ -101,13 +107,6 @@
     <Compile Include="Assets\Script\Manager\DragingGridMgr.cs" />
     <Compile Include="Assets\ThirdTools\AudioToolkit\Shared Auxiliary Code\PoolableObject.cs" />
     <Compile Include="Assets\Script\Data\GridGroup_Ground.cs" />
-    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSON.cs" />
-    <Compile Include="Assets\Script\UI\LanguageChange\LanguageManger.cs" />
-    <Compile Include="Assets\Script\UI\LanguageChange\LanguageData\LanguageData.cs" />
-    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSONBinary.cs" />
-    <Compile Include="Assets\ThirdTools\SimpleJSON\SimpleJSONUnity.cs" />
-    <Compile Include="Assets\Script\UI\LanguageChange\LanguageText.cs" />
-    <Compile Include="Assets\Script\UI\LanguageChange\LanguageData\JsonDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Art\word2\atlas\number_days.fnt" />
