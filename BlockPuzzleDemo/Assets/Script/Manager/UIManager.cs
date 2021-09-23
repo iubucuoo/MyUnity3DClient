@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Inst.isPlaying_Music = PlayerPrefs.GetInt("MusicIsOn", 0) == 0;
-        AudioManager.Inst.isPlaying_Sound = PlayerPrefs.GetInt("SoundIsOn", 0) == 0;
+        AudioManager.Inst.isPlaying_Music = GameGloab.MusicOnOff == 0;
+        AudioManager.Inst.isPlaying_Sound = GameGloab.SoundIsOnOff == 0;
     }
      
 }

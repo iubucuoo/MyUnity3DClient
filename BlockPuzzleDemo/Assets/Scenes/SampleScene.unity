@@ -391,7 +391,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: 07aa21580fff82a479295457aec4a55c, type: 3}
+        Clip: {fileID: 8300000, guid: a2849479a0351004bb040d12e21eea2b, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
         Probability: 1
         DisableOtherSubitems: 0
         ItemModeAudioID: 
-        Clip: {fileID: 8300000, guid: 5077ee5af978b7c439f1eafee5d7dd0c, type: 3}
+        Clip: {fileID: 8300000, guid: 8adc92a31b9994b4991b90a73ceb6478, type: 3}
         Volume: 1
         PitchShift: 0
         Pan2D: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
     AudioObjectPrefab: {fileID: 0}
     AudioItems:
     - Name: UiMusic
-      Loop: 0
+      Loop: 1
       loopSequenceCount: 0
       loopSequenceOverlap: 0
       loopSequenceRandomDelay: 0
@@ -1489,6 +1489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: gamebg
       objectReference: {fileID: 0}
+    - target: {fileID: 219926496168408382, guid: 53459558d34adc94e9132124abb5a8a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 219926496168408383, guid: 53459558d34adc94e9132124abb5a8a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1593,6 +1598,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 219926497407556967, guid: 53459558d34adc94e9132124abb5a8a5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219926497498521309, guid: 53459558d34adc94e9132124abb5a8a5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 219926497498521309, guid: 53459558d34adc94e9132124abb5a8a5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53459558d34adc94e9132124abb5a8a5, type: 3}

@@ -23,8 +23,8 @@ public class UI_SetPanel : MonoBehaviour
         BtnResetGame.GetComponent<Button>().onClick.AddListener(OnBtnResetGame);
         MusicToggle.onValueChanged.AddListener(ChangeMusicIsOn);
         SoundToggle.onValueChanged.AddListener(ChangeSoundIsOn);
-        MusicToggle.isOn = PlayerPrefs.GetInt("MusicIsOn", 0) == 0;
-        SoundToggle.isOn = PlayerPrefs.GetInt("SoundIsOn", 0) == 0;
+        MusicToggle.isOn = GameGloab.MusicOnOff == 0;
+        SoundToggle.isOn = GameGloab.SoundIsOnOff == 0;
         Confirm.GetComponent<Button>().onClick.AddListener(OnBtnConfirmNo);
         Confirm.SetActive(false);
     }
@@ -67,14 +67,14 @@ public class UI_SetPanel : MonoBehaviour
     public void ChangeSoundIsOn(bool ison)
     {
         AudioManager.Inst.ButtonClick();
-        PlayerPrefs.SetInt("SoundIsOn", ison ? 0 : 1);
+        GameGloab.SoundIsOnOff = ison ? 0 : 1;
         AudioManager.Inst.isPlaying_Sound = ison;
        
     }
     public void ChangeMusicIsOn(bool ison)
     {
         AudioManager.Inst.ButtonClick();
-        PlayerPrefs.SetInt("MusicIsOn", ison ? 0 : 1);
+        GameGloab.MusicOnOff = ison ? 0 : 1;
         AudioManager.Inst.isPlaying_Music = ison;
         if (ison)
         {

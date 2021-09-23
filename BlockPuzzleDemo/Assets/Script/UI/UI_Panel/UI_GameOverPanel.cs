@@ -24,7 +24,7 @@ public class UI_GameOverPanel : UIPanelBase
         if (isnewrecord)
         {
             AudioManager.Inst.PlayNewRecord();//播放 新记录音乐UI
-            newrecordtxt.text = PlayerPrefs.GetInt("Topscore", 0).ToString();
+            newrecordtxt.text = GameGloab.Topscore.ToString();
         }
         else
         {

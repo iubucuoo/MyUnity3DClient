@@ -29,7 +29,7 @@ public class UI_TopPanel : MonoBehaviour
     }
     void ResetTopScore()
     {
-        strtopnum.text = PlayerPrefs.GetInt("Topscore", 0).ToString();
+        strtopnum.text = GameGloab.Topscore.ToString();
     }
     public void ResetNowScore()
     {
@@ -43,9 +43,9 @@ public class UI_TopPanel : MonoBehaviour
     }
     public bool IsTopScore()
     {
-        if (nownum > PlayerPrefs.GetInt("Topscore",0))
+        if (nownum > GameGloab.Topscore)
         {
-            PlayerPrefs.SetInt("Topscore", nownum);
+            GameGloab.Topscore=nownum;
             return true;
         }
         return false;
