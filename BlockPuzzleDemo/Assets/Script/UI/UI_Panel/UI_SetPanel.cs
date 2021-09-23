@@ -11,12 +11,14 @@ public class UI_SetPanel : MonoBehaviour
 
     public GameObject AllBg;
     public GameObject BtnResetGame;
+    public GameObject BtnBackGame;
     public GameObject Confirm;
     public Button confirmYes;
     public Button confirmNo;
     // Start is called before the first frame update
     void Start()
     {
+        BtnBackGame.GetComponent<Button>().onClick.AddListener(OnBtnAllBg);
         AllBg.GetComponent<Button>().onClick.AddListener(OnBtnAllBg);
         BtnResetGame.GetComponent<Button>().onClick.AddListener(OnBtnResetGame);
         MusicToggle.onValueChanged.AddListener(ChangeMusicIsOn);

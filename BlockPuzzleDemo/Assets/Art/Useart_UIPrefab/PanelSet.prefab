@@ -1154,6 +1154,7 @@ MonoBehaviour:
   SoundToggle: {fileID: 6514044637908290426}
   AllBg: {fileID: 6514044636950774957}
   BtnResetGame: {fileID: 6514044638588717438}
+  BtnBackGame: {fileID: 5988421262854480935}
   Confirm: {fileID: 6514044638088924386}
   confirmYes: {fileID: 6514044637461028991}
   confirmNo: {fileID: 6514044638260842894}
