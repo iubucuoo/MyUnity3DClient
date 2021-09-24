@@ -33,6 +33,14 @@ public class UI_GameOverPanel : UIPanelBase
     }
     private void OnBtnRefresh()
     {
+        AudioManager.Inst.ButtonClick();
+        //展示广告  广告完毕 执行以下操作
+        //Debug.Log("点击重启游戏");
+        GoogleAdManager.Inst.GameOver(RefreshCallBack);
+    }
+    void RefreshCallBack()
+    {
+        //Debug.Log("点击重启游戏----广告播放返回");
         GridGroupMgr.Inst.GameReset();//重新启动游戏
         AudioManager.Inst.PlayGameOpen();
         UIManager.Inst.ResetTop();

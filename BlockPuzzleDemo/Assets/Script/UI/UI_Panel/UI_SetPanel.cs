@@ -40,6 +40,13 @@ public class UI_SetPanel : MonoBehaviour
     private void OnBtnConfirmYes()
     {
         AudioManager.Inst.ButtonClick();
+        //展示广告  广告完毕 执行以下操作
+        //Debug.Log("点击重开游戏");
+        GoogleAdManager.Inst.GameOver(YesCallBack);
+    }
+    void YesCallBack()
+    {
+        //Debug.Log("点击重开游戏----广告播放返回");
         confirmNo.onClick.RemoveListener(OnBtnConfirmNo);
         confirmYes.onClick.RemoveListener(OnBtnConfirmYes);
         Confirm.SetActive(false);
@@ -49,7 +56,6 @@ public class UI_SetPanel : MonoBehaviour
         AudioManager.Inst.PlayGameOpen();
         UIManager.Inst.ResetTop();
     }
-
     private void OnBtnResetGame()
     {
         AudioManager.Inst.ButtonClick();

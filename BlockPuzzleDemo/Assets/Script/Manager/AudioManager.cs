@@ -22,6 +22,14 @@ public class AudioManager : MonoBehaviour {
 
 		AudioController.PlayMusic (music,.7f,.7f);
 	}
+    public void UnpauseMusic()
+    {
+        AudioController.UnpauseMusic();
+    }
+    public void PauseMusic()
+    {
+        AudioController.PauseMusic();
+    }
     public void StopMusic()
     {
         AudioController.StopMusic(.4f);

@@ -153,6 +153,7 @@ public class GridGroupMgr : MonoBehaviour
     }
     public void GameReset()
     {
+        GoogleAdManager.Inst.RequestInterstitial();
         if (gridGroup_Ground!=null)
         {
             PoolMgr.Recycle(gridGroup_Ground);
